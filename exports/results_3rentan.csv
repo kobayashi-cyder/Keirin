@@ -995,6 +995,15 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261027_odawara_10,2026-10-27,odawara,10,3rentan,7-4-5,5530,55.3,20,normal,https://keirin.kdreams.jp/odawara/raceresult/36202610260200/,odawara_20261027_results.csv
 20261027_odawara_11,2026-10-27,odawara,11,3rentan,4-2-5,2440,24.4,8,normal,https://keirin.kdreams.jp/odawara/raceresult/36202610260200/,odawara_20261027_results.csv
 20261027_odawara_12,2026-10-27,odawara,12,3rentan,5-1-3,5070,50.7,13,normal,https://keirin.kdreams.jp/odawara/raceresult/36202610260200/,odawara_20261027_results.csv
+20261027_ogaki_01,2026-10-27,ogaki,1,3rentan,1-2-3,400,4.0,1,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_02,2026-10-27,ogaki,2,3rentan,1-3-4,1410,14.1,5,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_03,2026-10-27,ogaki,3,3rentan,3-4-2,5420,54.2,24,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_04,2026-10-27,ogaki,4,3rentan,2-3-4,7650,76.5,26,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_05,2026-10-27,ogaki,5,3rentan,1-5-3,2580,25.8,7,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_06,2026-10-27,ogaki,6,3rentan,1-7-5,5100,51.0,15,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_07,2026-10-27,ogaki,7,3rentan,1-2-4,300,3.0,1,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_08,2026-10-27,ogaki,8,3rentan,5-2-3,57660,576.6,94,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
+20261027_ogaki_09,2026-10-27,ogaki,9,3rentan,1-6-2,4700,47.0,15,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270100/,ogaki_20261027_results.csv
 20261027_wakayama_01,2026-10-27,wakayama,1,3rentan,7-2-5,1240,12.4,1,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,wakayama_20261027_results.csv
 20261027_wakayama_02,2026-10-27,wakayama,2,3rentan,2-3-1,5000,50.0,12,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,wakayama_20261027_results.csv
 20261027_wakayama_03,2026-10-27,wakayama,3,3rentan,5-1-2,6010,60.1,21,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,wakayama_20261027_results.csv
