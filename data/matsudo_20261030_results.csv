@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261030_matsudo_01,2026-10-30,松戸,1,4-2-1,3380,33.8,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_02,2026-10-30,松戸,2,4-1-2,1660,16.6,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_03,2026-10-30,松戸,3,1-2-6,1800,18.0,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_04,2026-10-30,松戸,4,1-2-3,260,2.6,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_05,2026-10-30,松戸,5,1-2-3,210,2.1,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_06,2026-10-30,松戸,6,2-1-5,42620,426.2,,https://keibure.com/31/20261030/,published_result_verified
+20261030_matsudo_07,2026-10-30,松戸,7,1-2-5,140,1.4,,https://keibure.com/31/20261030/,published_result_verified
