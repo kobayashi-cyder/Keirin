@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261014_aomori_01,2026-10-14,青森,1,4-1-6,14950,149.5,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_02,2026-10-14,青森,2,6-4-3,72340,723.4,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_03,2026-10-14,青森,3,2-1-7,11300,113.0,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_04,2026-10-14,青森,4,5-2-7,4490,44.9,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_05,2026-10-14,青森,5,3-7-4,780,7.8,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_06,2026-10-14,青森,6,1-6-7,4340,43.4,,https://keibure.com/12/20261014/,source_checked
+20261014_aomori_07,2026-10-14,青森,7,5-2-4,330,3.3,,https://keibure.com/12/20261014/,source_checked
