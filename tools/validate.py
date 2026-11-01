@@ -42,7 +42,18 @@ def check_results(path):
         race_types[rid].add(row.get("result_type", "normal"))
     for rid, combos in winners.items():
         if len(combos) > 1:
-            assert race_types[rid] == {"dead_heat_first_place"}, (rid, "multiple winners require dead_heat_first_place")
+            labels = race_types[rid]
+            assert len(labels) == 1, (rid, "inconsistent dead heat labels")
+            kind = next(iter(labels))
+            assert kind in {"dead_heat_first_place", "dead_heat_second_place", "dead_heat_third_place"}, (rid, kind)
+            if len(combos) == 2:
+                x, y = [s.split("-") for s in combos]
+                if kind == "dead_heat_first_place":
+                    assert x[2] == y[2] and x[0] == y[1] and x[1] == y[0], rid
+                elif kind == "dead_heat_second_place":
+                    assert x[0] == y[0] and x[1] == y[2] and x[2] == y[1], rid
+                elif kind == "dead_heat_third_place":
+                    assert x[:2] == y[:2] and x[2] != y[2], rid
     return winners
 
 
