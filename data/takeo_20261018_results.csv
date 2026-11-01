@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261018_takeo_01,2026-10-18,武雄,1,3-1-4,3520,35.2,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_02,2026-10-18,武雄,2,1-5-4,3250,32.5,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_03,2026-10-18,武雄,3,5-1-4,17130,171.3,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_04,2026-10-18,武雄,4,4-3-2,1530,15.3,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_05,2026-10-18,武雄,5,3-2-5,6040,60.4,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_06,2026-10-18,武雄,6,4-2-5,400,4.0,,https://keibure.com/84/20261018/,single_public_results_listing
+20261018_takeo_07,2026-10-18,武雄,7,1-4-5,740,7.4,,https://keibure.com/84/20261018/,single_public_results_listing
