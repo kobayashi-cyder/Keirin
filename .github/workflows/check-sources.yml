@@ -1,0 +1,64 @@
+name: Check data-source connectivity
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/check-sources.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check DNS and HTTP separately
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime
+          import json
+          import socket
+          import urllib.error
+          import urllib.request
+          from urllib.parse import urlparse
+
+          urls = [
+              "https://keirin.jp/pc/search",
+              "https://keirin.kdreams.jp/",
+          ]
+          results = []
+          for url in urls:
+              host = urlparse(url).hostname
+              result = {"url": url, "timestamp_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
+              try:
+                  addrs = socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)
+                  result["dns"] = "ok"
+                  result["resolved_addresses"] = len({address[4][0] for address in addrs})
+              except Exception as exc:
+                  result["dns"] = "failed"
+                  result["dns_error"] = repr(exc)
+                  print(json.dumps(result, ensure_ascii=False))
+                  results.append(result)
+                  continue
+              req = urllib.request.Request(url, headers={
+                  "User-Agent": "KeirinHistoricalDataResearch/0.1 (one-time connectivity check)",
+                  "Accept": "text/html",
+              })
+              try:
+                  with urllib.request.urlopen(req, timeout=12) as response:
+                      result["http_status"] = response.status
+                      result["content_type"] = response.headers.get("Content-Type", "")
+                      result["received_bytes"] = len(response.read(1024))
+              except urllib.error.HTTPError as exc:
+                  result["http_status"] = exc.code
+                  result["http_error"] = "server rejected request"
+              except Exception as exc:
+                  result["http_error"] = repr(exc)
+              print(json.dumps(result, ensure_ascii=False))
+              results.append(result)
+          if not any(r.get("http_status") == 200 for r in results):
+              raise SystemExit("No usable HTTP 200 response; collector must remain disabled")
+          PY
