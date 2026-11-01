@@ -1,0 +1,301 @@
+race_id,date,venue_slug,race_number,bet_type,rank,combination,odds_multiplier,hit,odds_status,source_timestamp_jst,source_urls,source_files
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,1,1-4-2,14.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,2,6-2-7,23.5,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,3,3-1-2,24.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,4,2-6-7,25.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,5,1-4-3,26.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,6,3-1-4,29.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,7,1-2-4,30.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,8,3-5-1,34.1,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,9,3-1-5,34.9,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,10,1-3-5,36.2,1,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,11,1-2-3,37.9,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,12,1-3-2,38.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,13,1-3-4,38.1,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,14,3-5-2,40.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,15,1-4-7,42.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,16,1-2-7,44.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,17,3-2-1,47.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,18,2-7-6,48.1,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,19,1-4-5,48.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,20,1-6-2,52.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,21,6-2-1,58.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,22,3-2-6,65.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,23,1-2-6,65.5,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,24,1-4-6,68.1,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,25,2-1-4,70.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,26,3-2-5,76.6,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,27,2-1-3,77.9,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,28,2-6-3,78.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,29,3-6-2,82.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,30,3-5-4,85.9,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,31,3-5-7,86.6,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,32,2-6-1,87.3,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,33,2-1-6,87.8,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,34,2-3-1,92.1,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,35,6-1-2,94.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,36,1-5-3,95.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,37,2-1-7,96.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,38,6-2-3,97.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,39,3-5-6,97.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,40,3-4-1,99.0,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,41,3-2-7,102.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,42,3-1-6,103.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,43,2-3-6,103.5,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,44,1-6-4,108.5,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,45,3-2-4,108.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,46,4-1-2,109.7,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,47,6-7-2,118.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,48,1-7-2,121.2,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,49,1-2-5,124.9,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261030_nagoya_01,2026-10-30,nagoya,1,3rentan,50,3-1-7,125.4,0,confirmed,2026-10-30 20:42,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,20261030_nagoya_01_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,1,1-4-5,5.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,2,4-1-5,5.7,1,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,3,4-5-1,10.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,4,1-4-2,16.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,5,4-1-2,19.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,6,1-4-7,28.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,7,1-5-4,29.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,8,4-1-7,30.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,9,1-4-3,30.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,10,1-3-7,31.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,11,5-4-1,33.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,12,4-1-3,43.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,13,4-5-2,54.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,14,1-7-3,65.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,15,1-2-4,65.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,16,1-5-2,70.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,17,5-1-4,73.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,18,4-2-1,76.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,19,1-3-2,82.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,20,1-2-3,84.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,21,3-1-7,84.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,22,1-3-4,88.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,23,1-2-7,98.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,24,1-7-6,99.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,25,1-2-5,103.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,26,1-5-7,103.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,27,5-4-2,112.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,28,1-3-5,113.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,29,3-7-6,113.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,30,3-1-2,120.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,31,4-2-5,124.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,32,1-7-4,128.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,33,1-7-5,129.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,34,4-5-7,132.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,35,1-7-2,146.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,36,1-5-3,153.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,37,2-1-4,159.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,38,4-3-1,159.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,39,3-7-1,162.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,40,4-7-1,162.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,41,2-4-1,168.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,42,3-1-4,170.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,43,7-3-6,171.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,44,4-5-3,180.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,45,1-4-6,189.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,46,3-4-1,207.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,47,5-1-2,212.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,48,3-1-5,218.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,49,4-7-5,219.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_01,2026-10-31,aomori,1,3rentan,50,4-1-6,233.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,1,5-3-1,4.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,2,3-5-1,4.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,3,5-1-3,10.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,4,5-3-7,18.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,5,3-5-2,19.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,6,3-5-7,21.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,7,3-1-5,24.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,8,1-5-3,28.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,9,5-3-2,32.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,10,5-7-3,51.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,11,3-5-4,51.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,12,1-3-5,54.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,13,5-1-7,57.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,14,5-3-4,62.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,15,3-2-5,62.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,16,3-7-5,73.7,1,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,17,7-5-3,76.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,18,3-5-6,85.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,19,7-3-5,86.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,20,3-1-2,98.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,21,5-7-1,99.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,22,3-2-1,101.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,23,3-1-7,104.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,24,3-2-6,110.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,25,1-5-7,115.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,26,3-7-1,124.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,27,5-2-3,127.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,28,5-1-2,130.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,29,3-2-7,134.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,30,5-1-4,144.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,31,5-3-6,144.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,32,2-3-5,149.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,33,7-5-1,151.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,34,2-5-3,154.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,35,3-7-2,183.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,36,2-5-1,207.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,37,3-7-4,225.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,38,7-3-1,229.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,39,5-2-1,230.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,40,3-1-4,239.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,41,3-2-4,242.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,42,1-5-2,248.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,43,1-7-5,254.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,44,1-7-3,257.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,45,2-3-1,257.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,46,3-6-2,261.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,47,3-4-5,271.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,48,1-3-7,276.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,49,2-3-6,284.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_02,2026-10-31,aomori,2,3rentan,50,7-1-5,285.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,1,7-1-4,6.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,2,1-7-4,7.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,3,7-1-2,13.5,1,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,4,1-7-2,20.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,5,7-1-5,21.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,6,7-4-1,23.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,7,1-7-5,28.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,8,7-1-3,32.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,9,7-2-1,32.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,10,1-7-3,44.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,11,2-7-1,57.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,12,7-2-4,61.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,13,1-2-7,66.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,14,7-4-2,67.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,15,7-1-6,73.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,16,1-4-7,74.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,17,3-5-7,81.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,18,7-2-5,83.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,19,3-5-1,91.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,20,7-3-1,91.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,21,3-5-2,95.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,22,7-5-1,97.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,23,2-7-5,98.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,24,1-3-5,100.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,25,1-7-6,102.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,26,2-7-4,102.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,27,2-1-7,102.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,28,1-2-4,104.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,29,1-2-6,106.5,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,30,2-5-7,109.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,31,2-6-7,109.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,32,7-4-5,111.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,33,1-5-7,111.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,34,5-3-7,115.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,35,5-3-1,125.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,36,3-1-5,126.0,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,37,1-2-5,127.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,38,7-2-3,132.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,39,2-7-6,132.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,40,2-5-3,137.2,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,41,7-5-2,138.1,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,42,2-5-6,141.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,43,2-6-5,141.8,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,44,5-3-2,147.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,45,2-7-3,149.7,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,46,5-2-7,151.3,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,47,7-4-3,151.6,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,48,7-2-6,151.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,49,1-3-7,154.9,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_03,2026-10-31,aomori,3,3rentan,50,1-5-2,155.4,0,unknown,,,aomori_20261031_1R-3R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,1,7-4-5,10.1,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,2,7-4-2,13.7,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,3,7-4-1,18.3,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,4,7-4-3,22.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,5,1-5-7,25.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,6,7-3-4,28.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,7,5-1-4,29.6,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,8,4-7-2,30.7,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,9,4-7-5,31.1,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,10,5-1-7,33.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,11,1-5-4,36.5,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,12,1-5-2,37.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,13,7-1-4,43.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,14,7-5-4,43.1,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,15,5-1-2,45.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,16,1-7-4,46.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,17,1-7-5,47.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,18,7-4-6,50.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,19,7-1-5,59.5,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,20,3-7-4,63.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,21,4-7-1,63.3,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,22,1-5-3,69.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,23,5-1-3,73.7,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,24,7-2-4,76.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,25,7-5-1,81.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,26,4-7-3,91.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,27,7-3-1,93.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,28,4-7-6,94.1,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,29,7-3-5,96.7,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,30,1-4-7,98.6,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,31,5-7-1,111.7,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,32,1-7-3,114.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,33,7-1-3,115.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,34,7-3-2,118.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,35,5-4-1,119.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,36,5-7-4,120.5,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,37,1-4-5,124.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,38,1-7-2,134.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,39,4-2-7,137.3,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,40,2-7-4,146.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,41,7-5-3,146.3,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,42,1-2-5,148.0,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,43,5-2-1,150.2,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,44,3-7-5,152.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,45,7-1-2,153.5,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,46,3-7-1,153.9,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,47,1-5-6,155.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,48,3-1-5,155.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,49,4-5-7,163.8,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_aomori_12,2026-10-31,aomori,12,3rentan,50,4-1-7,164.4,,page_labeled_confirmed,,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/1220261029/12202610290300/12/3rentan/,aomori_20261031_12R_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,1,9-1-5,8.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,2,9-1-3,13.0,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,3,1-9-5,13.1,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,4,9-1-2,17.1,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,5,3-9-1,23.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,6,9-3-1,24.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,7,1-9-3,28.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,8,9-5-1,31.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,9,3-7-9,31.4,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,10,3-9-5,34.1,1,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,11,9-2-1,38.5,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,12,3-9-7,42.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,13,3-1-9,44.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,14,1-9-2,50.0,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,15,3-7-4,52.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,16,2-9-1,53.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,17,3-9-2,54.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,18,9-1-7,58.1,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,19,3-2-9,59.6,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,20,9-3-5,60.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,21,3-7-2,66.1,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,22,9-3-2,66.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,23,2-3-9,73.6,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,24,9-3-7,78.5,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,25,9-2-5,79.6,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,26,9-2-3,79.8,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,27,1-3-9,83.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,28,2-9-3,84.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,29,9-5-3,92.0,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,30,9-1-8,92.1,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,31,2-9-5,93.7,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,32,2-1-9,95.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,33,9-5-2,96.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,34,3-7-1,98.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,35,1-9-8,105.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,36,1-2-9,121.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,37,3-2-7,122.4,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,38,1-9-7,130.8,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,39,3-2-1,152.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,40,2-3-7,159.5,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,41,3-7-5,164.7,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,42,3-9-8,164.9,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,43,2-9-8,168.4,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,44,2-3-1,174.6,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,45,3-1-7,175.2,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,46,9-7-1,178.8,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,47,2-8-9,182.8,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,48,7-3-4,184.5,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,49,2-9-7,187.4,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
+20261031_hofu_01,2026-10-31,hofu,1,3rentan,50,7-3-9,189.3,0,confirmed,2026-10-31 11:18,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,20261031_hofu_01_top50.csv
