@@ -65,6 +65,32 @@ class CoverageTests(unittest.TestCase):
             oct31 = [x for x in date_index if x["date"] == "2026-10-31"][0]
             self.assertEqual(oct31["listed_races"], "2")
 
+    def test_cancelled_race_is_resolved_without_fabricating_payout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = root / "data"
+            write_rows(data / "venue_day_coverage_20261020.csv", [
+                {"date": "2026-10-20", "venue_slug": "odawara", "listed_races": "2"}
+            ])
+            write_rows(data / "odawara_results.csv", [
+                {"race_id": "20261020_odawara_01", "winning_combination": "1-2-3",
+                 "payout_per_100yen": "750", "winning_final_odds": "7.5"}
+            ])
+            write_rows(data / "cancelled_races.csv", [
+                {"race_id": "20261020_odawara_02", "status": "cancelled",
+                 "source_url": "https://example.org/notice"}
+            ])
+            with patch.object(coverage, "ROOT", root), patch.object(coverage, "DATA", data):
+                coverage.report()
+            stats = json.loads((data / "coverage_summary.json").read_text(encoding="utf-8"))
+            self.assertEqual(stats["known_result_races"], 1)
+            self.assertEqual(stats["known_cancelled_races"], 1)
+            self.assertEqual(stats["known_missing_result_races"], 0)
+            self.assertEqual(stats["all_result_races"], 1)
+            pending = list(csv.DictReader((data / "pending_races.csv").open(encoding="utf-8")))
+            self.assertEqual(len(pending), 1)
+            self.assertEqual(pending[0]["race_id"], "20261020_odawara_01")
+
     def test_conflicting_result_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp)
