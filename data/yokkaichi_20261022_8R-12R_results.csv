@@ -1,0 +1,6 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261022_yokkaichi_08,2026-10-22,四日市,8,2-3-5,2300,23.0,1,https://keirin.kdreams.jp/yokkaichi/raceresult/48202610210200/,verified_KDreams_results
+20261022_yokkaichi_09,2026-10-22,四日市,9,1-6-2,15420,154.2,52,https://keirin.kdreams.jp/yokkaichi/raceresult/48202610210200/,verified_KDreams_results
+20261022_yokkaichi_10,2026-10-22,四日市,10,7-3-1,24120,241.2,70,https://keirin.kdreams.jp/yokkaichi/raceresult/48202610210200/,verified_KDreams_results
+20261022_yokkaichi_11,2026-10-22,四日市,11,3-5-1,790,7.9,2,https://keirin.kdreams.jp/yokkaichi/raceresult/48202610210200/,verified_KDreams_results
+20261022_yokkaichi_12,2026-10-22,四日市,12,7-1-2,1270,12.7,2,https://keirin.kdreams.jp/yokkaichi/raceresult/48202610210200/,verified_KDreams_results
