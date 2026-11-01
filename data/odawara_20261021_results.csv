@@ -1,0 +1,13 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261021_odawara_01,2026-10-21,小田原,1,1-5-4,570,5.7,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_02,2026-10-21,小田原,2,1-7-2,1350,13.5,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_03,2026-10-21,小田原,3,2-3-6,22490,224.9,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_04,2026-10-21,小田原,4,3-5-2,1450,14.5,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_05,2026-10-21,小田原,5,4-5-1,15650,156.5,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_06,2026-10-21,小田原,6,3-2-1,3460,34.6,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_07,2026-10-21,小田原,7,7-3-1,1210,12.1,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_08,2026-10-21,小田原,8,7-4-2,8100,81.0,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_09,2026-10-21,小田原,9,1-5-2,870,8.7,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_10,2026-10-21,小田原,10,7-4-1,1900,19.0,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_11,2026-10-21,小田原,11,5-2-1,1990,19.9,,https://keibure.com/36/20261021/,confirmed_settled_result_list
+20261021_odawara_12,2026-10-21,小田原,12,7-1-2,3430,34.3,,https://keibure.com/36/20261021/,confirmed_settled_result_list
