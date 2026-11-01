@@ -82,7 +82,7 @@ def load_odds():
 
 
 def ranks_complete(group, upto):
-    return all(i in group for i in range(1, upto)) and len({
+    return all(i in group for i in range(1, upto + 1)) and len({
         group[i][0] for i in range(1, upto + 1)
     }) == upto
 
