@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261019_hiroshima_01,2026-10-19,広島,1,1-3-4,950,9.5,3,https://keirin.kdreams.jp/hiroshima/raceresult/62202610180200/?l-id=l-ti-cmsi_default_result_hiroshima,public_settled_results
+20261019_hiroshima_02,2026-10-19,広島,2,1-3-4,1000,10.0,3,https://keirin.kdreams.jp/hiroshima/raceresult/62202610180200/?l-id=l-ti-cmsi_default_result_hiroshima,public_settled_results
+20261019_hiroshima_03,2026-10-19,広島,3,1-5-4,2070,20.7,2,https://keirin.kdreams.jp/hiroshima/raceresult/62202610180200/?l-id=l-ti-cmsi_default_result_hiroshima,public_settled_results
+20261019_hiroshima_04,2026-10-19,広島,4,6-2-3,14710,147.1,36,https://keirin.netkeiba.com/race/result/?race_id=202610196204,public_settled_results
+20261019_hiroshima_05,2026-10-19,広島,5,6-1-4,3200,32.0,9,https://keirin.netkeiba.com/race/result/?race_id=202610196205,public_settled_results
+20261019_hiroshima_06,2026-10-19,広島,6,1-7-6,5200,52.0,15,https://keirin.netkeiba.com/race/result/?race_id=202610196206,public_settled_results
+20261019_hiroshima_07,2026-10-19,広島,7,7-2-1,3680,36.8,12,https://keirin.netkeiba.com/race/result/?race_id=202610196207,public_settled_results
+20261019_hiroshima_08,2026-10-19,広島,8,2-7-5,47240,472.4,100,https://keirin.netkeiba.com/race/result/?race_id=202610196208,public_settled_results
+20261019_hiroshima_09,2026-10-19,広島,9,1-2-4,2270,22.7,8,https://www.keirin-mobile.jp/top/result.php?date=20261019&jcode=62&race=09,public_settled_results
