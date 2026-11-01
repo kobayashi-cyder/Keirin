@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,independent_source_url,verification_status
+20261026_wakayama_01,2026-10-26,和歌山,1,5-3-2,6380,63.8,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,https://keirin.netkeiba.com/race/result/?race_id=202610265501,cross_checked
+20261026_wakayama_02,2026-10-26,和歌山,2,3-2-5,360,3.6,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_wakayama_03,2026-10-26,和歌山,3,2-5-6,290,2.9,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_wakayama_04,2026-10-26,和歌山,4,3-2-7,48830,488.3,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_wakayama_05,2026-10-26,和歌山,5,5-7-3,170,1.7,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_wakayama_06,2026-10-26,和歌山,6,3-5-7,690,6.9,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_wakayama_07,2026-10-26,和歌山,7,1-6-2,4280,42.8,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
