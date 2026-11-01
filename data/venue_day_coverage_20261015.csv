@@ -1,0 +1,8 @@
+date,venue_slug,venue_name,listed_races,verified_result_races,results_remaining,top50_odds_races,odds_races_remaining,top100_odds_races,source_url,coverage_basis
+2026-10-15,aomori,青森,7,0,7,0,7,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,maebashi,前橋,11,0,11,0,11,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,shizuoka,静岡,9,0,9,0,9,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,toyohashi,豊橋,9,0,9,0,9,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,nara,奈良,12,0,12,0,12,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,tamano,玉野,12,0,12,0,12,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
+2026-10-15,beppu,別府,12,0,12,0,12,0,https://keirinhex.jp/races/20261015/,all_venues_verified_against_keirinhex_and_keibure
