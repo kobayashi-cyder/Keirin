@@ -1,0 +1,13 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261024_kumamoto_01,2026-10-24,熊本,1,1-6-5,4670,46.7,17,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_02,2026-10-24,熊本,2,3-7-2,590,5.9,2,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_03,2026-10-24,熊本,3,1-3-2,20660,206.6,60,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_04,2026-10-24,熊本,4,2-6-1,2850,28.5,2,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_05,2026-10-24,熊本,5,7-2-1,6320,63.2,9,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_06,2026-10-24,熊本,6,9-2-1,7070,70.7,20,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_07,2026-10-24,熊本,7,9-7-5,9830,98.3,26,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_08,2026-10-24,熊本,8,9-3-2,33720,337.2,92,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_09,2026-10-24,熊本,9,3-5-1,670,6.7,2,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_10,2026-10-24,熊本,10,5-1-2,1050,10.5,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_11,2026-10-24,熊本,11,2-3-1,31630,316.3,57,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
+20261024_kumamoto_12,2026-10-24,熊本,12,1-5-4,32650,326.5,84,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261024&jno=87,source_checked
