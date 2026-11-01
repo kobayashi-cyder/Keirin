@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261023_hofu_01,2026-10-23,防府,1,4-3-6,12990,129.9,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_02,2026-10-23,防府,2,7-1-4,1470,14.7,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_03,2026-10-23,防府,3,5-1-4,770,7.7,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_04,2026-10-23,防府,4,4-7-2,29250,292.5,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_05,2026-10-23,防府,5,3-1-4,1910,19.1,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_06,2026-10-23,防府,6,2-7-4,760,7.6,,https://keibure.com/63/20261023/,verified_published_result
+20261023_hofu_07,2026-10-23,防府,7,7-4-5,698390,6983.9,,https://keibure.com/63/20261023/,verified_published_result
