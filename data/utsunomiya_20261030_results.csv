@@ -1,0 +1,11 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261030_utsunomiya_01,2026-10-30,宇都宮,1,3-7-4,850,8.5,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_03,2026-10-30,宇都宮,3,2-7-3,680,6.8,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_04,2026-10-30,宇都宮,4,2-4-6,3140,31.4,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_05,2026-10-30,宇都宮,5,4-1-6,160,1.6,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_06,2026-10-30,宇都宮,6,3-1-5,6210,62.1,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_07,2026-10-30,宇都宮,7,3-5-1,2300,23.0,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_08,2026-10-30,宇都宮,8,7-3-5,1590,15.9,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_09,2026-10-30,宇都宮,9,1-5-7,150,1.5,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_10,2026-10-30,宇都宮,10,1-5-2,3360,33.6,,https://keibure.com/24/20261030/,published_result_verified
+20261030_utsunomiya_11,2026-10-30,宇都宮,11,3-7-5,11380,113.8,,https://keibure.com/24/20261030/,published_result_verified
