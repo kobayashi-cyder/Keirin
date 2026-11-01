@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261020_sasebo_01,2026-10-20,佐世保,1,1-5-3,6300,63.0,17,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_02,2026-10-20,佐世保,2,2-6-1,2070,20.7,5,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_03,2026-10-20,佐世保,3,1-6-3,12540,125.4,30,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_04,2026-10-20,佐世保,4,3-4-1,8100,81.0,29,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_05,2026-10-20,佐世保,5,7-4-3,19630,196.3,64,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_06,2026-10-20,佐世保,6,1-3-4,390,3.9,1,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_07,2026-10-20,佐世保,7,1-3-7,2510,25.1,7,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_08,2026-10-20,佐世保,8,3-1-2,2450,24.5,7,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
+20261020_sasebo_09,2026-10-20,佐世保,9,1-4-2,1590,15.9,1,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261020&jno=85,verified_public_settlement
