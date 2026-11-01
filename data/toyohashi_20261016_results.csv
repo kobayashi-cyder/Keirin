@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261016_toyohashi_01,2026-10-16,豊橋,1,1-3-2,1730,17.3,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_02,2026-10-16,豊橋,2,2-1-3,790,7.9,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_03,2026-10-16,豊橋,3,1-3-2,2400,24.0,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_04,2026-10-16,豊橋,4,2-6-1,6080,60.8,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_05,2026-10-16,豊橋,5,1-2-3,2140,21.4,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_06,2026-10-16,豊橋,6,1-3-6,6090,60.9,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_07,2026-10-16,豊橋,7,1-4-7,23550,235.5,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_08,2026-10-16,豊橋,8,1-3-2,1640,16.4,,https://keibure.com/45/20261016/,source_checked
+20261016_toyohashi_09,2026-10-16,豊橋,9,3-2-7,3340,33.4,,https://keibure.com/45/20261016/,source_checked
