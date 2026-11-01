@@ -1,0 +1,7 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261025_kumamoto_07,2026-10-25,熊本,7,9-3-5,4800,48.0,14,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
+20261025_kumamoto_08,2026-10-25,熊本,8,3-2-9,14770,147.7,50,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
+20261025_kumamoto_09,2026-10-25,熊本,9,7-5-3,3160,31.6,5,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
+20261025_kumamoto_10,2026-10-25,熊本,10,9-1-4,22840,228.4,80,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
+20261025_kumamoto_11,2026-10-25,熊本,11,9-5-2,2430,24.3,5,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
+20261025_kumamoto_12,2026-10-25,熊本,12,7-1-2,12670,126.7,44,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261025&jno=87,source_and_independent_results_checked
