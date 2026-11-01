@@ -26,6 +26,13 @@ class CoverageTests(unittest.TestCase):
         del rows[73]
         self.assertTrue(coverage.ranks_complete(rows, 50))
         self.assertFalse(coverage.ranks_complete(rows, 100))
+        # Missing the boundary rank must return False, not KeyError.
+        combinations = list(itertools.permutations("1234567", 3))[:100]
+        full = {i + 1: ("-".join(x), 10.0 + i) for i, x in enumerate(combinations)}
+        del full[100]
+        self.assertFalse(coverage.ranks_complete(full, 100))
+        del full[50]
+        self.assertFalse(coverage.ranks_complete(full, 50))
 
     def test_dead_heat_counts_once_and_unknown_schedule_stays_unknown(self):
         with tempfile.TemporaryDirectory() as tmp:
