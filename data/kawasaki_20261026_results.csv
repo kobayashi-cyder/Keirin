@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,independent_source_url,verification_status
+20261026_kawasaki_01,2026-10-26,川崎,1,1-2-4,2070,20.7,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_02,2026-10-26,川崎,2,2-5-1,2680,26.8,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_03,2026-10-26,川崎,3,3-4-5,4220,42.2,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_04,2026-10-26,川崎,4,1-2-4,680,6.8,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_05,2026-10-26,川崎,5,4-2-6,2320,23.2,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_06,2026-10-26,川崎,6,3-2-1,960,9.6,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_07,2026-10-26,川崎,7,4-6-1,5530,55.3,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_08,2026-10-26,川崎,8,2-1-3,680,6.8,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
+20261026_kawasaki_09,2026-10-26,川崎,9,1-3-4,13650,136.5,,https://ataru-keirinyosou.net/keirin-results/?set_date=20261026,,single_source
