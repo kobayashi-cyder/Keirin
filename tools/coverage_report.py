@@ -130,6 +130,39 @@ def report():
                   if len(per_venue_day[k]["results"]) > total]
     if overcounts:
         raise ValueError(f"more results than scheduled: {overcounts}")
+    # Build a deterministic, race-level work queue. A missing rank is not
+    # treated as a zero-odds bet; it remains an explicit open task.
+    pending = []
+    for (day, venue), expected in sorted(schedule.items()):
+        for race in range(1, expected + 1):
+            rid = f"{day:%Y%m%d}_{venue}_{race:02d}"
+            group = odds.get(rid, {})
+            has_result = rid in winners
+            fifty = ranks_complete(group, 50)
+            hundred = ranks_complete(group, 100)
+            if has_result and hundred:
+                continue
+            pending.append({
+                "race_id": rid,
+                "date": str(day),
+                "venue_slug": venue,
+                "race_number": race,
+                "result_recorded": int(has_result),
+                "odds_rows": len(group),
+                "top50_complete": int(fifty),
+                "top100_complete": int(hundred),
+                "next_action": ("collect_result" if not has_result else
+                                "collect_first_odds" if not group else
+                                "collect_51_to_100" if fifty else
+                                "complete_top50"),
+                "source_schedule_url": f"https://keirin.kdreams.jp/kaisai/{day:%Y/%m/%d}/",
+            })
+    with (DATA / "pending_races.csv").open("w", encoding="utf-8", newline="") as f:
+        if pending:
+            writer = csv.DictWriter(f, fieldnames=list(pending[0]))
+            writer.writeheader()
+            writer.writerows(pending)
+
     date_rows = []
     date = START
     while date <= today:
@@ -162,6 +195,7 @@ def report():
         "known_listed_races": known_listed_races,
         "known_result_races": known_results,
         "known_missing_result_races": missing_known,
+        "known_pending_top100_races": len(pending),
         "all_result_races": result_total,
         "all_winning_payout_rows": sum(len(x) for x in winners.values()),
         "odds_races": odds_race_total,
