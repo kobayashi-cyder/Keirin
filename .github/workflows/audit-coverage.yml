@@ -1,6 +1,8 @@
 name: Audit historical race coverage
 
 on:
+  schedule:
+    - cron: '15 0 * * *' # Every day 09:15 JST (no scraping)
   workflow_dispatch:
   push:
     paths:
