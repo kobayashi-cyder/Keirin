@@ -5,11 +5,11 @@
   "dates_with_schedule_entries": 18,
   "schedule_venue_days": 135,
   "known_listed_races": 1327,
-  "known_result_races": 568,
-  "known_missing_result_races": 759,
+  "known_result_races": 590,
+  "known_missing_result_races": 737,
   "known_pending_top100_races": 1327,
-  "all_result_races": 570,
-  "all_winning_payout_rows": 573,
+  "all_result_races": 592,
+  "all_winning_payout_rows": 595,
   "odds_races": 6,
   "individual_odds_points": 300,
   "top50_races": 6,
@@ -62,6 +62,7 @@
     "tamano_20261015_results.csv",
     "toride_20261019_results.csv",
     "toyama_20261017_results.csv",
+    "toyama_20261018_results.csv",
     "toyohashi_20261015_results.csv",
     "toyohashi_20261016_results.csv",
     "toyohashi_20261017_results.csv",
@@ -71,7 +72,8 @@
     "wakayama_20261026_results.csv",
     "yahiko_20261031_results.csv",
     "yokkaichi_20261016_results.csv",
-    "yokkaichi_20261017_results.csv"
+    "yokkaichi_20261017_results.csv",
+    "yokkaichi_20261018_results.csv"
   ],
   "odds_source_files": [
     "20261030_nagoya_01_top50.csv",
