@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verified_on_jst
+20261101_seibuen_01,2026-11-01,西武園,1,1-5-3,8770,87.7,28,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012601,2026-11-02
+20261101_seibuen_02,2026-11-01,西武園,2,4-1-7,7030,70.3,22,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012602,2026-11-02
+20261101_seibuen_03,2026-11-01,西武園,3,1-3-4,400,4.0,1,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012603,2026-11-02
+20261101_seibuen_04,2026-11-01,西武園,4,6-2-7,9370,93.7,39,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012604,2026-11-02
+20261101_seibuen_05,2026-11-01,西武園,5,1-4-3,13870,138.7,37,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012605,2026-11-02
+20261101_seibuen_06,2026-11-01,西武園,6,4-2-5,48850,488.5,70,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012606,2026-11-02
+20261101_seibuen_07,2026-11-01,西武園,7,1-7-6,11860,118.6,49,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012607,2026-11-02
