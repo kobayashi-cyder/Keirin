@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261021_iwakidaira_01,2026-10-21,いわき平,1,1-5-2,3000,30.0,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_02,2026-10-21,いわき平,2,1-6-4,11910,119.1,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_03,2026-10-21,いわき平,3,2-3-6,3840,38.4,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_04,2026-10-21,いわき平,4,3-4-7,1610,16.1,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_05,2026-10-21,いわき平,5,1-2-3,670,6.7,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_06,2026-10-21,いわき平,6,1-7-4,2400,24.0,,https://keibure.com/13/20261021/,confirmed_settled_result_list
+20261021_iwakidaira_07,2026-10-21,いわき平,7,1-2-7,340,3.4,,https://keibure.com/13/20261021/,confirmed_settled_result_list
