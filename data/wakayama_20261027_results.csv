@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,source_url_secondary,verified_on_jst
+20261027_wakayama_01,2026-10-27,和歌山,1,7-2-5,1240,12.4,1,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,https://keirin.netkeiba.com/race/result/?race_id=202610275501,2026-11-02
+20261027_wakayama_02,2026-10-27,和歌山,2,2-3-1,5000,50.0,12,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
+20261027_wakayama_03,2026-10-27,和歌山,3,5-1-2,6010,60.1,21,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
+20261027_wakayama_04,2026-10-27,和歌山,4,5-1-4,3560,35.6,15,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
+20261027_wakayama_05,2026-10-27,和歌山,5,7-1-2,1720,17.2,7,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
+20261027_wakayama_06,2026-10-27,和歌山,6,4-3-1,3200,32.0,11,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
+20261027_wakayama_07,2026-10-27,和歌山,7,4-2-1,3820,38.2,12,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260200/,,2026-11-02
