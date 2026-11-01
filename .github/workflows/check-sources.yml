@@ -28,6 +28,7 @@ jobs:
           urls = [
               "https://keirin.jp/pc/search",
               "https://keirin.kdreams.jp/",
+              "https://keirin.kdreams.jp/kaisai/2020/01/01/",
           ]
           results = []
           for url in urls:
