@@ -1,0 +1,12 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261020_toride_01,2026-10-20,取手,1,5-2-7,630,6.3,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_02,2026-10-20,取手,2,3-4-1,10580,105.8,40,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_03,2026-10-20,取手,3,5-1-4,960,9.6,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_04,2026-10-20,取手,4,2-4-7,9980,99.8,38,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_05,2026-10-20,取手,5,3-4-2,45770,457.7,55,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_06,2026-10-20,取手,6,3-5-7,9050,90.5,23,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_07,2026-10-20,取手,7,5-4-3,16120,161.2,46,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_08,2026-10-20,取手,8,7-3-2,65710,657.1,140,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_09,2026-10-20,取手,9,3-4-5,2770,27.7,7,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_10,2026-10-20,取手,10,2-7-6,3210,32.1,12,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
+20261020_toride_11,2026-10-20,取手,11,3-2-5,8710,87.1,24,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261020&jno=23,verified_public_settlement
