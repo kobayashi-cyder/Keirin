@@ -587,11 +587,11 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261022_kawasaki_04,2026-10-22,kawasaki,4,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kawasaki_05,2026-10-22,kawasaki,5,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kawasaki_06,2026-10-22,kawasaki,6,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_kawasaki_07,2026-10-22,kawasaki,7,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_kawasaki_08,2026-10-22,kawasaki,8,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_kawasaki_09,2026-10-22,kawasaki,9,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_kawasaki_10,2026-10-22,kawasaki,10,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_kawasaki_11,2026-10-22,kawasaki,11,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_kawasaki_07,2026-10-22,kawasaki,7,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_kawasaki_08,2026-10-22,kawasaki,8,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_kawasaki_09,2026-10-22,kawasaki,9,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_kawasaki_10,2026-10-22,kawasaki,10,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_kawasaki_11,2026-10-22,kawasaki,11,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kumamoto_01,2026-10-22,kumamoto,1,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kumamoto_02,2026-10-22,kumamoto,2,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kumamoto_03,2026-10-22,kumamoto,3,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
