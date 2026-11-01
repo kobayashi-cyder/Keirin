@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verified_on_jst,race_note
+20261027_kurume_01,2026-10-27,久留米,1,4-1-7,1460,14.6,4,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_02,2026-10-27,久留米,2,1-4-2,880,8.8,4,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_03,2026-10-27,久留米,3,1-4-3,250,2.5,1,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,car_5_disqualified
+20261027_kurume_04,2026-10-27,久留米,4,1-2-4,120,1.2,1,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_05,2026-10-27,久留米,5,5-3-6,4610,46.1,15,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,car_1_absent
+20261027_kurume_06,2026-10-27,久留米,6,1-7-5,73320,733.2,96,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_07,2026-10-27,久留米,7,6-4-2,23930,239.3,63,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_08,2026-10-27,久留米,8,1-2-5,5660,56.6,19,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
+20261027_kurume_09,2026-10-27,久留米,9,1-7-3,360,3.6,1,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270100/,2026-11-02,
