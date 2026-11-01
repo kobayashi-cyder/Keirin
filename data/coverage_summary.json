@@ -7,6 +7,7 @@
   "known_listed_races": 210,
   "known_result_races": 104,
   "known_missing_result_races": 106,
+  "known_pending_top100_races": 210,
   "all_result_races": 112,
   "all_winning_payout_rows": 113,
   "odds_races": 6,
