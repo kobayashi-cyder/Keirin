@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verification_status
+20261025_aomori_01,2026-10-25,青森,1,4-3-7,1793250,17932.5,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_02,2026-10-25,青森,2,1-2-4,750,7.5,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_03,2026-10-25,青森,3,1-2-3,2470,24.7,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_04,2026-10-25,青森,4,2-6-1,15770,157.7,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_05,2026-10-25,青森,5,3-5-1,9750,97.5,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_06,2026-10-25,青森,6,1-2-5,3110,31.1,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_07,2026-10-25,青森,7,2-4-1,800,8.0,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_08,2026-10-25,青森,8,2-1-4,1760,17.6,,normal,https://keibure.com/12/20261025/,published_result_checked
+20261025_aomori_09,2026-10-25,青森,9,3-4-1,21670,216.7,,normal,https://keibure.com/12/20261025/,published_result_checked
