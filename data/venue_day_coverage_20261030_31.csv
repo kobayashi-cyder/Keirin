@@ -1,5 +1,5 @@
 date,venue_slug,venue_name,listed_races,verified_result_races,results_remaining,top50_odds_races,odds_races_remaining,top100_odds_races,source_url,coverage_basis
-2026-10-30,gifu,岐阜,12,0,12,0,12,0,https://keirin.kdreams.jp/kaisai/2026/10/30/,published_schedule_and_repository_as_of_2026-11-01
+2026-10-30,gifu,岐阜,12,12,0,0,12,0,https://keirin.kdreams.jp/kaisai/2026/10/30/,published_schedule_and_repository_as_of_2026-11-01
 2026-10-30,aomori,青森,12,12,0,0,12,0,https://keirin.kdreams.jp/kaisai/2026/10/30/,published_schedule_and_repository_as_of_2026-11-01
 2026-10-30,yahiko,弥彦,12,0,12,0,12,0,https://keirin.kdreams.jp/kaisai/2026/10/30/,published_schedule_and_repository_as_of_2026-11-01
 2026-10-30,beppu,別府,7,0,7,0,7,0,https://keirin.kdreams.jp/kaisai/2026/10/30/,published_schedule_and_repository_as_of_2026-11-01
