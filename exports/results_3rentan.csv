@@ -1334,3 +1334,10 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261031_yahiko_10,2026-10-31,yahiko,10,3rentan,2-4-7,4430,44.3,13,,https://keirin.kdreams.jp/yahiko/raceresult/21202610300200/,yahiko_20261031_results.csv
 20261031_yahiko_11,2026-10-31,yahiko,11,3rentan,5-2-6,760,7.6,3,,https://keirin.kdreams.jp/yahiko/raceresult/21202610300200/,yahiko_20261031_results.csv
 20261031_yahiko_12,2026-10-31,yahiko,12,3rentan,4-6-3,425630,4256.3,186,,https://keirin.kdreams.jp/yahiko/raceresult/21202610300200/,yahiko_20261031_results.csv
+20261101_kumamoto_01,2026-11-01,kumamoto,1,3rentan,3-5-2,20210,202.1,37,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018701,kumamoto_20261101_results.csv
+20261101_kumamoto_02,2026-11-01,kumamoto,2,3rentan,2-5-4,540,5.4,1,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018702,kumamoto_20261101_results.csv
+20261101_kumamoto_03,2026-11-01,kumamoto,3,3rentan,4-1-3,10950,109.5,23,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018703,kumamoto_20261101_results.csv
+20261101_kumamoto_04,2026-11-01,kumamoto,4,3rentan,2-1-7,3410,34.1,11,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018704,kumamoto_20261101_results.csv
+20261101_kumamoto_05,2026-11-01,kumamoto,5,3rentan,5-4-7,16530,165.3,42,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018705,kumamoto_20261101_results.csv
+20261101_kumamoto_06,2026-11-01,kumamoto,6,3rentan,1-5-7,1740,17.4,4,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018706,kumamoto_20261101_results.csv
+20261101_kumamoto_07,2026-11-01,kumamoto,7,3rentan,2-7-6,8710,87.1,25,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018707,kumamoto_20261101_results.csv
