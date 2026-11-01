@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verified_on_jst,race_note
+20261028_ogaki_01,2026-10-28,大垣,1,1-6-5,16270,162.7,24,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,car_2_absent
+20261028_ogaki_02,2026-10-28,大垣,2,1-2-3,310,3.1,1,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_03,2026-10-28,大垣,3,1-5-2,6940,69.4,27,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_04,2026-10-28,大垣,4,3-2-6,33810,338.1,48,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_05,2026-10-28,大垣,5,3-4-6,10510,105.1,46,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_06,2026-10-28,大垣,6,5-4-7,9480,94.8,43,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_07,2026-10-28,大垣,7,1-2-7,1600,16.0,5,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_08,2026-10-28,大垣,8,2-1-4,1410,14.1,3,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
+20261028_ogaki_09,2026-10-28,大垣,9,3-2-1,25760,257.6,41,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,2026-11-02,
