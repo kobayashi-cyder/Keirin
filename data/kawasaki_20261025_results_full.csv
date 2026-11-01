@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verification_status
+20261025_kawasaki_01,2026-10-25,川崎,1,1-2-4,700,7.0,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_02,2026-10-25,川崎,2,1-2-4,470,4.7,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_03,2026-10-25,川崎,3,5-1-4,58120,581.2,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_04,2026-10-25,川崎,4,7-4-2,50850,508.5,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_05,2026-10-25,川崎,5,2-6-3,16790,167.9,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_06,2026-10-25,川崎,6,2-1-3,990,9.9,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_07,2026-10-25,川崎,7,1-2-6,1650,16.5,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_08,2026-10-25,川崎,8,1-2-7,13880,138.8,,normal,https://keibure.com/34/20261025/,published_result_checked
+20261025_kawasaki_09,2026-10-25,川崎,9,1-7-3,8930,89.3,,normal,https://keibure.com/34/20261025/,published_result_checked
