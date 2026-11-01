@@ -30,15 +30,29 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Recalculate date × venue × race coverage
         run: python3 tools/coverage_report.py
-      - name: Commit generated reports if changed
+      - name: Safely refresh and publish generated reports
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/coverage.md data/coverage_summary.json data/date_index.csv data/pending_races.csv
-          if ! git diff --cached --quiet; then
+          # Concurrent data commits can make an earlier checkout stale.
+          # Only generated report files are discarded on this ephemeral runner.
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 tools/coverage_report.py
+            git add reports/coverage.md data/coverage_summary.json data/date_index.csv data/pending_races.csv
+            if git diff --cached --quiet; then
+              echo "Reports already up to date."
+              exit 0
+            fi
             git commit -m "Refresh 2020-present race coverage and unresolved inventory"
-            git push
-          else
-            echo "Reports already up to date."
-          fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Remote advanced; retrying from latest main ($attempt/5)."
+            sleep 2
+          done
+          echo "Could not synchronize generated reports after retries." >&2
+          exit 1
