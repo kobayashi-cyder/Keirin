@@ -1,0 +1,12 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261019_toyama_01,2026-10-19,富山,1,5-4-1,16090,160.9,43,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_02,2026-10-19,富山,2,4-5-7,24640,246.4,60,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_03,2026-10-19,富山,3,4-6-3,27100,271.0,99,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_04,2026-10-19,富山,4,5-1-2,10250,102.5,34,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_05,2026-10-19,富山,5,7-3-5,2760,27.6,5,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_06,2026-10-19,富山,6,4-5-1,1940,19.4,5,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_07,2026-10-19,富山,7,5-7-2,580,5.8,2,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_08,2026-10-19,富山,8,5-7-3,620,6.2,2,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_09,2026-10-19,富山,9,2-7-4,4660,46.6,16,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_10,2026-10-19,富山,10,4-1-5,5560,55.6,18,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
+20261019_toyama_11,2026-10-19,富山,11,2-7-4,3880,38.8,13,https://keirin.kdreams.jp/toyama/raceresult/46202610170300/,public_final_results
