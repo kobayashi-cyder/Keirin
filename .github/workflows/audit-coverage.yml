@@ -1,0 +1,42 @@
+name: Audit historical race coverage
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/*.csv"
+      - "tools/coverage_report.py"
+      - "tests/test_coverage_report.py"
+      - ".github/workflows/audit-coverage.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coverage-audit-main
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Recalculate date × venue × race coverage
+        run: python3 tools/coverage_report.py
+      - name: Commit generated reports if changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/coverage.md data/coverage_summary.json data/date_index.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh 2020-present race coverage and unresolved inventory"
+            git push
+          else
+            echo "Reports already up to date."
+          fi
