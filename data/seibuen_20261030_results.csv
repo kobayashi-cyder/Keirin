@@ -1,0 +1,7 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261030_seibuen_01,2026-10-30,西武園,1,1-2-5,1100,11.0,,https://keibure.com/26/20261030/,published_result_verified
+20261030_seibuen_02,2026-10-30,西武園,2,1-3-4,990,9.9,,https://keibure.com/26/20261030/,published_result_verified
+20261030_seibuen_03,2026-10-30,西武園,3,6-2-4,86730,867.3,,https://keibure.com/26/20261030/,published_result_verified
+20261030_seibuen_04,2026-10-30,西武園,4,1-4-5,3450,34.5,,https://keibure.com/26/20261030/,published_result_verified
+20261030_seibuen_06,2026-10-30,西武園,6,1-2-3,3170,31.7,,https://keibure.com/26/20261030/,published_result_verified
+20261030_seibuen_07,2026-10-30,西武園,7,4-5-2,28150,281.5,,https://keibure.com/26/20261030/,published_result_verified
