@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261023_ogaki_01,2026-10-23,大垣,1,5-2-6,34420,344.2,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_02,2026-10-23,大垣,2,7-5-4,900,9.0,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_03,2026-10-23,大垣,3,5-7-1,12900,129.0,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_04,2026-10-23,大垣,4,4-7-1,2760,27.6,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_05,2026-10-23,大垣,5,1-5-7,370,3.7,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_06,2026-10-23,大垣,6,4-5-1,9500,95.0,,https://keibure.com/44/20261023/,verified_published_result
+20261023_ogaki_07,2026-10-23,大垣,7,1-2-4,3180,31.8,,https://keibure.com/44/20261023/,verified_published_result
