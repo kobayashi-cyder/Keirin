@@ -1060,6 +1060,15 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261028_kurume_07,2026-10-28,kurume,7,3rentan,4-2-3,8310,83.1,26,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270200/,kurume_20261028_results.csv
 20261028_kurume_08,2026-10-28,kurume,8,3rentan,1-4-3,4420,44.2,15,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270200/,kurume_20261028_results.csv
 20261028_kurume_09,2026-10-28,kurume,9,3rentan,1-2-5,460,4.6,2,normal,https://keirin.kdreams.jp/kurume/raceresult/83202610270200/,kurume_20261028_results.csv
+20261028_ogaki_01,2026-10-28,ogaki,1,3rentan,1-6-5,16270,162.7,24,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_02,2026-10-28,ogaki,2,3rentan,1-2-3,310,3.1,1,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_03,2026-10-28,ogaki,3,3rentan,1-5-2,6940,69.4,27,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_04,2026-10-28,ogaki,4,3rentan,3-2-6,33810,338.1,48,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_05,2026-10-28,ogaki,5,3rentan,3-4-6,10510,105.1,46,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_06,2026-10-28,ogaki,6,3rentan,5-4-7,9480,94.8,43,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_07,2026-10-28,ogaki,7,3rentan,1-2-7,1600,16.0,5,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_08,2026-10-28,ogaki,8,3rentan,2-1-4,1410,14.1,3,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
+20261028_ogaki_09,2026-10-28,ogaki,9,3rentan,3-2-1,25760,257.6,41,normal,https://keirin.kdreams.jp/ogaki/raceresult/44202610270200/,ogaki_20261028_results.csv
 20261028_takeo_01,2026-10-28,takeo,1,3rentan,7-5-2,6940,69.4,20,normal,https://keirin.kdreams.jp/takeo/raceresult/84202610270200/,takeo_20261028_results.csv
 20261028_takeo_02,2026-10-28,takeo,2,3rentan,2-4-1,2510,25.1,7,normal,https://keirin.kdreams.jp/takeo/raceresult/84202610270200/,takeo_20261028_results.csv
 20261028_takeo_03,2026-10-28,takeo,3,3rentan,2-3-4,4600,46.0,12,normal,https://keirin.kdreams.jp/takeo/raceresult/84202610270200/,takeo_20261028_results.csv
