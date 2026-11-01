@@ -1,0 +1,7 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,refund_note,source_url,verification_status
+20261022_matsusaka_02,2026-10-22,松阪,2,6-4-1,15160,151.6,48,,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
+20261022_matsusaka_03,2026-10-22,松阪,3,3-2-7,2090,20.9,5,partial_refund,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
+20261022_matsusaka_04,2026-10-22,松阪,4,3-4-2,820,8.2,1,,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
+20261022_matsusaka_05,2026-10-22,松阪,5,2-5-3,3690,36.9,12,,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
+20261022_matsusaka_06,2026-10-22,松阪,6,5-4-1,3840,38.4,7,,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
+20261022_matsusaka_07,2026-10-22,松阪,7,5-3-2,92800,928.0,160,,https://www.keirin-mobile.jp/Android/docomo/Content/m01/iti_kekka.php?date=20261022&jno=47,verified_public_payouts
