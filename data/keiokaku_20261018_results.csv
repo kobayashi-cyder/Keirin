@@ -1,0 +1,13 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261018_keiokaku_01,2026-10-18,京王閣,1,7-8-1,1090,10.9,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_02,2026-10-18,京王閣,2,5-1-3,1110,11.1,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_03,2026-10-18,京王閣,3,8-5-9,379000,3790.0,427,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_04,2026-10-18,京王閣,4,3-7-5,1260,12.6,2,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_05,2026-10-18,京王閣,5,5-3-9,7340,73.4,20,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_06,2026-10-18,京王閣,6,1-5-8,25820,258.2,65,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_07,2026-10-18,京王閣,7,3-2-4,1510,15.1,6,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_08,2026-10-18,京王閣,8,5-3-1,430,4.3,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_09,2026-10-18,京王閣,9,3-1-7,15420,154.2,50,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_10,2026-10-18,京王閣,10,9-3-4,6220,62.2,21,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_11,2026-10-18,京王閣,11,8-5-9,26450,264.5,62,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
+20261018_keiokaku_12,2026-10-18,京王閣,12,7-1-4,400,4.0,1,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261018&jno=27,source_checked
