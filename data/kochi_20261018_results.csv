@@ -1,0 +1,13 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261018_kochi_01,2026-10-18,高知,1,2-5-7,1200,12.0,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_02,2026-10-18,高知,2,3-4-6,2500,25.0,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_03,2026-10-18,高知,3,4-1-6,730,7.3,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_04,2026-10-18,高知,4,4-2-6,1200,12.0,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_05,2026-10-18,高知,5,7-2-1,1420,14.2,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_06,2026-10-18,高知,6,1-5-2,2410,24.1,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_07,2026-10-18,高知,7,4-7-2,7900,79.0,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_08,2026-10-18,高知,8,5-7-6,24430,244.3,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_09,2026-10-18,高知,9,4-2-5,5600,56.0,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_10,2026-10-18,高知,10,1-4-5,6780,67.8,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_11,2026-10-18,高知,11,2-1-5,7990,79.9,,https://keibure.com/74/20261018/,single_public_results_listing
+20261018_kochi_12,2026-10-18,高知,12,3-5-1,780,7.8,,https://keibure.com/74/20261018/,single_public_results_listing
