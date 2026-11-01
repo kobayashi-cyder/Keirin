@@ -1,0 +1,12 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261020_odawara_01,2026-10-20,小田原,1,5-1-6,920,9.2,3,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_02,2026-10-20,小田原,2,2-5-7,2050,20.5,6,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_03,2026-10-20,小田原,3,3-7-5,580,5.8,1,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_04,2026-10-20,小田原,4,4-1-6,260,2.6,1,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_05,2026-10-20,小田原,5,7-6-4,127130,1271.3,148,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_06,2026-10-20,小田原,6,7-4-2,3290,32.9,9,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_07,2026-10-20,小田原,7,7-1-2,3050,30.5,7,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_08,2026-10-20,小田原,8,4-1-3,1530,15.3,4,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_09,2026-10-20,小田原,9,7-5-4,1900,19.0,5,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_11,2026-10-20,小田原,11,5-4-3,15350,153.5,37,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
+20261020_odawara_12,2026-10-20,小田原,12,2-5-4,5650,56.5,12,https://keirin.kdreams.jp/odawara/raceresult/36202610200100/,verified_public_result
