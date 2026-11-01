@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/coverage.md data/coverage_summary.json data/date_index.csv
+          git add reports/coverage.md data/coverage_summary.json data/date_index.csv data/pending_races.csv
           if ! git diff --cached --quiet; then
             git commit -m "Refresh 2020-present race coverage and unresolved inventory"
             git push
