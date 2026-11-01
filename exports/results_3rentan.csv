@@ -1051,6 +1051,13 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261028_beppu_05,2026-10-28,beppu,5,3rentan,5-2-1,7030,70.3,23,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,beppu_20261028_results.csv
 20261028_beppu_06,2026-10-28,beppu,6,3rentan,2-6-5,1770,17.7,8,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,beppu_20261028_results.csv
 20261028_beppu_07,2026-10-28,beppu,7,3rentan,4-2-1,1390,13.9,5,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,beppu_20261028_results.csv
+20261028_wakayama_01,2026-10-28,wakayama,1,3rentan,5-2-4,550,5.5,2,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_02,2026-10-28,wakayama,2,3rentan,4-1-6,480,4.8,1,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_03,2026-10-28,wakayama,3,3rentan,3-1-2,3420,34.2,10,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_04,2026-10-28,wakayama,4,3rentan,4-5-7,10040,100.4,23,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_05,2026-10-28,wakayama,5,3rentan,6-5-1,25550,255.5,38,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_06,2026-10-28,wakayama,6,3rentan,1-3-2,14440,144.4,32,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
+20261028_wakayama_07,2026-10-28,wakayama,7,3rentan,4-1-3,7920,79.2,23,normal,https://keirin.kdreams.jp/wakayama/raceresult/55202610260300/,wakayama_20261028_results.csv
 20261029_aomori_01,2026-10-29,aomori,1,3rentan,1-5-7,3110,31.1,,,,aomori_results_36.csv
 20261029_aomori_02,2026-10-29,aomori,2,3rentan,2-7-3,5780,57.8,,,,aomori_results_36.csv
 20261029_aomori_03,2026-10-29,aomori,3,3rentan,3-1-4,3070,30.7,,,,aomori_results_36.csv
