@@ -6,8 +6,11 @@
   "schedule_venue_days": 135,
   "known_listed_races": 1327,
   "known_result_races": 688,
-  "known_missing_result_races": 639,
-  "known_pending_top100_races": 1327,
+  "known_cancelled_races": 1,
+  "known_resolved_races": 689,
+  "known_missing_result_races": 638,
+  "known_missing_result_or_status_races": 638,
+  "known_pending_top100_races": 1326,
   "all_result_races": 690,
   "all_winning_payout_rows": 693,
   "odds_races": 6,
@@ -92,5 +95,5 @@
     "aomori_20261031_12R_top50.csv",
     "aomori_20261031_1R-3R_top50.csv"
   ],
-  "note": "Unknown schedule days are NOT counted as days without racing. Top100 is not inferred from the first 50 ranked odds."
+  "note": "Cancelled races have no winning combination, odds, or payout; counts are separate. Unknown schedule days are NOT counted as days without racing. Top100 is not inferred from the first 50 ranked odds."
 }

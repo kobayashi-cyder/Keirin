@@ -478,7 +478,6 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261020_odawara_07,2026-10-20,odawara,7,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/20/
 20261020_odawara_08,2026-10-20,odawara,8,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/20/
 20261020_odawara_09,2026-10-20,odawara,9,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/20/
-20261020_odawara_10,2026-10-20,odawara,10,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/20/
 20261020_odawara_11,2026-10-20,odawara,11,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/20/
 20261020_odawara_12,2026-10-20,odawara,12,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/20/
 20261020_sasebo_01,2026-10-20,sasebo,1,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/20/
