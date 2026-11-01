@@ -1,5 +1,17 @@
 # Keirin — 3連単オッズ収集・検証
 
+## 分析用の統合CSV（自動生成）
+
+元のCSVは保持したまま、3連単の確定結果と人気順位オッズを再利用しやすい形式へ統合します。
+
+- [3連単確定結果CSV](exports/results_3rentan.csv)（同着は複数行）
+- [3連単人気順位別オッズCSV](exports/odds_3rentan.csv)（観測時点と確定状態を区別）
+- [元データの出典・SHA-256台帳](exports/source_manifest.csv)
+- [競輪公開データ収集設計・権利確認](docs/PUBLIC_DATA_PLAN.md)
+- [外部公開情報の情報源一覧](data/public_sources.csv)
+
+`python3 tools/build_analysis_tables.py` で再生成可能。毎日の既存カバレッジ監査ワークフローで自動更新します。これは**既存GitHub CSVの再整理**であり、全競輪日・全買い目の取得完了や第三者サイトの一括転載許諾を意味しません。
+
 ## 最新の自動集計（2026-11-01）
 
 **最新の数字は過去の作業日誌ではなく以下を参照。**
