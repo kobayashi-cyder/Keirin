@@ -1,0 +1,10 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261014_kumamoto_01,2026-10-14,熊本,1,1-4-3,3420,34.2,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_02,2026-10-14,熊本,2,5-2-3,58210,582.1,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_03,2026-10-14,熊本,3,5-1-3,5950,59.5,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_04,2026-10-14,熊本,4,4-5-2,2850,28.5,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_05,2026-10-14,熊本,5,1-3-2,650,6.5,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_06,2026-10-14,熊本,6,4-2-1,12930,129.3,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_07,2026-10-14,熊本,7,7-4-6,1000,10.0,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_08,2026-10-14,熊本,8,1-5-2,6520,65.2,,https://keibure.com/87/20261014/,source_checked
+20261014_kumamoto_09,2026-10-14,熊本,9,1-2-3,620,6.2,,https://keibure.com/87/20261014/,source_checked
