@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,source_url_secondary,verified_on_jst
+20261028_beppu_01,2026-10-28,別府,1,5-2-4,3540,35.4,12,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,https://www.keirin-mobile.jp/top/result.php?date=20261028&jcode=86&race=01,2026-11-02
+20261028_beppu_02,2026-10-28,別府,2,7-3-4,2530,25.3,7,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,https://www.keirin-mobile.jp/top/result.php?date=20261028&jcode=86&race=02,2026-11-02
+20261028_beppu_03,2026-10-28,別府,3,1-4-7,2020,20.2,6,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,,2026-11-02
+20261028_beppu_04,2026-10-28,別府,4,5-4-3,970,9.7,4,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,,2026-11-02
+20261028_beppu_05,2026-10-28,別府,5,5-2-1,7030,70.3,23,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,https://www.keirin-mobile.jp/top/result.php?date=20261028&jcode=86&race=05,2026-11-02
+20261028_beppu_06,2026-10-28,別府,6,2-6-5,1770,17.7,8,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,,2026-11-02
+20261028_beppu_07,2026-10-28,別府,7,4-2-1,1390,13.9,5,normal,https://keirin.kdreams.jp/beppu/raceresult/86202610280100/,https://www.keirin-mobile.jp/top/result.php?date=20261028&jcode=86&race=07,2026-11-02
