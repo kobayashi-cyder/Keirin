@@ -174,14 +174,14 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261022_kumamoto_10,2026-10-22,kumamoto,10,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kumamoto_11,2026-10-22,kumamoto,11,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_kumamoto_12,2026-10-22,kumamoto,12,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_maebashi_01,2026-10-22,maebashi,1,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_maebashi_01,2026-10-22,maebashi,1,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_02,2026-10-22,maebashi,2,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_03,2026-10-22,maebashi,3,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_04,2026-10-22,maebashi,4,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_05,2026-10-22,maebashi,5,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_06,2026-10-22,maebashi,6,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_maebashi_07,2026-10-22,maebashi,7,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
-20261022_matsusaka_01,2026-10-22,matsusaka,1,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
+20261022_matsusaka_01,2026-10-22,matsusaka,1,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_matsusaka_02,2026-10-22,matsusaka,2,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_matsusaka_03,2026-10-22,matsusaka,3,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
 20261022_matsusaka_04,2026-10-22,matsusaka,4,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/10/22/
