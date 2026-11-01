@@ -5,11 +5,11 @@
   "dates_with_schedule_entries": 15,
   "schedule_venue_days": 114,
   "known_listed_races": 1116,
-  "known_result_races": 339,
-  "known_missing_result_races": 777,
+  "known_result_races": 350,
+  "known_missing_result_races": 766,
   "known_pending_top100_races": 1116,
-  "all_result_races": 341,
-  "all_winning_payout_rows": 344,
+  "all_result_races": 352,
+  "all_winning_payout_rows": 355,
   "odds_races": 6,
   "individual_odds_points": 300,
   "top50_races": 6,
@@ -48,7 +48,8 @@
     "verified_sample_20261022_1R_four_venues.csv",
     "verified_sample_20261022_maebashi_matsusaka.csv",
     "wakayama_20261026_results.csv",
-    "yahiko_20261031_results.csv"
+    "yahiko_20261031_results.csv",
+    "yokkaichi_20261017_results.csv"
   ],
   "odds_source_files": [
     "20261030_nagoya_01_top50.csv",
