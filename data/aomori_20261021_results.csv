@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261021_aomori_01,2026-10-21,青森,1,1-5-3,610,6.1,2,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_02,2026-10-21,青森,2,4-7-1,360,3.6,1,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_03,2026-10-21,青森,3,1-2-3,2150,21.5,6,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_04,2026-10-21,青森,4,1-5-2,1680,16.8,2,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_05,2026-10-21,青森,5,3-4-5,420,4.2,1,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_06,2026-10-21,青森,6,2-1-6,6060,60.6,13,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
+20261021_aomori_07,2026-10-21,青森,7,3-2-7,3690,36.9,11,https://keirin.kdreams.jp/aomori/raceresult/12202610190300/,verified_public_settlement
