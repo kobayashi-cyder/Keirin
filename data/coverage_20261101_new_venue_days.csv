@@ -1,0 +1,5 @@
+venue,date,verified_results,top50_complete_races,top100_complete_races,verified_odds_rows,result_source,top50_source,scope_note
+防府,2026-10-31,12,1,0,50,https://keirin.kdreams.jp/hofu/raceresult/63202610310100/,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/6320261031/63202610310100/1/3rentan/,races_1_to_12
+武雄,2026-10-29,11,0,0,0,https://keirin.kdreams.jp/takeo/raceresult/84202610270300/,,races_1_to_11
+名古屋,2026-10-30,7,1,0,50,https://keirin.kdreams.jp/nagoya/raceresult/42202610300100/,https://keirin.kdreams.jp/gamboo/keirin-kaisai/race-card/oddspop/4220261030/42202610300100/1/3rentan/,races_1_to_7
+熊本,2026-10-25,6,0,0,0,https://keirin.kdreams.jp/kumamoto/raceresult/87202610220400/,,races_1_to_6_only
