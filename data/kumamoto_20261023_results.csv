@@ -1,0 +1,13 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,refund_note,source_url
+20261023_kumamoto_01,2026-10-23,熊本,1,5-1-2,37920,379.2,99,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_02,2026-10-23,熊本,2,1-9-2,3240,32.4,9,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_03,2026-10-23,熊本,3,1-9-7,37620,376.2,109,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_04,2026-10-23,熊本,4,1-8-5,5140,51.4,12,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_05,2026-10-23,熊本,5,7-1-5,270,2.7,1,partial_refund,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_06,2026-10-23,熊本,6,7-2-3,12560,125.6,36,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_07,2026-10-23,熊本,7,1-7-2,930,9.3,2,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_08,2026-10-23,熊本,8,3-9-7,1100,11.0,1,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_09,2026-10-23,熊本,9,1-7-5,2180,21.8,6,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_10,2026-10-23,熊本,10,1-7-4,67910,679.1,75,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_11,2026-10-23,熊本,11,5-7-9,600,6.0,1,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
+20261023_kumamoto_12,2026-10-23,熊本,12,7-1-6,8030,80.3,21,,https://www.keirin-mobile.jp/Android/au/Content/m01/iti_kekka.php?date=20261023&jno=87
