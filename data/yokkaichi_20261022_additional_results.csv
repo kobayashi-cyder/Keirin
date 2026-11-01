@@ -1,0 +1,7 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verification_status
+20261022_yokkaichi_02,2026-10-22,四日市,2,2-1-4,580,5.8,2,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
+20261022_yokkaichi_03,2026-10-22,四日市,3,1-5-2,980,9.8,3,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
+20261022_yokkaichi_04,2026-10-22,四日市,4,4-5-1,8000,80.0,21,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
+20261022_yokkaichi_05,2026-10-22,四日市,5,7-1-2,26220,262.2,51,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
+20261022_yokkaichi_06,2026-10-22,四日市,6,4-6-2,3570,35.7,15,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
+20261022_yokkaichi_07,2026-10-22,四日市,7,6-1-5,1210,12.1,1,normal,https://www.yen-joy.net/kaisai/day?d=20810127,indexed_from_confirmed_result_table
