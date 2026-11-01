@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261029_beppu_01,2026-10-29,別府,1,7-2-4,6690,66.9,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_02,2026-10-29,別府,2,3-4-2,3360,33.6,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_03,2026-10-29,別府,3,4-2-3,8100,81.0,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_04,2026-10-29,別府,4,5-1-2,15830,158.3,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_05,2026-10-29,別府,5,4-7-2,1700,17.0,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_06,2026-10-29,別府,6,7-4-3,560,5.6,,https://keibure.com/86/20261029/,published_result_checked
+20261029_beppu_07,2026-10-29,別府,7,4-7-3,41630,416.3,,https://keibure.com/86/20261029/,published_result_checked
