@@ -87,6 +87,23 @@ def ranks_complete(group, upto):
     }) == upto
 
 
+def load_cancelled():
+    """Cancelled race IDs are terminal outcomes with no winning ticket or odds."""
+    path = DATA / "cancelled_races.csv"
+    if not path.exists():
+        return set()
+    races = set()
+    for row in records(path):
+        rid = row["race_id"]
+        parse_id(rid)
+        if row["status"] != "cancelled" or not row.get("source_url"):
+            raise ValueError(f"Invalid cancelled-race entry: {rid}")
+        if rid in races:
+            raise ValueError(f"Duplicate cancelled race: {rid}")
+        races.add(rid)
+    return races
+
+
 def load_schedule():
     """Only venue-day entries explicitly present in stored inventories."""
     entries = {}
@@ -107,6 +124,15 @@ def report():
     winners, result_files = load_results()
     odds, odds_files = load_odds()
     schedule = load_schedule()
+    cancelled = load_cancelled()
+    if cancelled.intersection(winners):
+        raise ValueError("Cancelled race has a settled winner")
+    if cancelled.intersection(odds):
+        raise ValueError("Cancelled race has populated odds")
+    for rid in cancelled:
+        day, venue, race = parse_id(rid)
+        if (day, venue) not in schedule or not 1 <= race <= schedule[(day, venue)]:
+            raise ValueError(f"Cancelled race absent from schedule: {rid}")
 
     # Every recorded race has unique identity, even with multiple payouts.
     per_day = defaultdict(lambda: {"results": set(), "odds": set(), "top50": set(), "top100": set()})
@@ -126,6 +152,7 @@ def report():
 
     known_listed_races = sum(schedule.values())
     known_results = sum(len(per_venue_day[key]["results"]) for key in schedule)
+    known_cancelled = len(cancelled)
     overcounts = [(str(k[0]), k[1]) for k, total in schedule.items()
                   if len(per_venue_day[k]["results"]) > total]
     if overcounts:
@@ -136,6 +163,8 @@ def report():
     for (day, venue), expected in sorted(schedule.items()):
         for race in range(1, expected + 1):
             rid = f"{day:%Y%m%d}_{venue}_{race:02d}"
+            if rid in cancelled:
+                continue
             group = odds.get(rid, {})
             has_result = rid in winners
             fifty = ranks_complete(group, 50)
@@ -174,13 +203,14 @@ def report():
             "venue_days_listed": len(venues),
             "listed_races": sum(schedule[k] for k in venues),
             "result_races": len(p["results"]),
+            "cancelled_races": sum(parse_id(rid)[0] == date for rid in cancelled),
             "odds_races": len(p["odds"]),
             "top50_races": len(p["top50"]),
             "top100_races": len(p["top100"]),
         })
         date += dt.timedelta(days=1)
 
-    missing_known = known_listed_races - known_results
+    missing_known = known_listed_races - known_results - known_cancelled
     result_total = len(winners)
     odds_race_total = len(odds)
     points = sum(len(x) for x in odds.values())
@@ -194,7 +224,10 @@ def report():
         "schedule_venue_days": len(schedule),
         "known_listed_races": known_listed_races,
         "known_result_races": known_results,
+        "known_cancelled_races": known_cancelled,
+        "known_resolved_races": known_results + known_cancelled,
         "known_missing_result_races": missing_known,
+        "known_missing_result_or_status_races": missing_known,
         "known_pending_top100_races": len(pending),
         "all_result_races": result_total,
         "all_winning_payout_rows": sum(len(x) for x in winners.values()),
@@ -204,7 +237,8 @@ def report():
         "top100_races": top100_total,
         "result_source_files": result_files,
         "odds_source_files": odds_files,
-        "note": "Unknown schedule days are NOT counted as days without racing. "
+        "note": "Cancelled races have no winning combination, odds, or payout; counts are separate. "
+                "Unknown schedule days are NOT counted as days without racing. "
                 "Top100 is not inferred from the first 50 ranked odds.",
     }
     (DATA / "date_index.csv").parent.mkdir(parents=True, exist_ok=True)
@@ -225,23 +259,25 @@ def report():
         f"- 個別3連単オッズ：**{points}点 / {odds_race_total}レース**",
         f"- Top50完了：**{top50_total}レース** / Top100完了：**{top100_total}レース**",
         f"- 開催会場日を列挙済み：**{len(schedule)}会場日・{len(known_dates)}日分**",
-        f"- 列挙済み会場日の結果未収録：**{missing_known}レース**（{known_listed_races}中{known_results}件を収録）",
+        f"- 列挙済み会場日の結果・状態未解決：**{missing_known}レース**（{known_listed_races}中、確定結果{known_results}件・中止{known_cancelled}件）",
         f"- 開催一覧が未索引の日：**{len(date_rows)-len(known_dates)}日**（開催なしとは扱わない）",
         "",
         "## 日付別の既知の残件", "",
-        "| 日付 | 登録会場日 | 登録予定レース | 結果収録 | 結果残 |", "|---|---:|---:|---:|---:|"
+        "| 日付 | 登録会場日 | 登録予定レース | 結果収録 | 中止 | 未解決 |", "|---|---:|---:|---:|---:|---:|"
     ]
     for d in known_dates:
         keys = [key for key in schedule if key[0] == d]
         expected = sum(schedule[k] for k in keys)
         collected = sum(len(per_venue_day[k]["results"]) for k in keys)
-        lines.append(f"| {d} | {len(keys)} | {expected} | {collected} | {expected-collected} |")
+        cancelled_on_date = sum(parse_id(rid)[0] == d for rid in cancelled)
+        lines.append(f"| {d} | {len(keys)} | {expected} | {collected} | {cancelled_on_date} | {expected-collected-cancelled_on_date} |")
     lines += [
         "", "## 検証方針", "",
         "- 収集単位は日付→その日実際に開催された全会場→会場内の全レース。",
         "- 日付の会場一覧を確認するまでは、欠損会場数は算出しない。",
         "- 既存レースのTop51〜100補完より、未登録の日付×会場を優先。",
         "- 同着の複数的中は一レース・複数払戻として集計。",
+        "- 中止レースは `data/cancelled_races.csv` に分離し、的中組番・倍率を捏造せず未解決件数から除外。",
         "- 本報告の収録数はデータ形式と重複の確認であり、全ソースの独立照合を保証しない。",
         "- 第三者サイトの大規模複製・公開は利用条件を確認し、必要な許諾を得てから行う。",
         ""
