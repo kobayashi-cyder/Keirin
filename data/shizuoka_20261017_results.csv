@@ -1,0 +1,11 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,result_type,source_url,verification_status
+20261017_shizuoka_01,2026-10-17,静岡,1,1-3-7,6420,64.2,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_02,2026-10-17,静岡,2,1-3-6,4700,47.0,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_03,2026-10-17,静岡,3,2-5-3,7150,71.5,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_04,2026-10-17,静岡,4,1-2-4,3070,30.7,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_05,2026-10-17,静岡,5,4-3-1,2640,26.4,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_06,2026-10-17,静岡,6,2-1-3,4630,46.3,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_07,2026-10-17,静岡,7,5-1-6,43620,436.2,,dead_heat_first_place,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_07,2026-10-17,静岡,7,5-6-1,75300,753.0,,dead_heat_first_place,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_08,2026-10-17,静岡,8,2-1-5,12990,129.9,,normal,https://keibure.com/38/20261017/,source_checked
+20261017_shizuoka_09,2026-10-17,静岡,9,3-2-4,3180,31.8,,normal,https://keibure.com/38/20261017/,source_checked
