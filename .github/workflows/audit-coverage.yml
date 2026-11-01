@@ -8,7 +8,9 @@ on:
     paths:
       - "data/*.csv"
       - "tools/coverage_report.py"
+      - "tools/build_analysis_tables.py"
       - "tests/test_coverage_report.py"
+      - "tests/test_build_analysis_tables.py"
       - ".github/workflows/audit-coverage.yml"
 
 permissions:
@@ -30,6 +32,8 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Recalculate date × venue × race coverage
         run: python3 tools/coverage_report.py
+      - name: Build normalized analytics tables
+        run: python3 tools/build_analysis_tables.py
       - name: Safely refresh and publish generated reports
         shell: bash
         run: |
@@ -42,7 +46,8 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python3 tools/coverage_report.py
-            git add reports/coverage.md data/coverage_summary.json data/date_index.csv data/pending_races.csv
+            python3 tools/build_analysis_tables.py
+            git add reports/coverage.md data/coverage_summary.json data/date_index.csv data/pending_races.csv exports/results_3rentan.csv exports/odds_3rentan.csv exports/source_manifest.csv
             if git diff --cached --quiet; then
               echo "Reports already up to date."
               exit 0
