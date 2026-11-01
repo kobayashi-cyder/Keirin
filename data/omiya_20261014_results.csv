@@ -1,0 +1,8 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,popularity_rank,source_url,verification_status
+20261014_omiya_01,2026-10-14,大宮,1,1-4-2,370,3.7,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_02,2026-10-14,大宮,2,3-5-6,1570,15.7,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_03,2026-10-14,大宮,3,2-1-3,5890,58.9,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_04,2026-10-14,大宮,4,4-3-2,13650,136.5,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_05,2026-10-14,大宮,5,1-4-2,1960,19.6,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_06,2026-10-14,大宮,6,5-4-6,12280,122.8,,https://keibure.com/25/20261014/,source_checked
+20261014_omiya_07,2026-10-14,大宮,7,7-5-4,4920,49.2,,https://keibure.com/25/20261014/,source_checked
