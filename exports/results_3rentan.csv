@@ -1341,3 +1341,10 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261101_kumamoto_05,2026-11-01,kumamoto,5,3rentan,5-4-7,16530,165.3,42,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018705,kumamoto_20261101_results.csv
 20261101_kumamoto_06,2026-11-01,kumamoto,6,3rentan,1-5-7,1740,17.4,4,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018706,kumamoto_20261101_results.csv
 20261101_kumamoto_07,2026-11-01,kumamoto,7,3rentan,2-7-6,8710,87.1,25,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018707,kumamoto_20261101_results.csv
+20261101_seibuen_01,2026-11-01,seibuen,1,3rentan,1-5-3,8770,87.7,28,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012601,seibuen_20261101_results.csv
+20261101_seibuen_02,2026-11-01,seibuen,2,3rentan,4-1-7,7030,70.3,22,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012602,seibuen_20261101_results.csv
+20261101_seibuen_03,2026-11-01,seibuen,3,3rentan,1-3-4,400,4.0,1,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012603,seibuen_20261101_results.csv
+20261101_seibuen_04,2026-11-01,seibuen,4,3rentan,6-2-7,9370,93.7,39,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012604,seibuen_20261101_results.csv
+20261101_seibuen_05,2026-11-01,seibuen,5,3rentan,1-4-3,13870,138.7,37,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012605,seibuen_20261101_results.csv
+20261101_seibuen_06,2026-11-01,seibuen,6,3rentan,4-2-5,48850,488.5,70,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012606,seibuen_20261101_results.csv
+20261101_seibuen_07,2026-11-01,seibuen,7,3rentan,1-7-6,11860,118.6,49,normal,https://keirin.netkeiba.com/race/result/?race_id=202611012607,seibuen_20261101_results.csv
