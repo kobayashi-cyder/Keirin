@@ -1,0 +1,36 @@
+{
+  "range_start": "2020-01-01",
+  "range_end": "2026-11-01",
+  "calendar_days": 2497,
+  "dates_with_schedule_entries": 2,
+  "schedule_venue_days": 16,
+  "known_listed_races": 150,
+  "known_result_races": 81,
+  "known_missing_result_races": 69,
+  "all_result_races": 112,
+  "all_winning_payout_rows": 113,
+  "odds_races": 6,
+  "individual_odds_points": 300,
+  "top50_races": 6,
+  "top100_races": 0,
+  "result_source_files": [
+    "aomori_results_36.csv",
+    "gifu_20261030_results.csv",
+    "hofu_20261031_results.csv",
+    "kumamoto_20261025_results.csv",
+    "kumamoto_20261031_results.csv",
+    "matsudo_202609_202610_verified_results.csv",
+    "nagoya_20261030_results.csv",
+    "seibuen_20261030_verified_results.csv",
+    "takeo_20261029_results.csv",
+    "utsunomiya_20261030_31_verified_results.csv",
+    "yahiko_20261031_results.csv"
+  ],
+  "odds_source_files": [
+    "20261030_nagoya_01_top50.csv",
+    "20261031_hofu_01_top50.csv",
+    "aomori_20261031_12R_top50.csv",
+    "aomori_20261031_1R-3R_top50.csv"
+  ],
+  "note": "Unknown schedule days are NOT counted as days without racing. Top100 is not inferred from the first 50 ranked odds."
+}
