@@ -22,3 +22,8 @@
 ## 実績
 - 2026-11-02: **新規確定結果0レース、既知結果残件61→61（減少0件）**。権利未確認ソースからの大量複製を行わず、未取得箇所を固定CSVに記録。
 - 未取得結果の値は推測・補完していない。問い合わせ送信や再配布許諾の取得は**未実施**。
+
+## GitHub Actions 監査の証跡
+- `Audit historical race coverage` の対象コード更新後、`github-actions[bot]` による [自動再計算コミット](https://github.com/kobayashi-cyder/Keirin/commit/11a826e52542d1fad7e958d5986065c7575f09d7) を確認。ワークフローは Unit tests → カバレッジ再計算 → 分析表再構築 → 自動コミットの順であり、最終ステップによる `reports/coverage.md` 更新を確認した。
+- 更新後の `coverage_summary.json`: `known_listed_races=1409`、`known_missing_result_races=61`、`individual_odds_points=300`。権利確認待ちCSVの61件は全件 `pending_races.csv` の同日未取得IDに一致し、重複なし。
+- 実行ID・Actions UIの最終 `success` 表示自体は取得できなかったため、確認できた事実は自動更新コミットまでとする。
