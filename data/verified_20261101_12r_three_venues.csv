@@ -1,0 +1,4 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,winning_popularity_rank,source_url
+20261101_hofu_12,2026-11-01,防府,12,1-5-4,2110,21.1,7,https://keirindb.com/keirinjo/hofu/20261101/12r/
+20261101_kurume_12,2026-11-01,久留米,12,7-2-4,2620,26.2,1,https://keirindb.com/keirinjo/kurume/20261101/12r/
+20261101_yahiko_12,2026-11-01,弥彦,12,4-5-1,15100,151.0,45,https://keirindb.com/keirinjo/yahiko/20261101/12r/
