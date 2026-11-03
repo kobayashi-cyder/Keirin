@@ -25,5 +25,5 @@
 - 同じ固定1409レース内で `known_missing_result_races: 61 → 58`、**減少3件**。確定結果 `1347 → 1350`、中止1、分母変化0。
 - 3件の `race_id` は既存結果CSVと重複なし。各レースの組番は3車一意。100円払戻÷100＝確定倍率を全件確認。
 - `Audit historical race coverage` のコミット `150cd79b045955d8169d8e5a876ec5e0be913545` に対応する run `41555087153` の `audit` job は全ステップ `success` と確認（https://github.com/kobayashi-cyder/Keirin/actions/runs/41555087153）。
-- 権利台帳の更新コミット `70cc4a846d2df58cc1c4659c6dc9392dcad09680` でも監査が起動するため、最終ステータスは別途確認する。
+- 権利台帳の更新コミット `70cc4a846d2df58cc1c4659c6dc9392dcad09680` に対応する run `41555140900` も `completed/success`、全ジョブステップ成功を確認（https://github.com/kobayashi-cyder/Keirin/actions/runs/41555140900）。
 - 個別人気順オッズは300点、Top100完成0レースのまま。的中車券の確定倍率3件を個別オッズ300点へ加算しない。
