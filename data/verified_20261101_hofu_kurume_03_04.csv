@@ -1,0 +1,4 @@
+race_id,date,venue,race_number,winning_combination,payout_per_100yen,winning_final_odds,winning_popularity_rank,source_url
+20261101_hofu_04,2026-11-01,防府,4,7-2-4,1210,12.1,3,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=04
+20261101_kurume_03,2026-11-01,久留米,3,3-6-2,40830,408.3,80,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=83&race=03
+20261101_kurume_04,2026-11-01,久留米,4,1-2-7,12640,126.4,38,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=83&race=04
