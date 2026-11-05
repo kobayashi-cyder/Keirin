@@ -1326,7 +1326,7 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261031_yahiko_11,2026-10-31,yahiko,11,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/31/
 20261031_yahiko_12,2026-10-31,yahiko,12,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/10/31/
 20261101_hofu_01,2026-11-01,hofu,1,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
-20261101_hofu_02,2026-11-01,hofu,2,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
+20261101_hofu_02,2026-11-01,hofu,2,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_03,2026-11-01,hofu,3,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_04,2026-11-01,hofu,4,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_05,2026-11-01,hofu,5,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
@@ -1345,7 +1345,7 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261101_kumamoto_06,2026-11-01,kumamoto,6,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_kumamoto_07,2026-11-01,kumamoto,7,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_kurume_01,2026-11-01,kurume,1,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
-20261101_kurume_02,2026-11-01,kurume,2,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
+20261101_kurume_02,2026-11-01,kurume,2,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_kurume_03,2026-11-01,kurume,3,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_kurume_04,2026-11-01,kurume,4,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_kurume_05,2026-11-01,kurume,5,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
