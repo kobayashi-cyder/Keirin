@@ -91,6 +91,36 @@ class CoverageTests(unittest.TestCase):
             self.assertEqual(len(pending), 1)
             self.assertEqual(pending[0]["race_id"], "20261020_odawara_01")
 
+    def test_pre_trifecta_two_car_exacta_archive_is_not_counted(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            write_rows(data / "historical_2000_official_special_finals.csv", [
+                {"date": "2000-01-25", "venue": "高松",
+                 "event": "共同通信社杯決勝", "bet_type": "2車単",
+                 "winning_combination": "7-8", "payout_per_100yen": "21380",
+                 "source_url": "https://keirin.jp/example",
+                 "notes": "3連単導入前"},
+            ])
+            write_rows(data / "real_results.csv", [
+                {"race_id": "20261031_test_01", "winning_combination": "1-2-3",
+                 "payout_per_100yen": "570", "winning_final_odds": "5.7"}
+            ])
+            with patch.object(coverage, "DATA", data):
+                winners, sources = coverage.load_results()
+            self.assertEqual(set(winners), {"20261031_test_01"})
+            self.assertEqual(sources, ["real_results.csv"])
+
+    def test_malformed_trifecta_file_is_not_silently_skipped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            write_rows(data / "incomplete_results.csv", [
+                {"race_id": "20261031_test_01", "winning_combination": "1-2-3",
+                 "payout_per_100yen": "570"}
+            ])
+            with patch.object(coverage, "DATA", data):
+                with self.assertRaises(ValueError):
+                    coverage.load_results()
+
     def test_conflicting_result_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp)
