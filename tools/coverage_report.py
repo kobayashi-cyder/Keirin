@@ -13,6 +13,7 @@ import datetime as dt
 import json
 from collections import defaultdict
 from pathlib import Path
+from decimal import Decimal
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,6 +37,7 @@ def parse_id(race_id):
 def load_results():
     winners = defaultdict(dict)
     source_files = set()
+    archival_keys = set()
     for path in sorted(DATA.glob("*.csv")):
         rows = records(path)
         if not rows or "winning_combination" not in rows[0]:
@@ -52,15 +54,25 @@ def load_results():
                     bet_type = entry["bet_type"]
                     expected_parts = {"2車単": 2, "3連単": 3}.get(bet_type)
                     combination = entry["winning_combination"].split("-")
+                    payout = int(entry["payout_per_100yen"])
                     if (expected_parts is None
                             or len(combination) != expected_parts
                             or len(set(combination)) != expected_parts
                             or any(not item.isdigit() or not 1 <= int(item) <= 9
                                    for item in combination)
-                            or int(entry["payout_per_100yen"]) <= 0
+                            or payout <= 0
                             or not entry["source_url"].startswith("https://")):
                         raise ValueError(f"Invalid archival result: {path.name}")
+                    if (entry.get("winning_final_odds")
+                            and Decimal(entry["winning_final_odds"]) != Decimal(payout) / 100):
+                        raise ValueError(f"Invalid archival odds: {path.name}")
                     dt.date.fromisoformat(entry["date"])
+                    archive_key = tuple(entry[k] for k in
+                                        ("date", "venue", "event", "bet_type",
+                                         "winning_combination"))
+                    if archive_key in archival_keys:
+                        raise ValueError(f"Duplicate archival result: {archive_key}")
+                    archival_keys.add(archive_key)
                 continue
             raise ValueError(f"Malformed results CSV schema: {path.name}")
         source_files.add(path.name)
