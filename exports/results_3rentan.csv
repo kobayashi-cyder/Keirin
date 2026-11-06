@@ -1338,6 +1338,7 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261101_hofu_02,2026-11-01,hofu,2,3rentan,1-9-3,8240,82.4,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=02,verified_20261101_hofu_kurume_02.csv
 20261101_hofu_03,2026-11-01,hofu,3,3rentan,3-2-6,9840,98.4,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=03,verified_20261101_additional_four_races.csv
 20261101_hofu_04,2026-11-01,hofu,4,3rentan,7-2-4,1210,12.1,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=04,verified_20261101_hofu_kurume_03_04.csv
+20261101_hofu_05,2026-11-01,hofu,5,3rentan,9-5-1,860,8.6,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=05,verified_20261101_hofu_05.csv
 20261101_hofu_11,2026-11-01,hofu,11,3rentan,1-9-3,1760,17.6,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=11,verified_20261101_additional_four_races.csv
 20261101_hofu_12,2026-11-01,hofu,12,3rentan,1-5-4,2110,21.1,,,https://keirindb.com/keirinjo/hofu/20261101/12r/,verified_20261101_12r_three_venues.csv
 20261101_kumamoto_01,2026-11-01,kumamoto,1,3rentan,3-5-2,20210,202.1,37,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018701,kumamoto_20261101_results.csv

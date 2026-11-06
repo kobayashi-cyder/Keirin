@@ -1329,7 +1329,7 @@ race_id,date,venue_slug,race_number,result_recorded,odds_rows,top50_complete,top
 20261101_hofu_02,2026-11-01,hofu,2,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_03,2026-11-01,hofu,3,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_04,2026-11-01,hofu,4,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
-20261101_hofu_05,2026-11-01,hofu,5,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
+20261101_hofu_05,2026-11-01,hofu,5,1,0,0,0,collect_first_odds,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_06,2026-11-01,hofu,6,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_07,2026-11-01,hofu,7,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
 20261101_hofu_08,2026-11-01,hofu,8,0,0,0,0,collect_result,https://keirin.kdreams.jp/kaisai/2026/11/01/
