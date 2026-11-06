@@ -43,9 +43,24 @@ def load_results():
         fields = set(rows[0])
         required = {"race_id", "winning_combination", "payout_per_100yen", "winning_final_odds"}
         if not required <= fields:
-            # Pre-2001 two-car exacta archives are not 3rentan results.
-            if ({"date", "venue", "event", "bet_type", "source_url"} <= fields
-                    and all(r.get("bet_type") == "2車単" for r in rows)):
+            # Archival GP/GI/GII special finals lack race IDs and are not part
+            # of the separately inventoried date/venue/race trifecta cohort.
+            archive_fields = {"date", "venue", "event", "bet_type",
+                              "winning_combination", "payout_per_100yen", "source_url"}
+            if archive_fields <= fields and "race_id" not in fields:
+                for entry in rows:
+                    bet_type = entry["bet_type"]
+                    expected_parts = {"2車単": 2, "3連単": 3}.get(bet_type)
+                    combination = entry["winning_combination"].split("-")
+                    if (expected_parts is None
+                            or len(combination) != expected_parts
+                            or len(set(combination)) != expected_parts
+                            or any(not item.isdigit() or not 1 <= int(item) <= 9
+                                   for item in combination)
+                            or int(entry["payout_per_100yen"]) <= 0
+                            or not entry["source_url"].startswith("https://")):
+                        raise ValueError(f"Invalid archival result: {path.name}")
+                    dt.date.fromisoformat(entry["date"])
                 continue
             raise ValueError(f"Malformed results CSV schema: {path.name}")
         source_files.add(path.name)
