@@ -1340,6 +1340,7 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261101_hofu_04,2026-11-01,hofu,4,3rentan,7-2-4,1210,12.1,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=04,verified_20261101_hofu_kurume_03_04.csv
 20261101_hofu_05,2026-11-01,hofu,5,3rentan,9-5-1,860,8.6,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=05,verified_20261101_hofu_05.csv
 20261101_hofu_06,2026-11-01,hofu,6,3rentan,3-9-5,10370,103.7,,,https://keirin.kdreams.jp/hofu/raceresult/63202610310200/,verified_20261101_hofu06_kurume05.csv
+20261101_hofu_07,2026-11-01,hofu,7,3rentan,1-7-9,650,6.5,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=07,verified_20261101_hofu07_kurume06.csv
 20261101_hofu_11,2026-11-01,hofu,11,3rentan,1-9-3,1760,17.6,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=63&race=11,verified_20261101_additional_four_races.csv
 20261101_hofu_12,2026-11-01,hofu,12,3rentan,1-5-4,2110,21.1,,,https://keirindb.com/keirinjo/hofu/20261101/12r/,verified_20261101_12r_three_venues.csv
 20261101_kumamoto_01,2026-11-01,kumamoto,1,3rentan,3-5-2,20210,202.1,37,normal,https://keirin.netkeiba.com/race/result/?race_id=202611018701,kumamoto_20261101_results.csv
@@ -1354,6 +1355,7 @@ race_id,date,venue_slug,race_number,bet_type,winning_combination,payout_per_100y
 20261101_kurume_03,2026-11-01,kurume,3,3rentan,3-6-2,40830,408.3,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=83&race=03,verified_20261101_hofu_kurume_03_04.csv
 20261101_kurume_04,2026-11-01,kurume,4,3rentan,1-2-7,12640,126.4,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=83&race=04,verified_20261101_hofu_kurume_03_04.csv
 20261101_kurume_05,2026-11-01,kurume,5,3rentan,2-7-4,10040,100.4,,,https://keirin.kdreams.jp/kurume/raceresult/83202611010100/,verified_20261101_hofu06_kurume05.csv
+20261101_kurume_06,2026-11-01,kurume,6,3rentan,3-5-4,2290,22.9,,,https://www.keirin-mobile.jp/top/result.php?date=20261101&jcode=83&race=06,verified_20261101_hofu07_kurume06.csv
 20261101_kurume_12,2026-11-01,kurume,12,3rentan,7-2-4,2620,26.2,,,https://keirindb.com/keirinjo/kurume/20261101/12r/,verified_20261101_12r_three_venues.csv
 20261101_nagoya_01,2026-11-01,nagoya,1,3rentan,2-6-7,26510,265.1,82,normal,https://keirin.netkeiba.com/race/result/?race_id=202611014201,nagoya_20261101_results.csv
 20261101_nagoya_02,2026-11-01,nagoya,2,3rentan,1-3-7,12950,129.5,25,normal,https://keirin.netkeiba.com/race/result/?race_id=202611014202,nagoya_20261101_results.csv
