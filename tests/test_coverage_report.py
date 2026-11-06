@@ -110,6 +110,42 @@ class CoverageTests(unittest.TestCase):
             self.assertEqual(set(winners), {"20261031_test_01"})
             self.assertEqual(sources, ["real_results.csv"])
 
+    def test_archival_dead_heat_and_first_trifecta_are_separately_validated(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp)
+            rows = [
+                {"date": "2001-07-01", "venue": "函館", "event": "ふるさとダービー決勝",
+                 "bet_type": "2車単", "winning_combination": "2-3",
+                 "payout_per_100yen": "1300", "winning_final_odds": "13",
+                 "winning_popularity_rank": "", "source_url": "https://keirin.jp/a",
+                 "notes": "同着"},
+                {"date": "2001-07-01", "venue": "函館", "event": "ふるさとダービー決勝",
+                 "bet_type": "2車単", "winning_combination": "3-2",
+                 "payout_per_100yen": "3430", "winning_final_odds": "34.3",
+                 "winning_popularity_rank": "", "source_url": "https://keirin.jp/a",
+                 "notes": "同着"},
+                {"date": "2001-12-30", "venue": "平塚", "event": "KEIRINグランプリ2001",
+                 "bet_type": "3連単", "winning_combination": "5-2-8",
+                 "payout_per_100yen": "85040", "winning_final_odds": "850.4",
+                 "winning_popularity_rank": "", "source_url": "https://keirin.jp/b",
+                 "notes": ""},
+            ]
+            source = data / "historical_2001_official_special_finals.csv"
+            write_rows(source, rows)
+            with patch.object(coverage, "DATA", data):
+                winners, result_sources = coverage.load_results()
+                self.assertEqual(len(winners), 0)
+                self.assertEqual(result_sources, [])
+                rows[2]["winning_final_odds"] = "850.5"
+                write_rows(source, rows)
+                with self.assertRaises(ValueError):
+                    coverage.load_results()
+                rows[2]["winning_final_odds"] = "850.4"
+                rows.append(dict(rows[2]))
+                write_rows(source, rows)
+                with self.assertRaises(ValueError):
+                    coverage.load_results()
+
     def test_malformed_trifecta_file_is_not_silently_skipped(self):
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp)
