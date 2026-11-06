@@ -1,7 +1,7 @@
 {
   "range_start": "2020-01-01",
-  "range_end": "2026-11-05",
-  "calendar_days": 2501,
+  "range_end": "2026-11-06",
+  "calendar_days": 2502,
   "dates_with_schedule_entries": 19,
   "schedule_venue_days": 144,
   "known_listed_races": 1409,
