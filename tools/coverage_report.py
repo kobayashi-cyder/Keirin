@@ -240,11 +240,31 @@ def report():
     top50_total = sum(ranks_complete(g, 50) for g in odds.values())
     top100_total = sum(ranks_complete(g, 100) for g in odds.values())
 
+    # Historic championship archive is sparse, source-linked and independent
+    # of the fully indexed date × venue × race 3連単 coverage denominator.
+    historic_rows = []
+    for archive in sorted(DATA.glob("historical_*_official_special_finals.csv")):
+        for item in records(archive):
+            historic_rows.append(item)
+    historic_exacta = sum(item["bet_type"] == "2車単" for item in historic_rows)
+    historic_trifecta = sum(item["bet_type"] == "3連単" for item in historic_rows)
+    historic_events = len({
+        (item["date"], item["venue"], item["event"])
+        for item in historic_rows
+    })
+
     stats = {
         "range_start": str(START), "range_end": str(today),
         "calendar_days": len(date_rows),
         "dates_with_schedule_entries": len({d for d, _ in schedule}),
         "schedule_venue_days": len(schedule),
+        "historical_special_final_payout_rows": len(historic_rows),
+        "historical_special_final_exacta_rows": historic_exacta,
+        "historical_special_final_trifecta_rows": historic_trifecta,
+        "historical_special_final_events": historic_events,
+        "historical_special_final_source_files": sorted({
+            p.name for p in DATA.glob("historical_*_official_special_finals.csv")
+        }),
         "known_listed_races": known_listed_races,
         "known_result_races": known_results,
         "known_cancelled_races": known_cancelled,
@@ -279,6 +299,8 @@ def report():
         f"対象期間：{START}〜{today}（{len(date_rows):,}暦日）",
         "",
         f"- 確定結果：**{result_total}レース**（払戻行 {stats['all_winning_payout_rows']}件。同着は複数行）",
+        (f"- 2000年以降の公式特別競輪決勝アーカイブ（別計数）：**{historic_events}開催・"
+         f"{len(historic_rows)}払戻行**（2車単{historic_exacta}件／3連単{historic_trifecta}件）"),
         f"- 個別3連単オッズ：**{points}点 / {odds_race_total}レース**",
         f"- Top50完了：**{top50_total}レース** / Top100完了：**{top100_total}レース**",
         f"- 開催会場日を列挙済み：**{len(schedule)}会場日・{len(known_dates)}日分**",
@@ -309,7 +331,8 @@ def report():
     (ROOT / "reports" / "coverage.md").write_text("\n".join(lines), encoding="utf-8")
     print(json.dumps({k: stats[k] for k in (
         "calendar_days", "schedule_venue_days", "known_missing_result_races",
-        "all_result_races", "individual_odds_points", "top50_races", "top100_races"
+        "all_result_races", "historical_special_final_payout_rows",
+        "individual_odds_points", "top50_races", "top100_races"
     )}, ensure_ascii=False))
 
 
