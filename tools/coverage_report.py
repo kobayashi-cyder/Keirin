@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-START = dt.date(2020, 1, 1)
+START = dt.date(2000, 1, 1)
 
 
 def records(path):
@@ -40,6 +40,14 @@ def load_results():
         rows = records(path)
         if not rows or "winning_combination" not in rows[0]:
             continue
+        fields = set(rows[0])
+        required = {"race_id", "winning_combination", "payout_per_100yen", "winning_final_odds"}
+        if not required <= fields:
+            # Pre-2001 two-car exacta archives are not 3rentan results.
+            if ({"date", "venue", "event", "bet_type", "source_url"} <= fields
+                    and all(r.get("bet_type") == "2車単" for r in rows)):
+                continue
+            raise ValueError(f"Malformed results CSV schema: {path.name}")
         source_files.add(path.name)
         for row in rows:
             rid, combo = row["race_id"], row["winning_combination"]
