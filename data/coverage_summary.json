@@ -4,10 +4,10 @@
   "calendar_days": 9808,
   "dates_with_schedule_entries": 19,
   "schedule_venue_days": 144,
-  "historical_special_final_payout_rows": 90,
+  "historical_special_final_payout_rows": 104,
   "historical_special_final_exacta_rows": 33,
-  "historical_special_final_trifecta_rows": 57,
-  "historical_special_final_events": 87,
+  "historical_special_final_trifecta_rows": 71,
+  "historical_special_final_events": 101,
   "historical_special_final_source_files": [
     "historical_2000_official_special_finals.csv",
     "historical_2001_official_special_finals.csv",
@@ -15,7 +15,8 @@
     "historical_2003_official_special_finals.csv",
     "historical_2004_official_special_finals.csv",
     "historical_2005_official_special_finals.csv",
-    "historical_2006_official_special_finals.csv"
+    "historical_2006_official_special_finals.csv",
+    "historical_2007_official_special_finals.csv"
   ],
   "known_listed_races": 1409,
   "known_result_races": 1364,
