@@ -53,6 +53,8 @@ def read_robots(url, user_agent=USER_AGENT):
         with urlopen(request, timeout=10) as response:
             if response.status != 200 or urlsplit(response.geturl()).hostname != host:
                 raise StopMonitoring("robots policy could not be verified")
+            if "html" in response.headers.get("Content-Type", "").lower():
+                raise StopMonitoring("robots URL did not return a robots policy")
             data = response.read(256_001)
             if len(data) > 256_000:
                 raise StopMonitoring("robots file unexpectedly large")
@@ -184,6 +186,9 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                     if status != 200 or urlsplit(page.url).hostname != host:
                         raise StopMonitoring(f"HTTP {status} or redirect: stop")
                     visible = page.locator("body").inner_text(timeout=8000)
+                    ensure_not_closed(deadline)
+                    if "確定オッズ" in visible:
+                        raise StopMonitoring("Final odds already shown; no more pre-close monitoring")
                     if any(flag in visible for flag in ("CAPTCHA", "captcha", "ロボット認証")):
                         raise StopMonitoring("Access challenge; stop without attempting bypass")
                     snapshot = parse_ranked_odds(visible, cars)
@@ -191,6 +196,8 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         print(f"[{index+1}/{cycles}] NOT_PARSED: {snapshot.get('detail','layout change')}", flush=True)
                         # Page layout changed or required markets missing.
                         raise StopMonitoring("Layout unknown; stop instead of inventing prices")
+                    # Never log an odds observation after the declared closing time.
+                    ensure_not_closed(deadline)
                     timestamp = datetime.now(JST).isoformat()
                     record = {
                         "source_url": url, "observed_at_jst": timestamp,
