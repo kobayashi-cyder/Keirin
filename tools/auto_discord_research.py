@@ -9,7 +9,6 @@ Never send on stale/expired/partial or malformed odds records.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -23,7 +22,6 @@ from discord_openai_status import (
     compose_message, load_local_env, openai_note, send_discord, status_message,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = Path("local_data/discord_research_notified.json")
 EXPECTED_MARKETS = {
     7: {"3rentan", "3renpuku", "2shatan", "2shafuku", "wide"},
@@ -107,7 +105,9 @@ def inspect_record(record, *, now=None):
 
 def deliver_once(file, state, *, now=None, send=False,
                  use_openai=False, model=None, poster=send_discord,
-                 note_generator=openai_note):
+                 note_generator=None):
+    if note_generator is None:
+        note_generator = openai_note
     """At most one notice per race. Dedup persists only after HTTP success.
 
     For a failed Discord POST the state remains unchanged so an operator can
@@ -138,9 +138,15 @@ def deliver_once(file, state, *, now=None, send=False,
 
 
 def run_scan(directory, state_path, *, send=False, use_openai=False,
-             model=None, now=None, poster=send_discord,
-             note_generator=openai_note):
+             model=None, now=None, poster=None,
+             note_generator=None, suppress_failed=None):
     directory, state_path = safe_path(directory), safe_path(state_path)
+    if poster is None:
+        poster = send_discord
+    if note_generator is None:
+        note_generator = openai_note
+    if suppress_failed is None:
+        suppress_failed = set()
     if not directory.is_dir():
         return {"status": "NO_SNAPSHOT_DIRECTORY", "checked": 0, "sent": 0}
     state = read_state(state_path)
@@ -149,6 +155,12 @@ def run_scan(directory, state_path, *, send=False, use_openai=False,
     # Limit one scan to 100 distinct race files to prevent backlog or spam.
     files = sorted(directory.glob("*.jsonl"))[:100]
     for path in files:
+        if path.name in suppress_failed:
+            counts["SUPPRESSED_FAILED_THIS_RUN"] = counts.get("SUPPRESSED_FAILED_THIS_RUN", 0) + 1
+            continue
+        if sent >= 3:
+            counts["MAX_POSTS_PER_SCAN"] = counts.get("MAX_POSTS_PER_SCAN", 0) + 1
+            break
         try:
             result = deliver_once(path, state, now=now, send=send,
                                   use_openai=use_openai, model=model,
@@ -157,6 +169,8 @@ def run_scan(directory, state_path, *, send=False, use_openai=False,
             # No secrets, URLs, odds, participant details, or raw HTML in logs.
             result = "INVALID_SNAPSHOT"
         counts[result] = counts.get(result, 0) + 1
+        if result.startswith(("OPENAI_", "DISCORD_")):
+            suppress_failed.add(path.name)
         if result == "SENT":
             sent += 1
             save_state(state, state_path)
@@ -184,10 +198,12 @@ def main():
         parser.error("cycles 1-720 and interval >=30 seconds are required")
     try:
         print("LOCAL_ENV:", load_local_env())
+        failed_this_run = set()
         for cycle in range(args.cycles):
             outcome = run_scan(
                 args.snapshots, args.state, send=args.send,
-                use_openai=args.use_openai, model=args.model
+                use_openai=args.use_openai, model=args.model,
+                suppress_failed=failed_this_run
             )
             # Counts only, not odds or API errors containing private data.
             print(json.dumps({"cycle": cycle+1, **outcome}, ensure_ascii=False),
