@@ -27,7 +27,7 @@ RANK_ROW = re.compile(
     # HTML text extraction may separate rank and combo with a pipe/table cell.
     # Anchor to a single row: do not join unrelated parts of the page.
     r"(?m)^[ \t]*(\d{1,3})[ \t|]+([1-9](?:[-=][1-9]){1,2})[ \t|]+"
-    r"(\d{1,5}(?:\.\d{1,2})?)(?:[ \t]*[-〜~][ \t]*(\d{1,5}(?:\.\d{1,2})?))?[ \t]*$"
+    r"(\d{1,5}(?:\.\d{1,2})?)(?:[ \t]*[-〜～~][ \t]*(\d{1,5}(?:\.\d{1,2})?))?[ \t]*$"
 )
 POPULARITY = re.compile(r"(?m)^[ \t]*(?:[*•][ \t]*)?人気順[ \t]*$")
 TERMINATORS = ("高配当順", "人気順", "払戻金", "レース結果")
