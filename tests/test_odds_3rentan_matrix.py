@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from odds_3rentan_matrix import recover_three_rentan_matrix
+from odds_3rentan_matrix import recover_three_rentan_matrix, diagnose_three_rentan_structure
 
 
 def fixture(cars=7, *, missing_leader=None, sabotage=None):
@@ -91,6 +91,18 @@ class MatrixTests(unittest.TestCase):
         )
         self.assertIsNone(result)
         self.assertEqual(reason, "missing_or_conflicting_matrix_for_leader_1")
+
+    def test_diagnostics_are_price_free_and_report_matrix_shapes(self):
+        html, _ = fixture(7)
+        fingerprint = diagnose_three_rentan_structure(html, 7)
+        self.assertGreaterEqual(fingerprint["possible_odds_tables"], 7)
+        self.assertEqual(fingerprint["examples"][0]["rows"], 7)
+        self.assertEqual(fingerprint["examples"][0]["row_widths"][:2], [7, 8])
+        # Do not expose raw HTML, rider names, or exact odds values.
+        import json
+        printed = json.dumps(fingerprint)
+        self.assertNotIn("<table", printed)
+        self.assertNotIn("121.3", printed)
 
     def test_no_crosscheck_means_not_verified(self):
         html, _ = fixture(7)
