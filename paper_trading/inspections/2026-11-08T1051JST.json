@@ -1,0 +1,39 @@
+{
+  "schema": "keirin-public-preclose-inspection-v1",
+  "inspected_at_jst": "2026-11-08T10:51:55+09:00",
+  "status": "NO_ELIGIBLE_FORWARD_PAPER_BET",
+  "eligible_paper_bets": 0,
+  "objective": "Observe publicly retrievable racecards and bookmaker on-page odds update timestamps without user screenshots",
+  "sources": [
+    {
+      "url": "https://keirin.kdreams.jp/aomori/racedetail/1220261108010004/?pageType=odds",
+      "race": "aomori 4R",
+      "race_date": "2026-11-08",
+      "deadline_jst": "2026-11-08T09:47:00+09:00",
+      "extracted_odds_timestamp_jst": "2026-11-08T01:18:00+09:00",
+      "disposition": "REJECT_EXPIRED_AND_STALE"
+    },
+    {
+      "url": "https://keirin.kdreams.jp/kumamoto/racedetail/8720261106030006/?pageType=odds",
+      "race": "kumamoto 6R",
+      "race_date": "2026-11-08",
+      "extracted_odds_timestamp_jst": "2026-11-08T04:21:00+09:00",
+      "disposition": "REJECT_STALE_ODDS"
+    },
+    {
+      "url": "https://keirin.kdreams.jp/kumamoto/racedetail/8720261106030009/?pageType=odds",
+      "race": "kumamoto 9R",
+      "race_date": "2026-11-08",
+      "extracted_odds_timestamp_jst": "2026-11-08T04:21:00+09:00",
+      "disposition": "REJECT_STALE_ODDS"
+    }
+  ],
+  "model_validation_state": "NO_INDEPENDENTLY_VALIDATED_MODEL_AVAILABLE",
+  "notes": [
+    "Search result date is not the same as a live on-page odds update timestamp",
+    "No delayed snapshot was entered as forward decision",
+    "No betting funds were used",
+    "No raw odds copied to GitHub"
+  ],
+  "notification_eligible": false
+}
