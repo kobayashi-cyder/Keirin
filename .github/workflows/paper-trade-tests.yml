@@ -12,6 +12,9 @@ on:
       - 'tests/test_pre_race_readiness.py'
       - 'tools/pre_race_readiness.py'
       - 'tools/intake_pre_race.py'
+      - 'tools/import_provider_csv.py'
+      - 'tests/test_import_provider_csv.py'
+      - 'docs/PROVIDER_CSV_AUTO_INTAKE.md'
       - 'tests/test_intake_pre_race.py'
       - 'tests/test_train_baseline.py'
       - 'tests/test_browser_odds_watch.py'
@@ -78,6 +81,9 @@ on:
       - 'tests/test_predict_pre_race.py'
       - 'docs/FORWARD_MODEL_PREDICTION.md'
       - 'tools/intake_pre_race.py'
+      - 'tools/import_provider_csv.py'
+      - 'tests/test_import_provider_csv.py'
+      - 'docs/PROVIDER_CSV_AUTO_INTAKE.md'
       - 'tests/test_intake_pre_race.py'
       - 'tools/pre_race_readiness.py'
       - 'tests/test_pre_race_readiness.py'
@@ -124,5 +130,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_auto_discord_research.py' -v
       - name: Forward-only trained pre-race model inference tests
         run: python -m unittest discover -s tests -p 'test_predict_pre_race.py' -v
+      - name: Licensed provider CSV alias normalization and prereace gate tests
+        run: python -m unittest discover -s tests -p 'test_import_provider_csv.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
