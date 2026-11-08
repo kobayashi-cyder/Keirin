@@ -270,6 +270,48 @@ class DiscordOpenAITests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "duplicate OPENAI_API_KEY"):
                 mod.load_local_env(missing)
 
+    def test_429_quota_and_rate_code_are_safely_distinguished(self):
+        from urllib.error import HTTPError
+        for error_code in ("credit_balance_exhausted",
+                           "project_spend_limit_exceeded",
+                           "rate_limit_exceeded"):
+            body = json.dumps({"error": {
+                "message": "private information from error body",
+                "code": error_code,
+                "type": "insufficient_quota"
+            }}).encode("utf-8")
+            err = HTTPError("https://api.openai.com/v1/responses",
+                            429, "Too Many Requests", {}, io.BytesIO(body))
+            status = mod.openai_error_status(err)
+            self.assertEqual(status, "HTTP_429_" + error_code)
+            self.assertNotIn("private information", status)
+
+    def test_429_malicious_error_body_never_leaks_to_output(self):
+        from urllib.error import HTTPError
+        body = json.dumps({"error": {
+            "code": "private_api_key_sk_DO_NOT_LEAK",
+            "type": "private_api_key_sk_DO_NOT_LEAK",
+            "message": "private_api_key_sk_DO_NOT_LEAK",
+        }}).encode("utf-8")
+        err = HTTPError("https://api.openai.com/v1/responses",
+                        429, "Too Many Requests", {}, io.BytesIO(body))
+        self.assertEqual(mod.openai_error_status(err), "HTTP_429")
+
+    def test_openai_failure_does_not_post_discord(self):
+        stdout = io.StringIO()
+        with (patch.object(sys, "argv",
+                           ["tool", "--test", "--use-openai", "--send"]),
+              patch("discord_openai_status.load_local_env", return_value="NOT_FOUND"),
+              patch("discord_openai_status.openai_note",
+                    return_value=(None, "HTTP_429_credit_balance_exhausted")),
+              patch("discord_openai_status.send_discord") as discord,
+              patch("sys.stdout", stdout)):
+            result = mod.main()
+        discord.assert_not_called()
+        self.assertEqual(result, 2)
+        self.assertIn("OPENAI_RESULT: HTTP_429_credit_balance_exhausted", stdout.getvalue())
+        self.assertIn("DISCORD_RESULT: SKIPPED_OPENAI_FAILED", stdout.getvalue())
+
     def test_default_cli_dry_run_no_external_calls(self):
         buf = io.StringIO()
         with (patch.object(sys, "argv", ["tool", "--test"]),
