@@ -12,6 +12,28 @@
 
 Python 3.11以上。外部pipパッケージの追加は不要です。コードの既定モデルは **`gpt-4o`**。GPT-4oでは互換性のない `reasoning` 引数を送信しません。Lunaを明示指定したときだけ `reasoning.effort=none` を追加します。
 
+## ローカル .env ファイル（Windows）
+
+`Keirin-main` フォルダ直下に `.env` を作成します（`tools` フォルダではありません）。
+
+```dotenv
+OPENAI_API_KEY=sk-ここに自身のAPIキー
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/番号/トークン
+OPENAI_MODEL=gpt-4o
+```
+
+これは**書式例**です。値は自分の秘密情報に置き換え、チャットやGitHubに貼り付けないでください。`OPENAI_MODEL` は省略可能です。
+
+最新の `discord_openai_status.py` は、開始時にこの `.env` を自動読み込みします。外部パッケージの追加や `set` コマンドは不要です。古いWindows環境変数と衝突した場合、このローカル `.env` が優先されます。
+
+```cmd
+py -3 tools\discord_openai_status.py --list-models
+```
+
+`LOCAL_ENV: LOADED` と表示されればファイルを検出しました。これは**内容が本物のAPIキーである証明ではありません**。`MODEL_ACCESS_CHECK: OK` が認証成功です。`LOCAL_ENV: NOT_FOUND` の場合はファイルの場所と `.env.txt` になっていないかを確認してください。**ファイルの中身をターミナルへ表示しないでください。**
+
+`.gitignore` で `.env` は除外されています。ただしGit管理外でも秘密情報なので、共有、同期、バックアップやスクリーンショットに注意してください。GitHub Actionsに配置したい場合は `.env` のアップロードではなく、GitHub Secretsを利用します。
+
 ## このAPIキーで利用できるモデルを確認（最優先）
 
 ```
