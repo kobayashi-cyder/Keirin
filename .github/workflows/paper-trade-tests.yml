@@ -19,6 +19,9 @@ on:
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
       - 'tools/odds_to_shadow.py'
+      - 'tools/discord_openai_status.py'
+      - 'tests/test_discord_openai_status.py'
+      - 'docs/DISCORD_OPENAI_GPT6_LUNA.md'
       - 'tests/test_odds_to_shadow.py'
       - 'docs/ODDS_TO_SHADOW_RESEARCH.md'
       - 'tools/odds_3rentan_matrix.py'
@@ -43,6 +46,9 @@ on:
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
       - 'tools/odds_to_shadow.py'
+      - 'tools/discord_openai_status.py'
+      - 'tests/test_discord_openai_status.py'
+      - 'docs/DISCORD_OPENAI_GPT6_LUNA.md'
       - 'tests/test_odds_to_shadow.py'
       - 'docs/ODDS_TO_SHADOW_RESEARCH.md'
       - 'tools/odds_3rentan_matrix.py'
@@ -96,5 +102,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_odds_3rentan_matrix.py' -v
       - name: Real-shape captured odds to research-only shadow report tests
         run: python -m unittest discover -s tests -p 'test_odds_to_shadow.py' -v
+      - name: GPT-6 Luna and Discord webhook privacy and dry-run tests
+        run: python -m unittest discover -s tests -p 'test_discord_openai_status.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
