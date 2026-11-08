@@ -2,16 +2,16 @@
 
 ## What this code actually does
 
-- Uses a fresh Chromium browser via Playwright to read a single PUBLIC race-detail odds page, only when the user confirms **the operator has permitted the specific automated collection frequency and use**.
+- Uses a fresh Chromium browser via Playwright to read a single PUBLIC race-detail odds page, after **the user acknowledges the published terms and accepts responsibility for their own use**. This does NOT confirm operator permission.
 - Before opening the page, checks the site's `robots.txt`. A disallow, block, unclear robots response or site challenge stops the program. robots.txt allowance is **not** a license.
 - One race page **globally** every at least 10 seconds, or a longer robots `Crawl-delay` if specified. Not 10 seconds per race; do not run multiple instances against the same site.
 - Stops on 401/403/429/5xx, redirect off site, unknown page format, CAPTCHA or the declared race deadline. Does not bypass authentication or rotate IPs.
 - Parses ONLY explicitly visible ranked odds for the configured 7-, 8- or 9-car market order; saves **a small JSONL record of numerical facts** locally if any quote changed. Partial markets remain `complete=false`. Does not save HTML, cookies or the entire page.
 - Does **not** calculate winning probabilities or issue 130% investment recommendations. No OpenAI API, Discord API or real bet interface is contacted.
 
-**Important:** Kdreams explicitly restricts unauthorised copying and reproduction at https://keirin.kdreams.jp/info/sitepolicy/. The operator has **not** granted the Keirin project collection permission that we have independently verified. You must verify the usage conditions and obtain any necessary permission before supplying `--permission-confirmed`. The fact that you can open the website in a browser or that the page contains odds does not grant this permission.
+**Important:** Kdreams restricts unauthorized copying and reuse in its terms: https://keirin.kdreams.jp/info/sitepolicy/ . No operator license has been verified for this project. User assumption of responsibility is not a grant of permission and does not guarantee the activity is contractually or legally permitted. The launcher now asks for `I_AGREE` as a **user risk acknowledgment only**. There is no false `permission confirmed` claim. The program retains robots.txt restrictions, a minimum 10-second interval per site, single-race scope, and stops on blocks or challenges. If robots or site policy disallow access, do not circumvent them.
 
-This implementation is provided for permissioned/authorized testing. With the existing evidence, do not run 10-second automated requests to Kdreams yet. If the operator does not permit it, the appropriate alternative is an authorized feed/API.
+The live Kdreams page parser still needs verification. If it stops with `UNRECOGNISED_LAYOUT`, the program has not proved that it can extract all seven markets correctly. This change does not enable predictions or Discord notifications.
 
 ## Windows setup
 
@@ -34,15 +34,15 @@ py -3 -m unittest discover -s tests -p "test_browser_odds_watch.py" -v
 
 These tests use synthetic rendered text and never open a browser. They check both 7-car and 9-car market list parsing and 10-second minimum interval.
 
-## Example of running after permission is confirmed
+## Example of user-acknowledged local research monitoring
 
 Choose an **upcoming** race and read its actual voting deadline, e.g. 20:20 JST. Do not use the historical 熊本 URL from 2026-11-08 once that race has closed.
 
 ```cmd
-py -3 tools\browser_odds_watch.py --url "https://keirin.kdreams.jp/PLACE/racedetail/REAL_ID/?pageType=odds" --deadline-jst "2026-11-08T20:20:00+09:00" --cars 7 --interval 10 --cycles 60 --permission-confirmed
+py -3 tools\browser_odds_watch.py --url "https://keirin.kdreams.jp/PLACE/racedetail/REAL_ID/?pageType=odds" --deadline-jst "2026-11-08T20:20:00+09:00" --cars 7 --interval 10 --cycles 60 --acknowledge-terms-and-risks
 ```
 
-The example URL and deadline are placeholders; use the actual page and later deadline if authorised.
+The example URL and deadline are placeholders; use an actual upcoming race and real deadline. Operator consent remains unverified.
 
 The command reads **no more than 60 pages**, spaced at least 10 seconds apart, then stops. It does not run as a background service. The actual time between page loads may be longer, including site response delays or robots `Crawl-delay`.
 
