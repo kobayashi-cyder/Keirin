@@ -33,7 +33,7 @@ jobs:
       - name: Create ChatGPT-readable alert feed; API writes commentary only
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-6-luna' }}
         run: python paper_trading/api_bridge.py --root paper_trading
       - name: Commit accepted tickets, score and read-only notifications
         shell: bash

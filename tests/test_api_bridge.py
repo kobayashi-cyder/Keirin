@@ -89,6 +89,24 @@ class ApiBridgeTests(unittest.TestCase):
         self.assertIsNone(note)
         self.assertEqual(flag,'api_rejected')
 
+    def test_default_openai_model_is_gpt6_luna(self):
+        record = self.entry()
+        captured = []
+        sample = {'status': 'completed', 'output': [
+            {'type': 'message', 'content': [
+                {'type': 'output_text', 'text': '接続状態を確認しました。'}
+            ]}
+        ]}
+        def fake_client(request, key):
+            captured.append(request)
+            return sample
+        with patch.dict(os.environ, {'OPENAI_API_KEY': 'fake_test_key'}, clear=True):
+            note, status = mod.api_note(record, http_client=fake_client)
+        self.assertEqual(status, 'api_ok')
+        self.assertEqual(captured[0]['model'], 'gpt-6-luna')
+        self.assertEqual(captured[0]['reasoning'], {'effort': 'none'})
+        self.assertFalse(captured[0]['store'])
+
     def test_hash_tampering_detected(self):
         self.entry()
         p=self.root/'journal.jsonl'
