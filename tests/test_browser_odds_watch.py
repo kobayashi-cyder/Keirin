@@ -119,7 +119,7 @@ class OddsParserTests(unittest.TestCase):
         self.assertIsNone(result["crawl_delay"])
 
     def test_real_disallow_enforced_even_with_html_content_type(self):
-        robots = b"User-agent: *\\nDisallow: /yokkaichi/\\n"
+        robots = b"User-agent: *\nDisallow: /yokkaichi/\n"
         with self.assertRaisesRegex(StopMonitoring, "disallows"):
             classify_robots_body(
                 robots, "text/html",
@@ -128,7 +128,7 @@ class OddsParserTests(unittest.TestCase):
                 "KeirinResearchMonitor/0.2")
 
     def test_real_crawl_delay_honoured(self):
-        robots = b"User-agent: *\\nCrawl-delay: 25\\nAllow: /\\n"
+        robots = b"User-agent: *\nCrawl-delay: 25\nAllow: /\n"
         result = classify_robots_body(
             robots, "text/plain",
             "https://keirin.kdreams.jp/robots.txt",
