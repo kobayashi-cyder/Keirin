@@ -35,6 +35,10 @@ on:
   pull_request:
     paths:
       - 'paper_trading/all_markets.py'
+      - 'paper_trading/api_bridge.py'
+      - 'tests/test_api_bridge.py'
+      - 'paper_trading/API_SETUP.md'
+      - '.github/workflows/paper-trade-ledger.yml'
       - 'tests/test_all_markets.py'
       - 'docs/ALL_MARKETS_ENGINE.md'
       - 'docs/PRE_RACE_MODEL_DATA.md'
