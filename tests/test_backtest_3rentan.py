@@ -60,7 +60,7 @@ def settled_result(*, winner="1-2-3", payout="8000",
         "race_id": "20261108_matsuyama_01",
         "date": "2026-11-08", "bet_type": "3rentan",
         "winning_combination": winner, "payout_per_100yen": payout,
-        "winning_final_odds": str(int(payout)/100),
+        "winning_final_odds": str(int(payout)/100) if payout else "",
         "result_type": result_type,
         "source_urls": SOURCE if matching_source else "https://unmatched.example.com/",
     }
