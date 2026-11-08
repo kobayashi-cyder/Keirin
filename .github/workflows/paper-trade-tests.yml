@@ -18,6 +18,8 @@ on:
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
+      - 'tools/odds_3rentan_matrix.py'
+      - 'tests/test_odds_3rentan_matrix.py'
       - 'tests/test_audit_odds_snapshot.py'
       - 'docs/ODDS_SNAPSHOT_QUALITY.md'
       - 'tools/odds_rank_parser.py'
@@ -37,6 +39,8 @@ on:
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
+      - 'tools/odds_3rentan_matrix.py'
+      - 'tests/test_odds_3rentan_matrix.py'
       - 'tests/test_audit_odds_snapshot.py'
       - 'docs/ODDS_SNAPSHOT_QUALITY.md'
       - 'tools/odds_rank_parser.py'
@@ -82,5 +86,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_odds_html_parser.py' -v
       - name: Local snapshot quality and timestamp audit tests
         run: python -m unittest discover -s tests -p 'test_audit_odds_snapshot.py' -v
+      - name: Full 3rentan HTML matrix recovery and ranked crosscheck tests
+        run: python -m unittest discover -s tests -p 'test_odds_3rentan_matrix.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
