@@ -9,12 +9,17 @@ on:
       - 'tests/test_api_bridge.py'
       - 'tests/test_paper_pipeline.py'
       - 'tests/test_all_markets.py'
+      - 'tests/test_pre_race_readiness.py'
+      - 'tools/pre_race_readiness.py'
       - '.github/workflows/paper-trade-tests.yml'
   pull_request:
     paths:
       - 'paper_trading/all_markets.py'
       - 'tests/test_all_markets.py'
       - 'docs/ALL_MARKETS_ENGINE.md'
+      - 'docs/PRE_RACE_MODEL_DATA.md'
+      - 'tools/pre_race_readiness.py'
+      - 'tests/test_pre_race_readiness.py'
       - '.github/workflows/paper-trade-tests.yml'
   workflow_dispatch:
 permissions:
@@ -36,5 +41,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_snapshot_ingest.py' -v
       - name: Seven-market probability projection tests
         run: python -m unittest discover -s tests -p 'test_all_markets.py' -v
+      - name: Pre-race data readiness and no-leakage tests
+        run: python -m unittest discover -s tests -p 'test_pre_race_readiness.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
