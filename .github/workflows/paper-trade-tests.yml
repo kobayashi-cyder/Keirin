@@ -13,6 +13,8 @@ on:
       - 'tools/pre_race_readiness.py'
       - 'tools/intake_pre_race.py'
       - 'tests/test_intake_pre_race.py'
+      - 'tests/test_train_baseline.py'
+      - 'tools/train_baseline.py'
       - '.github/workflows/paper-trade-tests.yml'
   pull_request:
     paths:
@@ -21,6 +23,9 @@ on:
       - 'docs/ALL_MARKETS_ENGINE.md'
       - 'docs/PRE_RACE_MODEL_DATA.md'
       - 'docs/PRE_RACE_INTAKE.md'
+      - 'docs/DATA_PROVIDER_PLAN_20261108.md'
+      - 'tests/test_train_baseline.py'
+      - 'tools/train_baseline.py'
       - 'tools/intake_pre_race.py'
       - 'tests/test_intake_pre_race.py'
       - 'tools/pre_race_readiness.py'
@@ -50,5 +55,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_pre_race_readiness.py' -v
       - name: Permissioned pre-race CSV intake tests
         run: python -m unittest discover -s tests -p 'test_intake_pre_race.py' -v
+      - name: Chronological top-three ranker research tests
+        run: python -m unittest discover -s tests -p 'test_train_baseline.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
