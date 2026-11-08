@@ -34,6 +34,9 @@ on:
       - 'tools/odds_rank_parser.py'
       - 'tools/browser_odds_watch.py'
       - 'tools/train_baseline.py'
+      - 'tools/predict_pre_race.py'
+      - 'tests/test_predict_pre_race.py'
+      - 'docs/FORWARD_MODEL_PREDICTION.md'
       - '.github/workflows/paper-trade-tests.yml'
   pull_request:
     paths:
@@ -71,6 +74,9 @@ on:
       - 'setup_browser_monitor.bat'
       - 'tests/test_train_baseline.py'
       - 'tools/train_baseline.py'
+      - 'tools/predict_pre_race.py'
+      - 'tests/test_predict_pre_race.py'
+      - 'docs/FORWARD_MODEL_PREDICTION.md'
       - 'tools/intake_pre_race.py'
       - 'tests/test_intake_pre_race.py'
       - 'tools/pre_race_readiness.py'
@@ -116,5 +122,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_discord_openai_status.py' -v
       - name: Deduplicated local research notices offline tests
         run: python -m unittest discover -s tests -p 'test_auto_discord_research.py' -v
+      - name: Forward-only trained pre-race model inference tests
+        run: python -m unittest discover -s tests -p 'test_predict_pre_race.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
