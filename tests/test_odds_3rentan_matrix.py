@@ -38,6 +38,35 @@ def fixture(cars=7, *, missing_leader=None, sabotage=None):
     return html, combos
 
 
+def fragmented_html(cars=7, *, missing=None, duplicate=False):
+    """Mimic the real 23-cell page rows with rider metadata and odds cells."""
+    combos = {}
+    tables = []
+    for first in range(1, cars + 1):
+        if first == missing:
+            continue
+        others = [k for k in range(1, cars + 1) if k != first]
+        rows = ["<tr>" + "<th>Rider</th>" * (cars + 3) + "</tr>"]
+        for third in others:
+            prefix = (f"<td>Third rider {third} / Line</td>"
+                      "<td></td><td>label</td><td>name</td><td>area</td>"
+                      "<td>class</td><td>meta</td><td>marker</td>")
+            prices = []
+            for second in others:
+                if third == second:
+                    continue
+                odd = round(100 + first * 20 + second + third * .1, 1)
+                combos[f"{first}-{second}-{third}"] = odd
+                prices.append(f"<td><span>{odd:.1f}</span></td>")
+            suffix = "<td>meta</td>" * 10
+            rows.append("<tr>" + prefix + "".join(prices) + suffix + "</tr>")
+        table = "<table class='odd-grid'>" + "".join(rows) + "</table>"
+        tables.append(table)
+        if duplicate:
+            tables.append(table)
+    return "<html><body>" + "".join(tables) + "</body></html>", combos
+
+
 class MatrixTests(unittest.TestCase):
     def test_complete_seven_cars_with_ranked_crosscheck(self):
         html, prices = fixture(7)
@@ -103,6 +132,46 @@ class MatrixTests(unittest.TestCase):
         printed = json.dumps(fingerprint)
         self.assertNotIn("<table", printed)
         self.assertNotIn("121.3", printed)
+
+    def test_fragmented_realistic_mixed_cell_grid_seven_cars(self):
+        html, quotes = fragmented_html(7)
+        recovered, reason = recover_three_rentan_matrix(
+            html, 7, dict(list(quotes.items())[:50])
+        )
+        self.assertEqual(reason, "crosschecked_full_matrix_from_fragmented_tables")
+        self.assertEqual(recovered, quotes)
+        self.assertEqual(len(recovered), 210)
+
+    def test_fragmented_nested_duplicate_grids_are_deduped(self):
+        html, quotes = fragmented_html(7, duplicate=True)
+        recovered, reason = recover_three_rentan_matrix(
+            html, 7, dict(list(quotes.items())[:50])
+        )
+        self.assertEqual(reason, "crosschecked_full_matrix_from_fragmented_tables")
+        self.assertEqual(recovered, quotes)
+
+    def test_fragmented_nine_cars_and_missing_leader_fail_closed(self):
+        html, quotes = fragmented_html(9)
+        recovered, reason = recover_three_rentan_matrix(
+            html, 9, dict(list(quotes.items())[:50])
+        )
+        self.assertEqual(reason, "crosschecked_full_matrix_from_fragmented_tables")
+        self.assertEqual(len(recovered), 504)
+
+        missing_html, missing_quotes = fragmented_html(7, missing=1)
+        result, status = recover_three_rentan_matrix(
+            missing_html, 7, dict(list(missing_quotes.items())[:50])
+        )
+        self.assertIsNone(result)
+        self.assertIn("found_6_need_7", status)
+
+    def test_fragmented_ranked_disagreement_is_refused(self):
+        html, quotes = fragmented_html(7)
+        sample = dict(list(quotes.items())[:50])
+        sample["1-2-3"] += 1.0
+        result, reason = recover_three_rentan_matrix(html, 7, sample)
+        self.assertIsNone(result)
+        self.assertIn("unique_solutions_0", reason)
 
     def test_no_crosscheck_means_not_verified(self):
         html, _ = fixture(7)
