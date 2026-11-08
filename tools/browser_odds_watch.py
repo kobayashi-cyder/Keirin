@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Single-page, 10-second *maximum frequency* public browser odds monitor.
 
-Explicit authorization is required because a web page being viewable does not
-grant reuse or automated access permission. Honors robots and throttling.
+Local research opt-in is required; acknowledgment does not establish legal
+permission. The operator's terms still apply. Honors robots and throttling.
 The watcher never posts picks, submits wagers, or invokes model/API/Discord.
 No captcha/authentication bypass, proxy rotation, or hidden endpoint calls.
 """
@@ -26,7 +26,7 @@ from zoneinfo import ZoneInfo
 from odds_rank_parser import parse_ranked_odds
 
 JST = ZoneInfo("Asia/Tokyo")
-USER_AGENT = "KeirinResearchMonitor/0.1 (permission-required; single-page)"
+USER_AGENT = "KeirinResearchMonitor/0.2 (user-acknowledged; single-page)"
 SAFE_HOSTS = {"keirin.kdreams.jp"}
 MIN_INTERVAL_SECONDS = 10.0
 
@@ -126,16 +126,17 @@ def record_if_changed(path, record, previous_digest):
 
 
 def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
-            confirmed_permission=False, robots_checker=read_robots):
+            risk_acknowledged=False, robots_checker=read_robots):
     """Poll a single browser page. Rate is global, never '10 seconds per market'.
 
-    Caller must have obtained authorization for this specific use and rate.
-    The site may forbid it despite a robots allow rule; this code does not
-    decide licensing. Fail closed on policy or access errors.
+    The user must acknowledge the published terms and assume responsibility.
+    This does not claim operator permission. A robots allow rule is also not
+    permission; the operator may restrict automated collection. Fail closed
+    on site access restrictions and parser errors.
     """
     host = validate_target(url)
-    if not confirmed_permission:
-        raise StopMonitoring("Kdreams content-use permission is not confirmed. Monitoring disabled.")
+    if not risk_acknowledged:
+        raise StopMonitoring("You must acknowledge site terms/risks before local monitoring.")
     if not 1 <= cycles <= 720:
         raise StopMonitoring("cycles must be between 1 and 720")
     if cars not in (7, 8, 9):
@@ -204,7 +205,7 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         "deadline_at_jst": deadline.isoformat(),
                         "cars": cars, "markets": snapshot["markets"],
                         "page_displayed_times_jst": snapshot["page_displayed_times_jst"],
-                        "authorization": "operator_confirmed_use_and_polling",
+                        "consent_basis": "user_acknowledged_terms_and_risks_not_operator_approval",
                         "quality": "unverified_page_parser",
                     }
                     previous_digest, changed = record_if_changed(
@@ -231,14 +232,14 @@ def main():
     ap.add_argument("--interval", type=float, default=10)
     ap.add_argument("--cycles", type=int, default=60, help="max browser checks")
     ap.add_argument("--output", type=Path)
-    ap.add_argument("--permission-confirmed", action="store_true",
-                    help="confirm site operator permits your intended monitoring frequency and local use")
+    ap.add_argument("--acknowledge-terms-and-risks", action="store_true",
+                    help="acknowledge Kdreams use restrictions and responsibility; NOT operator permission")
     args = ap.parse_args()
     try:
         result = monitor(args.url, jst_timestamp(args.deadline_jst),
                          interval=args.interval, cars=args.cars,
                          cycles=args.cycles, output=args.output,
-                         confirmed_permission=args.permission_confirmed)
+                         risk_acknowledged=args.acknowledge_terms_and_risks)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
     except StopMonitoring as exc:
