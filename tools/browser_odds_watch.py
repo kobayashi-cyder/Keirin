@@ -77,8 +77,7 @@ def classify_robots_body(data, content_type, robots_url, target_url, user_agent)
     handled separately before this function is reached.
     """
     content = data.decode("utf-8", errors="replace").lstrip("\ufeff \t\r\n")
-    if (content[:256].lower().startswith(("<!doctype html", "<html", "<?xml")) or
-            "text/html" in content_type.lower()):
+    if content[:256].lower().startswith(("<!doctype html", "<html", "<?xml"):
         # There is no interpretable robots policy. This does not confer
         # authorization; the caller must separately acknowledge the terms.
         return {"robots": "not_robots_html", "crawl_delay": None}
