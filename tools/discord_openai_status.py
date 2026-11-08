@@ -185,6 +185,38 @@ def available_models(*, key=None, opener=None):
         return None, "NETWORK_OR_RESPONSE_ERROR"
 
 
+# Only short, known diagnostic codes are shown. Never echo API error
+# messages, URLs, tokens, request IDs, or original response bodies.
+SAFE_OPENAI_ERRORS = {
+    "credit_balance_exhausted",
+    "organization_usage_limit_exceeded",
+    "organization_spend_limit_exceeded",
+    "project_spend_limit_exceeded",
+    "rate_limit_exceeded",
+    "insufficient_quota",
+}
+
+
+def openai_error_status(error):
+    code = "HTTP_" + str(error.code)
+    if error.code != 429:
+        return code
+    try:
+        # Error responses are generally JSON, but must not be trusted or
+        # written to disk. Limit bytes and only expose known classifications.
+        body = error.read(4096)
+        payload = json.loads(body)
+        obj = payload.get("error") if isinstance(payload, dict) else None
+        if isinstance(obj, dict):
+            for key in ("code", "type"):
+                detail = obj.get(key)
+                if isinstance(detail, str) and detail in SAFE_OPENAI_ERRORS:
+                    return code + "_" + detail
+    except (ValueError, TypeError, OSError, UnicodeError):
+        pass
+    return code
+
+
 def openai_note(kind, model=None, key=None, opener=None):
     """Return a brief nonnumeric Japanese note; LLM may never edit facts."""
     key = key or take_secret("OPENAI_API_KEY", "OpenAI APIキー（画面には表示されません）: ")
@@ -235,8 +267,7 @@ def openai_note(kind, model=None, key=None, opener=None):
             return None, "REJECTED_OUTPUT"
         return note, "OK"
     except HTTPError as error:
-        # Do not expose request URL, API key, or response body.
-        return None, "HTTP_" + str(error.code)
+        return None, openai_error_status(error)
     except (URLError, TimeoutError, OSError, ValueError, TypeError):
         return None, "NETWORK_OR_RESPONSE_ERROR"
 
@@ -323,15 +354,18 @@ def main():
         )
         message = compose_message(fixed, note)
         print("OPENAI_RESULT:", api_status)
+        if args.use_openai and api_status != "OK":
+            # Avoid reporting success on Discord when the OpenAI leg failed.
+            # Users can still test Discord alone with --test --send.
+            print("DISCORD_RESULT: SKIPPED_OPENAI_FAILED")
+            return 2
         if not args.send:
             print("DISCORD_RESULT: DRY_RUN (no message sent)")
             print(message)
             return 0
         result = send_discord(message)
         print("DISCORD_RESULT:", result)
-        # If OpenAI is requested but unavailable, the deterministic
-        # Discord test message still goes through, but exit code notes failure.
-        return 0 if result == "SENT" and api_status in ("OK", "NOT_REQUESTED") else 2
+        return 0 if result == "SENT" else 2
     except (ValueError, OSError, json.JSONDecodeError) as error:
         print("BRIDGE_REJECTED:", str(error), file=sys.stderr)
         return 2
