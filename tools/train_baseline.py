@@ -17,6 +17,7 @@ from datetime import datetime
 from pathlib import Path
 
 from pre_race_readiness import FEATURES, index_results, validate_race, time_with_zone
+from build_multiview_features import EXTRA_FEATURE_NAMES
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "paper_trading"))
@@ -27,7 +28,7 @@ MIN_DAYS = 30
 FEATURE_NAMES = tuple(FEATURES)
 
 
-def read_training_rows(features_path, results_path):
+def read_training_rows(features_path, results_path, *, feature_names=FEATURE_NAMES):
     """Join before-close snapshots with unambiguous result labels by race_id."""
     if not features_path.is_file() or not results_path.is_file():
         return [], {"missing_inputs": 1}
@@ -36,7 +37,7 @@ def read_training_rows(features_path, results_path):
     with features_path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         required = {"ingested_at_jst", "race_id", "car_no", "race_date",
-                    "deadline_at_jst", *FEATURE_NAMES}
+                    "deadline_at_jst", *feature_names}
         if not reader.fieldnames or not required <= set(reader.fieldnames):
             return [], {"invalid_or_missing_feature_columns": 1}
         for row in reader:
@@ -53,7 +54,10 @@ def read_training_rows(features_path, results_path):
             riders = {}
             for row in rows:
                 car = int(row["car_no"])
-                riders[car] = tuple(float(row[col]) for col in FEATURE_NAMES)
+                values = tuple(float(row[col]) for col in feature_names)
+                if any(not math.isfinite(v) for v in values):
+                    raise ValueError("nonfinite historical or video-derived features")
+                riders[car] = values
             out.append({"race_id": race_id, "date": day, "features": riders,
                         "top3": finish})
         except (ValueError, TypeError, KeyError, OverflowError) as exc:
@@ -77,8 +81,8 @@ def time_split(races):
 
 
 def fit_scaler(train):
-    dimensions = len(FEATURE_NAMES)
     vectors = [row for race in train for row in race["features"].values()]
+    dimensions = len(vectors[0])
     mean = [math.fsum(v[j] for v in vectors) / len(vectors)
             for j in range(dimensions)]
     scale = []
@@ -139,7 +143,7 @@ def fit_plackett_luce(train, *, iterations=160, step=0.045, l2=0.007):
     if not train:
         raise ValueError("cannot fit an empty training set")
     mean, scale = fit_scaler(train)
-    n_features = len(FEATURE_NAMES)
+    n_features = len(mean)
     weights = [0.0] * n_features
     m, v = [0.0] * n_features, [0.0] * n_features
     beta1, beta2 = .9, .999
@@ -166,7 +170,8 @@ def fit_temperature(val, model):
     ))
 
 
-def research_model(races, *, min_races=MIN_RACES, min_days=MIN_DAYS):
+def research_model(races, *, min_races=MIN_RACES, min_days=MIN_DAYS,
+                   feature_names=FEATURE_NAMES):
     """Strict data-volume gate, immutable time split, held-out evaluation."""
     unique_days = len({r["date"] for r in races})
     if len(races) < min_races or unique_days < min_days:
@@ -189,7 +194,7 @@ def research_model(races, *, min_races=MIN_RACES, min_days=MIN_DAYS):
         "model_verified": False,
         "alert_allowed": False,
         "model_type": "linear_plackett_luce_top3",
-        "features": FEATURE_NAMES,
+        "features": feature_names,
         "scaler_means": model["mean"],
         "scaler_scales": model["scale"],
         "weights": model["weights"],
@@ -237,9 +242,13 @@ def main():
                         default=Path("exports/results_3rentan.csv"))
     parser.add_argument("--output", type=Path,
                         default=Path("local_data/models/research_baseline.json"))
+    parser.add_argument("--multiview", action="store_true",
+                        help="train on 14 extra historical/video features in an audited multiview CSV")
     args = parser.parse_args()
-    races, reasons = read_training_rows(args.features, args.results)
-    result = research_model(races)
+    selected = FEATURE_NAMES + EXTRA_FEATURE_NAMES if args.multiview else FEATURE_NAMES
+    races, reasons = read_training_rows(args.features, args.results,
+                                         feature_names=selected)
+    result = research_model(races, feature_names=selected)
     result["excluded_reasons"] = reasons
     if result["status"] == "RESEARCH_BASELINE_EVALUATED":
         args.output.parent.mkdir(parents=True, exist_ok=True)

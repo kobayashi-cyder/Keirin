@@ -40,6 +40,11 @@ on:
       - 'tools/odds_rank_parser.py'
       - 'tools/browser_odds_watch.py'
       - 'tools/train_baseline.py'
+      - 'tools/build_multiview_features.py'
+      - 'tests/test_build_multiview_features.py'
+      - 'tools/video_history.py'
+      - 'tests/test_video_history.py'
+      - 'docs/MULTIVIEW_VIDEO_HISTORY.md'
       - 'tools/predict_pre_race.py'
       - 'tests/test_predict_pre_race.py'
       - 'docs/FORWARD_MODEL_PREDICTION.md'
@@ -83,6 +88,11 @@ on:
       - 'setup_browser_monitor.bat'
       - 'tests/test_train_baseline.py'
       - 'tools/train_baseline.py'
+      - 'tools/build_multiview_features.py'
+      - 'tests/test_build_multiview_features.py'
+      - 'tools/video_history.py'
+      - 'tests/test_video_history.py'
+      - 'docs/MULTIVIEW_VIDEO_HISTORY.md'
       - 'tools/predict_pre_race.py'
       - 'tests/test_predict_pre_race.py'
       - 'docs/FORWARD_MODEL_PREDICTION.md'
@@ -140,5 +150,9 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_import_provider_csv.py' -v
       - name: Historical 3rentan point-in-time payout backtest tests
         run: python -m unittest discover -s tests -p 'test_backtest_3rentan.py' -v
+      - name: Point-in-time multiview rider/track/video tactical feature tests
+        run: python -m unittest discover -s tests -p 'test_build_multiview_features.py' -v
+      - name: Local licensed video manifest and frame extraction tests
+        run: python -m unittest discover -s tests -p 'test_video_history.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
