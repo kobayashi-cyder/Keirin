@@ -28,7 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import Request, HTTPRedirectHandler, build_opener, urlopen
 from zoneinfo import ZoneInfo
 
 from build_multiview_features import HISTORY_FIELDS, dt, local, validate_history
@@ -240,7 +240,13 @@ def build_api_request(frames):
     }
 
 
-def openai_responses(request_body, key, *, opener=urlopen):
+class NoAuthRedirect(HTTPRedirectHandler):
+    """Never forward an OpenAI Authorization header to a redirect target."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def openai_responses(request_body, key, *, opener=None):
     req = Request(
         OPENAI_URL,
         data=json.dumps(request_body, ensure_ascii=False).encode("utf-8"),
@@ -249,8 +255,10 @@ def openai_responses(request_body, key, *, opener=urlopen):
                  "User-Agent": "KeirinGpt4oVision/0.1"},
         method="POST",
     )
+    # Default handler disallows redirects. Fake opener is injectable in tests.
+    send = opener or build_opener(NoAuthRedirect()).open
     try:
-        with opener(req, timeout=120) as resp:
+        with send(req, timeout=120) as resp:
             if resp.status != 200:
                 raise ValueError("OpenAI API non-200 response")
             raw = resp.read(1_000_001)
