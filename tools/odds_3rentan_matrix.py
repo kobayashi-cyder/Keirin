@@ -176,3 +176,58 @@ def recover_three_rentan_matrix(html, cars, ranked_quotes):
         if not math.isclose(full[combo], quoted, rel_tol=0, abs_tol=0.051):
             return None, f"ranked_quote_mismatch_for_{combo}"
     return dict(sorted(full.items())), "crosschecked_full_matrix"
+
+
+def diagnose_three_rentan_structure(html, cars):
+    """Return a limited, price-free fingerprint of likely odds-table shapes.
+
+    Never emit page markup, participant names, odds numbers, or credentials.
+    Useful when actual site markup differs from the synthetic 6x6 fixture.
+    """
+    if not isinstance(html, str) or cars not in (7, 8, 9):
+        return {"status": "invalid_input"}
+    parser = _TableCells()
+    parser.feed(html)
+    parser.close()
+    candidates = []
+    for index, table in enumerate(parser.tables):
+        if len(table) < cars - 1:
+            continue
+        data_rows = sum(
+            1 for row in table
+            if sum(_odds(cell) is not None for cell in row) >= cars - 3
+        )
+        if data_rows < cars - 3:
+            continue
+        header_rows = []
+        for row_i, row in enumerate(table):
+            numeric_labels = [_single_number(cell) for cell in row]
+            numeric_labels = [x for x in numeric_labels if x is not None]
+            if len(numeric_labels) == cars - 1 and len(set(numeric_labels)) == cars - 1:
+                header_rows.append(row_i)
+        widths = [len(row) for row in table]
+        def shape(cell):
+            if not cell:
+                return "_"
+            car = _single_number(cell)
+            if car is not None:
+                return "car"
+            if _odds(cell) is not None:
+                return "price"
+            return "text"
+        sample = []
+        for row in table[:min(cars + 1, len(table))]:
+            sample.append([shape(cell) for cell in row[:cars + 3]])
+        candidates.append({
+            "table_index": index, "rows": len(table),
+            "row_widths": widths[:cars + 3],
+            "data_like_rows": data_rows,
+            "header_candidates": header_rows[:3],
+            "cell_kinds_first_rows": sample,
+        })
+    return {
+        "total_html_tables": len(parser.tables),
+        "possible_odds_tables": len(candidates),
+        "examples": candidates[:4],
+    }
+
