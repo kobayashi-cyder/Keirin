@@ -75,6 +75,12 @@ class OddsParserTests(unittest.TestCase):
         self.assertEqual(result["markets"]["2wakufuku"]["quotes"]["4-4"], 8)
         self.assertEqual(len(result["markets"]), 7)
 
+    def test_eight_car_frame_count(self):
+        result = parse_ranked_odds(build_9(), 8)
+        self.assertEqual(result["status"], "PARSED_RANKED_MARKETS")
+        self.assertEqual(result["markets"]["2wakutan"]["expected_count"], 32)
+        self.assertEqual(result["markets"]["2wakufuku"]["expected_count"], 17)
+
     def test_missing_or_changed_layout_does_not_label_wrong_market(self):
         result = parse_ranked_odds(TEXT_7.replace("2 7-5 6.2", "2 7=5 6.2"), 7)
         self.assertEqual(result["status"], "UNRECOGNISED_LAYOUT")
