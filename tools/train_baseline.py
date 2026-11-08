@@ -54,7 +54,10 @@ def read_training_rows(features_path, results_path, *, feature_names=FEATURE_NAM
             riders = {}
             for row in rows:
                 car = int(row["car_no"])
-                riders[car] = tuple(float(row[col]) for col in feature_names)
+                values = tuple(float(row[col]) for col in feature_names)
+                if any(not math.isfinite(v) for v in values):
+                    raise ValueError("nonfinite historical or video-derived features")
+                riders[car] = values
             out.append({"race_id": race_id, "date": day, "features": riders,
                         "top3": finish})
         except (ValueError, TypeError, KeyError, OverflowError) as exc:
