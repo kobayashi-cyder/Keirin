@@ -242,7 +242,7 @@ def diagnose_three_rentan_structure(html, cars):
 def _decimal_price(value):
     """An odds-cell candidate must have a decimal point, unlike car numbers."""
     cleaned = value.replace(",", "").strip()
-    if not re.fullmatch(r"\\d{1,5}\\.\\d{1,2}", cleaned):
+    if not re.fullmatch(r"\d{1,5}\.\d{1,2}", cleaned):
         return None
     return _odds(cleaned)
 
