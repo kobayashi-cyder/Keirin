@@ -156,6 +156,12 @@ def recover_three_rentan_matrix(html, cars, ranked_quotes):
         if entry is not None:
             leader, data = entry
             candidates[leader].append(data)
+    if not candidates:
+        # Real Kdreams HTML embeds extra rider-name cells and optional
+        # nested tables, so a clean six-car-number header may not exist.
+        # Try the more conservative numeric-grid fallback, requiring ALL
+        # ranked ticket quotes to agree. Never fill a partially matched grid.
+        return _recover_fragmented_tables(parser.tables, all_cars, ranked_quotes)
     # Multiple competing grids for the same leader are ambiguous; do not
     # silently select one. Accept duplicated *identical* grids only.
     full = {}
@@ -231,3 +237,96 @@ def diagnose_three_rentan_structure(html, cars):
         "examples": candidates[:4],
     }
 
+
+
+def _decimal_price(value):
+    """An odds-cell candidate must have a decimal point, unlike car numbers."""
+    cleaned = value.replace(",", "").strip()
+    if not re.fullmatch(r"\d{1,5}\.\d{1,2}", cleaned):
+        return None
+    return _odds(cleaned)
+
+
+def _fragmented_price_grid(table, n):
+    """Recover only contiguous groups of n-1 rows with n-2 decimal prices.
+
+    Kdreams mixes rider names, descriptions and odds cells in each table
+    row. The resulting row can be wider than a normal 6x6 matrix. Discard
+    all non-price cells, but never infer absent price cells.
+    """
+    runs = []
+    for index, row in enumerate(table):
+        prices = [_decimal_price(v) for v in row]
+        prices = tuple(p for p in prices if p is not None)
+        if len(prices) == n - 2:
+            runs.append((index, prices))
+    if len(runs) != n - 1:
+        return None
+    if any(b[0] != a[0] + 1 for a, b in zip(runs, runs[1:])):
+        return None
+    return tuple(prices for _, prices in runs)
+
+
+def _fragmented_group_to_quotes(group, cars):
+    """Rows index third place; odds columns index second place in car order.
+
+    No diagonal quote exists because 2nd and 3rd cannot be the same rider.
+    """
+    n = len(cars)
+    table = {}
+    for first, grid in zip(cars, group):
+        other = [car for car in cars if car != first]
+        if len(grid) != n - 1:
+            return None
+        for third, row in zip(other, grid):
+            possible_second = [second for second in other if second != third]
+            if len(row) != len(possible_second):
+                return None
+            for second, odd in zip(possible_second, row):
+                table[f"{first}-{second}-{third}"] = odd
+    return table
+
+
+def _ranked_quotes_match(quotes, ranked_quotes):
+    """Cross-check all popularity-ranked quotes, not just one example."""
+    for combo, listed in ranked_quotes.items():
+        if (combo not in quotes or type(listed) not in (float, int)
+                or not math.isclose(quotes[combo], listed, rel_tol=0, abs_tol=0.051)):
+            return False
+    return True
+
+
+def _recover_fragmented_tables(tables, cars, ranked_quotes):
+    """Try each n-table HTML grouping; accept only a UNIQUE full solution.
+
+    This fallback deliberately depends on unambiguous DOM order (the leader
+    selector shows leaders 1..n in ascending order) and a 50-ticket ranked
+    cross-check. If extra layouts yield another interpretation, refuse.
+    """
+    n = len(cars)
+    grids = []
+    for table in tables:
+        grid = _fragmented_price_grid(table, n)
+        if grid is not None:
+            # Nested HTML can yield two copies of the same price matrix.
+            # Adjacent duplicate copies do not supply new evidence.
+            if not grids or grids[-1] != grid:
+                grids.append(grid)
+    if len(grids) < n:
+        return None, f"fragmented_odds_tables_found_{len(grids)}_need_{n}"
+    expected = {
+        "-".join(map(str, order))
+        for order in itertools.permutations(cars, 3)
+    }
+    accepted = {}
+    for start in range(len(grids) - n + 1):
+        group = grids[start:start+n]
+        odds = _fragmented_group_to_quotes(group, cars)
+        if odds is None or set(odds) != expected:
+            continue
+        if _ranked_quotes_match(odds, ranked_quotes):
+            fingerprint = tuple(sorted(odds.items()))
+            accepted[fingerprint] = odds
+    if len(accepted) != 1:
+        return None, f"fragmented_matrix_unique_solutions_{len(accepted)}_from_{len(grids)}_grids"
+    return dict(sorted(next(iter(accepted.values())).items())), "crosschecked_full_matrix_from_fragmented_tables"
