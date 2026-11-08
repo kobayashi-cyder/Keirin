@@ -17,6 +17,9 @@ on:
       - 'tests/test_browser_odds_watch.py'
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
+      - 'tools/audit_odds_snapshot.py'
+      - 'tests/test_audit_odds_snapshot.py'
+      - 'docs/ODDS_SNAPSHOT_QUALITY.md'
       - 'tools/odds_rank_parser.py'
       - 'tools/browser_odds_watch.py'
       - 'tools/train_baseline.py'
@@ -33,6 +36,9 @@ on:
       - 'tests/test_browser_odds_watch.py'
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
+      - 'tools/audit_odds_snapshot.py'
+      - 'tests/test_audit_odds_snapshot.py'
+      - 'docs/ODDS_SNAPSHOT_QUALITY.md'
       - 'tools/odds_rank_parser.py'
       - 'tools/browser_odds_watch.py'
       - 'run_10s_monitor.bat'
@@ -74,5 +80,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_browser_odds_watch.py' -v
       - name: HTML-backed and multiline odds parser tests
         run: python -m unittest discover -s tests -p 'test_odds_html_parser.py' -v
+      - name: Local snapshot quality and timestamp audit tests
+        run: python -m unittest discover -s tests -p 'test_audit_odds_snapshot.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
