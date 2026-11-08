@@ -136,8 +136,8 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
         raise StopMonitoring("Kdreams content-use permission is not confirmed. Monitoring disabled.")
     if not 1 <= cycles <= 720:
         raise StopMonitoring("cycles must be between 1 and 720")
-    if cars not in (7, 9):
-        raise StopMonitoring("Current rank-parser handles 7 or 9 cars only")
+    if cars not in (7, 8, 9):
+        raise StopMonitoring("Current rank-parser handles 7, 8 or 9 cars only")
     if output is None:
         output = Path("local_data/odds_snapshots") / (urlsplit(url).path.rstrip("/").split("/")[-1] + ".jsonl")
     output = _safe_output_path(output)
@@ -220,7 +220,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--url", required=True, help="single public race odds page")
     ap.add_argument("--deadline-jst", required=True, help="e.g. 2026-11-08T20:20:00+09:00")
-    ap.add_argument("--cars", type=int, choices=[7, 9], default=7)
+    ap.add_argument("--cars", type=int, choices=[7, 8, 9], default=7)
     ap.add_argument("--interval", type=float, default=10)
     ap.add_argument("--cycles", type=int, default=60, help="max browser checks")
     ap.add_argument("--output", type=Path)
