@@ -18,6 +18,9 @@ on:
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
+      - 'tools/odds_to_shadow.py'
+      - 'tests/test_odds_to_shadow.py'
+      - 'docs/ODDS_TO_SHADOW_RESEARCH.md'
       - 'tools/odds_3rentan_matrix.py'
       - 'tests/test_odds_3rentan_matrix.py'
       - 'tests/test_audit_odds_snapshot.py'
@@ -39,6 +42,9 @@ on:
       - 'tests/test_odds_html_parser.py'
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
+      - 'tools/odds_to_shadow.py'
+      - 'tests/test_odds_to_shadow.py'
+      - 'docs/ODDS_TO_SHADOW_RESEARCH.md'
       - 'tools/odds_3rentan_matrix.py'
       - 'tests/test_odds_3rentan_matrix.py'
       - 'tests/test_audit_odds_snapshot.py'
@@ -88,5 +94,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_audit_odds_snapshot.py' -v
       - name: Full 3rentan HTML matrix recovery and ranked crosscheck tests
         run: python -m unittest discover -s tests -p 'test_odds_3rentan_matrix.py' -v
+      - name: Real-shape captured odds to research-only shadow report tests
+        run: python -m unittest discover -s tests -p 'test_odds_to_shadow.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
