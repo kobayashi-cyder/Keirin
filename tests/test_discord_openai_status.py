@@ -214,6 +214,62 @@ class DiscordOpenAITests(unittest.TestCase):
         self.assertEqual(len(opener.requests), 1)
         self.assertNotIn("secret_token", result)
 
+    def test_env_file_loads_only_supported_keys_and_overrides_stale_windows_values(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ".env"
+            path.write_text(
+                "# Local secrets only\n"
+                "OPENAI_API_KEY='sk-local-test-only'\n"
+                "DISCORD_WEBHOOK_URL=\"https://discord.com/api/webhooks/123456/test_token\"\n"
+                "OPENAI_MODEL=gpt-4o\n"
+                "UNRELATED_KEY=ignored\n",
+                encoding="utf-8-sig",
+            )
+            with patch.dict(os.environ, {"OPENAI_API_KEY": "old-invalid-key",
+                                         "DISCORD_WEBHOOK_URL": "old-url"},
+                            clear=True):
+                self.assertEqual(mod.load_local_env(path), "LOADED")
+                self.assertEqual(os.getenv("OPENAI_API_KEY"), "sk-local-test-only")
+                self.assertEqual(os.getenv("DISCORD_WEBHOOK_URL"),
+                                 "https://discord.com/api/webhooks/123456/test_token")
+                self.assertEqual(os.getenv("OPENAI_MODEL"), "gpt-4o")
+                self.assertNotIn("UNRELATED_KEY", os.environ)
+
+    def test_env_file_does_not_dump_credentials_to_stdout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ".env"
+            secret = "supersecret-test-token-123"
+            path.write_text("OPENAI_API_KEY=" + secret + "\n",
+                            encoding="utf-8")
+            buf = io.StringIO()
+            with patch.dict(os.environ, {}, clear=True), patch("sys.stdout", buf):
+                result = mod.load_local_env(path)
+                print("LOCAL_ENV:", result)
+            self.assertEqual(result, "LOADED")
+            self.assertNotIn(secret, buf.getvalue())
+
+    def test_invalid_env_does_not_partially_override_key(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ".env"
+            path.write_text(
+                "OPENAI_API_KEY=new-private-value\n"
+                "DISCORD_WEBHOOK_URL=\n", encoding="utf-8"
+            )
+            with patch.dict(os.environ, {"OPENAI_API_KEY": "existing-key"},
+                            clear=True):
+                with self.assertRaisesRegex(ValueError, "DISCORD_WEBHOOK_URL is empty"):
+                    mod.load_local_env(path)
+                self.assertEqual(os.getenv("OPENAI_API_KEY"), "existing-key")
+
+    def test_env_file_does_not_require_pip_or_store_on_git(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = Path(tmp) / ".env"
+            self.assertEqual(mod.load_local_env(missing), "NOT_FOUND")
+            missing.write_text("OPENAI_API_KEY=key\nOPENAI_API_KEY=second\n",
+                               encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "duplicate OPENAI_API_KEY"):
+                mod.load_local_env(missing)
+
     def test_default_cli_dry_run_no_external_calls(self):
         buf = io.StringIO()
         with (patch.object(sys, "argv", ["tool", "--test"]),

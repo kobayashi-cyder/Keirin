@@ -34,6 +34,57 @@ MARKET_NAMES = {
 }
 
 
+ENV_VAR_NAMES = frozenset({"OPENAI_API_KEY", "DISCORD_WEBHOOK_URL", "OPENAI_MODEL"})
+
+
+def load_local_env(path=None):
+    """Load only supported credentials from project-root .env, without logs.
+
+    The project's local .env intentionally overrides stale inherited Windows
+    environment values. It is never read on import, only in the CLI.
+    """
+    env_path = Path(path) if path is not None else Path(__file__).resolve().parents[1] / ".env"
+    if not env_path.exists():
+        return "NOT_FOUND"
+    if env_path.is_symlink() or not env_path.is_file():
+        raise ValueError(".env must be a regular file, not a link or directory")
+    if env_path.stat().st_size > 16_384:
+        raise ValueError(".env file is unexpectedly large")
+    parsed = {}
+    try:
+        raw = env_path.read_text(encoding="utf-8-sig")
+    except UnicodeError as exc:
+        raise ValueError(".env must be UTF-8 encoded") from exc
+    for line_number, line in enumerate(raw.splitlines(), 1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if stripped.startswith("export "):
+            stripped = stripped[7:].strip()
+        key, separator, value = stripped.partition("=")
+        if not separator:
+            raise ValueError(f".env line {line_number} must use NAME=value format")
+        key = key.strip()
+        if key not in ENV_VAR_NAMES:
+            continue
+        value = value.strip()
+        if len(value) >= 2 and value[0] in ("'", '"') and value[-1] == value[0]:
+            value = value[1:-1]
+        if not value:
+            raise ValueError(f".env line {line_number}: {key} is empty")
+        if "\x00" in value:
+            raise ValueError(f".env line {line_number}: invalid value")
+        if key in parsed:
+            raise ValueError(f".env line {line_number}: duplicate {key}")
+        parsed[key] = value
+    if not parsed:
+        raise ValueError(".env has no supported variables; use OPENAI_API_KEY and DISCORD_WEBHOOK_URL")
+    # Apply only after successful full-file validation, so malformed files
+    # cannot partially override the current process environment.
+    os.environ.update(parsed)
+    return "LOADED"
+
+
 class NoRedirect(HTTPRedirectHandler):
     """Do not follow redirects carrying a webhook token."""
     def redirect_request(self, request, fp, code, msg, headers, newurl):
@@ -250,6 +301,10 @@ def main():
                     help="send one message to your Discord webhook; otherwise preview only")
     args = ap.parse_args()
     try:
+        # Windows environment variables and .env files are different.
+        # Python does not read .env automatically; load before API calls.
+        env_status = load_local_env()
+        print("LOCAL_ENV:", env_status)
         if args.list_models:
             if args.send or args.use_openai:
                 raise ValueError("--list-models cannot be combined with --send or --use-openai")
