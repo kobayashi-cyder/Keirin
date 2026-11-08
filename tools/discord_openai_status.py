@@ -20,7 +20,7 @@ from urllib.parse import urlsplit
 from urllib.request import Request, build_opener, HTTPHandler, HTTPSHandler, HTTPRedirectHandler
 
 OPENAI_ENDPOINT = "https://api.openai.com/v1/responses"
-DEFAULT_MODEL = "gpt-4.1-mini"
+DEFAULT_MODEL = "gpt-6-luna"
 VALID_REPORT_STATUSES = {
     "NOT_READY_NO_PROBABILITIES",
     "SHADOW_ONLY_UNVALIDATED",
@@ -117,6 +117,7 @@ def openai_note(kind, model=None, key=None, opener=None):
     model = model or os.environ.get("OPENAI_MODEL", DEFAULT_MODEL)
     payload = {
         "model": model,
+        "reasoning": {"effort": "none"},
         "store": False,
         "max_output_tokens": 110,
         "instructions": (
