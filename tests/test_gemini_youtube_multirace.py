@@ -291,7 +291,7 @@ class MultiGeminiTests(unittest.TestCase):
                                   key="fake", caller=fake_call)["reports"]
         results_path = Path("local_data/history/official.csv")
         write_csv(results_path, m.OFFICIAL_FIELDS, actual_result_rows())
-        t = datetime.fromisoformat("2026-11-08T23:00:00+09:00")
+        t = datetime.now(m.JST) + timedelta(minutes=5)
         e = m.export_research(reports, results_path, now=t)
         self.assertEqual(e["exported_races"], 1)
         base = Path("local_data/pre_race_features.csv")
@@ -346,7 +346,7 @@ class MultiGeminiTests(unittest.TestCase):
             for r in records if r["rider_id"] == "R1"
         ]
         context = {
-            "venue": "matsuyama", "grade": "F2",
+            "rider_id": "R1", "venue": "matsuyama", "grade": "F2",
             "bank_length_m": "400", "wind_mps": "1",
             "source_url": "https://example.org/preclose",
             "rights_status": "permitted",
