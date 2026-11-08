@@ -13,6 +13,16 @@
 
 The live Kdreams page parser still needs verification. If it stops with `UNRECOGNISED_LAYOUT`, the program has not proved that it can extract all seven markets correctly. This change does not enable predictions or Discord notifications.
 
+## 2026-11-08: robots.txt がHTMLを返す場合
+
+`https://keirin.kdreams.jp/robots.txt` がHTTP 200でもトップページ相当のHTML（`<!doctype html>`）を返すケースをユーザー環境で確認しました。これは**robots.txt の有効なルールではありません**。そのためヘッダーだけではなく本文を検査し、HTMLなら `not_robots_html` として警告を表示します。
+
+これはサイト運営者の許可を意味しません。利用条件に関する判断と責任はユーザーにあり、スクレイピングを明確に禁止するアクセス制御や、robots.txt に実際に記載された `Disallow` は回避しません。HTTP 403、429、CAPTCHA等でも停止します。
+
+この変更では、無効なHTMLを**「robotsで明示的に許可された」**と偽らず、ポリシーが取得できない事実をログで示します。有効な robots.txt が `text/html` と誤ったヘッダーで返された場合も、中身の `Disallow` は解析して尊重します。
+
+**試験手順：** サイトの規約を確認済みで、締切前の実在するレースを指定できる場合は、初回は `--cycles 1` でページ解析ができるか調べてください。1回で解析不能なら、10秒ごとに繰り返しても解決しません。URLは `?pageType=odds` を付けたレース詳細ページです。
+
 ## Windows setup
 
 Download the current `main` branch of the GitHub repository, then open a command prompt in its root. Install Playwright:
