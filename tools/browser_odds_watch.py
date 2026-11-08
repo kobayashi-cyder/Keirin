@@ -215,7 +215,23 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         raise StopMonitoring("Access challenge; stop without attempting bypass")
                     snapshot = parse_ranked_odds(visible, cars)
                     if snapshot["status"] != "PARSED_RANKED_MARKETS":
-                        print(f"[{index+1}/{cycles}] NOT_PARSED: {snapshot.get('detail','layout change')}", flush=True)
+                        # Diagnose DOM visibility without writing HTML, cookies,
+                        # credentials, or odds to disk.
+                        full_dom_text = page.locator("body").text_content(timeout=8000) or ""
+                        metrics = {
+                            "recognized_ranked_blocks": snapshot.get("ranked_blocks"),
+                            "expected_market_blocks": snapshot.get("expected_blocks"),
+                            "visible_popularity_mentions": visible.count("人気順"),
+                            "dom_popularity_mentions": full_dom_text.count("人気順"),
+                            "visible_body_chars": len(visible),
+                            "dom_text_chars": len(full_dom_text),
+                            "detail": snapshot.get("detail", "layout change"),
+                        }
+                        print("LAYOUT_DIAGNOSTICS: " + json.dumps(
+                            metrics, ensure_ascii=False, sort_keys=True
+                        ), flush=True)
+                        print(f"[{index+1}/{cycles}] NOT_PARSED: "
+                              f"{snapshot.get('detail','layout change')}", flush=True)
                         # Page layout changed or required markets missing.
                         raise StopMonitoring("Layout unknown; stop instead of inventing prices")
                     # Never log an odds observation after the declared closing time.
