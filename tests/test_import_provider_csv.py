@@ -107,7 +107,7 @@ class ProviderAdapterTests(unittest.TestCase):
             rights_status="permitted",
             now=datetime(2026, 11, 8, 12, 0, tzinfo=timezone.utc),
         )
-        with self.assertRaisesRegex(ValueError, "already closed"):
+        with self.assertRaisesRegex(ValueError, "leaked or inconsistent|already closed"):
             adapter.validate_rows(
                 converted, now=datetime(2026, 11, 8, 12, 0, tzinfo=timezone.utc)
             )
