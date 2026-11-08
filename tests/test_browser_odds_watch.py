@@ -68,6 +68,18 @@ class OddsParserTests(unittest.TestCase):
                          {"min": 1.3, "max": 1.4})
         self.assertEqual(result["page_displayed_times_jst"], ["2026-11-08T12:10:00+09:00"])
 
+    def test_kdreams_fullwidth_wave_range_is_not_dropped(self):
+        # The live public page displays wide ranges using U+FF5E (～),
+        # whereas the original sample used U+301C (〜).
+        sample = TEXT_7.replace("1.3〜1.4", "1.3～1.4")
+        sample = sample.replace("2.0〜2.9", "2.0～2.9")
+        sample = sample.replace("人気順\n", "* 人気順\n")
+        sample = sample.replace("1 5=7 1.3～1.4", "1 | 5=7 1.3～1.4")
+        result = parse_ranked_odds(sample, 7)
+        self.assertEqual(result["status"], "PARSED_RANKED_MARKETS")
+        self.assertEqual(result["markets"]["wide"]["quotes"]["5-7"],
+                         {"min": 1.3, "max": 1.4})
+
     def test_html_table_pipe_ranked_rows(self):
         html_text = TEXT_7.replace("1 5-7-1 4.3", "1 | 5-7-1 4.3")
         html_text = html_text.replace("1 5-7 2.1", "1 | 5-7 2.1")
