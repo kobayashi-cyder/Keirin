@@ -193,7 +193,7 @@ def main():
         return 2
     serialized = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        if not str(args.output).startswith("local_data/"):
+        if args.output.is_absolute() or ".." in args.output.parts or args.output.parts[0] != "local_data":
             print("AUDIT_REJECTED: report must stay under local_data/", file=sys.stderr)
             return 2
         args.output.parent.mkdir(parents=True, exist_ok=True)
