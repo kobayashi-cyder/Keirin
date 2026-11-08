@@ -35,12 +35,14 @@ class _RankPageText(HTMLParser):
         self.handle_starttag(tag, attrs)
 
     def handle_endtag(self, tag):
+        if tag in SKIP:
+            if self.blocked:
+                self.blocked -= 1
+            return
         if not self.in_body:
             return
         if not self.blocked:
             self.parts.append("\n" if tag in BLOCKS else " ")
-        if tag in SKIP and self.blocked:
-            self.blocked -= 1
         if tag == "body":
             self.in_body = False
 
