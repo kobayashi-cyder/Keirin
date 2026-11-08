@@ -68,6 +68,13 @@ class OddsParserTests(unittest.TestCase):
                          {"min": 1.3, "max": 1.4})
         self.assertEqual(result["page_displayed_times_jst"], ["2026-11-08T12:10:00+09:00"])
 
+    def test_html_table_pipe_ranked_rows(self):
+        html_text = TEXT_7.replace("1 5-7-1 4.3", "1 | 5-7-1 4.3")
+        html_text = html_text.replace("1 5-7 2.1", "1 | 5-7 2.1")
+        result = parse_ranked_odds(html_text, 7)
+        self.assertEqual(result["status"], "PARSED_RANKED_MARKETS")
+        self.assertEqual(result["markets"]["3rentan"]["quotes"]["5-7-1"], 4.3)
+
     def test_nine_cars_and_same_frame(self):
         result = parse_ranked_odds(build_9(), 9)
         self.assertEqual(result["status"], "PARSED_RANKED_MARKETS")
