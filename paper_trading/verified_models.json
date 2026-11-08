@@ -1,0 +1,5 @@
+{
+  "schema": "keirin-paper-model-gate-v1",
+  "models": {},
+  "note": "No independently reviewed forward model has been validated. Edge bets fail closed."
+}
