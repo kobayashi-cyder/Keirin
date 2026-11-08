@@ -20,9 +20,9 @@ GitHubのリポジトリ kobayashi-cyder/Keirin → Settings → Secrets and var
 
 - Name: OPENAI_API_KEY
 - Value: ご自身のOpenAI APIキー。**チャットや公開GitHubファイルに貼らないこと**。
-- 任意のActions変数 OPENAI_MODEL（省略時 gpt-6-luna）。
+- 任意のActions変数 OPENAI_MODEL（省略時 gpt-4o）。
 
-**既定モデルはOpenAI APIの GPT-6 Luna（`gpt-6-luna`）です。** PythonローカルDiscord連携 `tools/discord_openai_status.py` も同じモデルを利用します。いずれも数値や買い目の推定には使わず、説明文のみ生成します。
+**既定モデルは利用可能性を確認しやすい GPT-4o（`gpt-4o`）です。** GPT-6 LunaをAPIで利用できるプロジェクトは `OPENAI_MODEL=gpt-6-luna` を指定できます。モデルの表示やTierだけではAPIアクセスは保証されません。Windows向け `tools/discord_openai_status.py --list-models` で**同じAPIキー**のモデル一覧を確認してください。いずれも数値や買い目の推定には使わず、説明文のみ生成します。
 
 OpenAI APIの請求はChatGPTアプリ契約とは別です。APIの使用量上限や課金設定も確認してください。
 
