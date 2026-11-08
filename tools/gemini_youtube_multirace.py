@@ -638,12 +638,15 @@ def export_research(reports, official_csv, *, event_csv=EVENTS_FILE,
             and r["identity_consensus"] is True
             and r["training_validated"] is False
         ]
-        if len(accepted) != 1 or len(candidates) > 1:
+        if len(accepted) != 1:
             blocked.append({"race_id": rid, "reason": "ambiguous_or_incomplete_candidate"})
             continue
         report = accepted[0]
         job = parse_race({**report["race"]})
-        if not job.youtube_url or job.youtube_url != report["youtube_url"]:
+        if job.youtube_url and job.youtube_url != report["youtube_url"]:
+            # An explicitly supplied URL must remain unchanged. When the
+            # queue URL was blank, official discovery is allowed but the
+            # Gemini identity consensus and independent results still gate it.
             blocked.append({"race_id": rid, "reason": "mismatched_canonical_video_url"})
             continue
         if any(r["race_id"] == rid for r in prior_events + all_events) or any(
