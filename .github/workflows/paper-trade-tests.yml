@@ -43,6 +43,9 @@ on:
       - 'tools/build_multiview_features.py'
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
+      - 'tools/gpt4o_race_vision.py'
+      - 'tests/test_gpt4o_race_vision.py'
+      - 'docs/GPT4O_AUTHORIZED_VIDEO_VISION.md'
       - 'tools/youtube_race_search.py'
       - 'tools/youtube_annotation_studio.py'
       - 'tools/youtube_annotation_studio.html'
@@ -98,6 +101,9 @@ on:
       - 'tools/build_multiview_features.py'
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
+      - 'tools/gpt4o_race_vision.py'
+      - 'tests/test_gpt4o_race_vision.py'
+      - 'docs/GPT4O_AUTHORIZED_VIDEO_VISION.md'
       - 'tools/youtube_race_search.py'
       - 'tools/youtube_annotation_studio.py'
       - 'tools/youtube_annotation_studio.html'
@@ -172,5 +178,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_youtube_race_search.py' -v
       - name: Browser YouTube annotation and historical feature integrity tests
         run: python -m unittest discover -s tests -p 'test_youtube_annotation_studio.py' -v
+      - name: Authorized local race video GPT-4o vision and offline settlement gate tests
+        run: python -m unittest discover -s tests -p 'test_gpt4o_race_vision.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
