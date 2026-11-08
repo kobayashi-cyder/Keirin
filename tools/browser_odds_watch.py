@@ -25,7 +25,7 @@ from zoneinfo import ZoneInfo
 
 from odds_rank_parser import parse_ranked_odds
 from odds_html_parser import text_from_html
-from odds_3rentan_matrix import recover_three_rentan_matrix
+from odds_3rentan_matrix import recover_three_rentan_matrix, diagnose_three_rentan_structure
 
 JST = ZoneInfo("Asia/Tokyo")
 USER_AGENT = "KeirinResearchMonitor/0.2 (user-acknowledged; single-page)"
@@ -265,6 +265,12 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         else:
                             print("3RENTAN_MATRIX_NOT_VERIFIED: " + matrix_status,
                                   flush=True)
+                            fingerprint = diagnose_three_rentan_structure(
+                                page.content(), cars
+                            )
+                            print("3RENTAN_DOM_FINGERPRINT: " + json.dumps(
+                                fingerprint, ensure_ascii=False, sort_keys=True
+                            ), flush=True)
                     # Never log an odds observation after the declared closing time.
                     ensure_not_closed(deadline)
                     timestamp = datetime.now(JST).isoformat()
