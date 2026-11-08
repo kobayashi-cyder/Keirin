@@ -1,7 +1,7 @@
 {
   "range_start": "2000-01-01",
-  "range_end": "2026-11-07",
-  "calendar_days": 9808,
+  "range_end": "2026-11-08",
+  "calendar_days": 9809,
   "dates_with_schedule_entries": 19,
   "schedule_venue_days": 144,
   "historical_special_final_payout_rows": 143,
