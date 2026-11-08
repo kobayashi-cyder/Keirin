@@ -35,6 +35,27 @@ LAYOUT_DIAGNOSTICS: {"recognized_ranked_blocks": ..., "expected_market_blocks": 
 
 この診断はHTMLや出走者データをファイル保存しません。非表示市場が読み取れないときは**自動的に賭式を推定せず停止**します。次の締切前レースで `--cycles 1` を使って再テストしてください。同じ過去レースの締切時刻を書き換えて試すと、不正な「事前オッズ」データになります。
 
+## 2026-11-08: HTML構造に基づく解析フォールバック
+
+松山1Rの1回取得では、HTTP取得に成功し、5賭式の人気順がHTMLに存在しても `recognized_ranked_blocks=0` となりました。根本原因は、ブラウザの `inner_text()` で順位・組番・オッズが**別行**として表現され、旧正規表現が1行内の `順位 | 組番 オッズ` だけを認識していた可能性が高いことです。
+
+今回、**すでに1回取得したHTMLをメモリ内で構造解析する** `tools/odds_html_parser.py` を追加しました。新たなHTTPリクエストは行いません。まず通常の表示テキストを解析し、失敗した場合だけ `page.content()` のDOM/HTMLから、表セルやリスト要素の区切りを保持して再解析します。
+
+- 1レース、最短10秒間隔、レース締切以降停止は変更なし。
+- `parser_method=html_structure` が表示された場合は、HTMLフォールバックで認識したことを意味します。
+- 5賭式（7車）または7賭式（8・9車）の順序と、組番・券種の整合性を検査します。内容が曖昧なら従来どおり停止します。
+- 未発売の賭式のオッズを作りません。実際に解析できた人気順以外を追加したと主張しません。
+- ローカル `local_data/` に数値の差分のみ保存。HTMLそのものは保存しません。
+- 取得したHTMLに複数の表示バージョンが混在している場合、重複により認識に失敗することがあります。誤った券種のオッズに紐づけるより安全です。
+
+プログラムの実ページ解析はまだ再検証できていません。更新後、締切前の実レースに `--cycles 1` を使って確認します。2026-11-08 松山1R (締切20:35 JST) は締切以降の試験対象に使えません。
+
+オフライン単体テスト:
+
+```cmd
+py -3 -m unittest discover -s tests -p "test_odds_html_parser.py" -v
+```
+
 ## Windows setup
 
 Download the current `main` branch of the GitHub repository, then open a command prompt in its root. Install Playwright:
