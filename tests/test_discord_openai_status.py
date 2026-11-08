@@ -115,6 +115,8 @@ class DiscordOpenAITests(unittest.TestCase):
         req = opener.requests[0]
         self.assertEqual(req.full_url, mod.OPENAI_ENDPOINT)
         self.assertEqual(json.loads(req.data)["store"], False)
+        self.assertEqual(json.loads(req.data)["model"], "gpt-6-luna")
+        self.assertEqual(json.loads(req.data)["reasoning"], {"effort": "none"})
         self.assertEqual(json.loads(req.data)["input"],
                          '{"kind": "research_data_status", "prediction_model_verified": false}')
         self.assertNotIn("7520261108010001", req.data.decode())
