@@ -25,6 +25,7 @@ from zoneinfo import ZoneInfo
 
 from odds_rank_parser import parse_ranked_odds
 from odds_html_parser import text_from_html
+from odds_3rentan_matrix import recover_three_rentan_matrix
 
 JST = ZoneInfo("Asia/Tokyo")
 USER_AGENT = "KeirinResearchMonitor/0.2 (user-acknowledged; single-page)"
@@ -244,6 +245,26 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                               f"{snapshot.get('detail','layout change')}", flush=True)
                         # Page layout changed or required markets missing.
                         raise StopMonitoring("Layout unknown; stop instead of inventing prices")
+                    # The ranked 3rentan list often contains only 50/210 tickets.
+                    # The page may also embed full numeric odds matrices grouped
+                    # by first-place car. Recover ONLY all tickets, with every
+                    # ranked quote crosschecked; else keep the original top 50.
+                    matrix_status = "not_applicable"
+                    ranked_market = snapshot["markets"].get("3rentan")
+                    if ranked_market is not None and not ranked_market["complete"]:
+                        full_odds, matrix_status = recover_three_rentan_matrix(
+                            page.content(), cars, ranked_market["quotes"]
+                        )
+                        if full_odds is not None:
+                            ranked_market["quotes"] = full_odds
+                            ranked_market["count"] = len(full_odds)
+                            ranked_market["complete"] = (
+                                len(full_odds) == ranked_market["expected_count"]
+                            )
+                            parsed_from += "+crosschecked_3rentan_matrix"
+                        else:
+                            print("3RENTAN_MATRIX_NOT_VERIFIED: " + matrix_status,
+                                  flush=True)
                     # Never log an odds observation after the declared closing time.
                     ensure_not_closed(deadline)
                     timestamp = datetime.now(JST).isoformat()
@@ -252,6 +273,7 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         "deadline_at_jst": deadline.isoformat(),
                         "cars": cars, "markets": snapshot["markets"],
                         "parser_method": parsed_from,
+                        "three_rentan_matrix_verification": matrix_status,
                         "page_displayed_times_jst": snapshot["page_displayed_times_jst"],
                         "consent_basis": "user_acknowledged_terms_and_risks_not_operator_approval",
                         "quality": "unverified_page_parser",
