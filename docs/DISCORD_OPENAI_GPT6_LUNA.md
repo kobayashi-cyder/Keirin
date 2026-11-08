@@ -71,7 +71,7 @@ py -3 tools\discord_openai_status.py --test --use-openai --model gpt-6-luna --se
 - 表示された `OpenAI APIキー（画面には表示されません）:` にAPIキーを貼り付けてEnter。
 - 表示された `Discord Webhook URL（画面には表示されません）:` にWebhook URLを貼り付けてEnter。
 - `OPENAI_RESULT: OK` と `DISCORD_RESULT: SENT` が両方出れば、選択したAPIモデル（既定GPT-4o）が補足を生成し、Discordに投稿できました。
-- `OPENAI_RESULT: HTTP_401` ならAPIキー、`HTTP_429` なら使用枠・課金設定等を確認。Discord側 `RATE_LIMITED` なら送信間隔をあけてください。APIが失敗しても固定のテスト文だけDiscordに届くことはあります。
+- `OPENAI_RESULT: HTTP_401` ならAPIキーを確認。 `HTTP_429_credit_balance_exhausted` や `HTTP_429_insufficient_quota` ならAPIの請求設定・残高を、 `HTTP_429_rate_limit_exceeded` なら実行間隔とプロジェクト別のレート制限を確認。`HTTP_429` だけのときは原因は未特定です。OpenAI側のAPIエラー内容から認識可能な**エラー分類のみ**を安全に表示し、APIの生メッセージは出しません。Discord側 `RATE_LIMITED` なら送信間隔をあけてください。**OpenAI APIを明示要求した場合は、APIが失敗するとDiscord送信も実行しません。**
 
 APIキーとWebhook URLは画面に表示されない入力方式です。入力値はローカルファイルへ保存しません。再実行時に再入力するか、利用者自身が安全な環境変数として設定してください。コマンド引数に秘密情報を直接書かないでください。
 
@@ -90,6 +90,33 @@ py -3 tools\discord_openai_status.py --report local_data\shadow_matsuyama1.json 
 ```
 
 研究レポートの `candidates`、オッズ、確率、その他の任意フィールドはDiscordにもOpenAIにも転送しません。モデルに渡すのは `kind` と `prediction_model_verified=false` の技術状態のみです。Discordには固定されたレースIDと賭式別の件数だけを載せます。Discord投稿時のメンションを無効にしています。**このプログラムは1実行で最大1回Discordに投稿するだけ**で、10秒ごと自動連投しません。
+
+## OpenAI API: 429 と Discord の切り分け
+
+`MODEL_ACCESS_CHECK: OK` は APIキーがモデル一覧を読めるという意味です。**文章生成に必要なAPIクレジットやレート枠を保証しません。** 一方 `DISCORD_RESULT: SENT` はWebhookへの投稿に成功したという意味であり、OpenAIの補足が生成された証拠ではありません。
+
+以前のプログラムは `OPENAI_RESULT: HTTP_429` のままでも固定のDiscordメッセージを投稿していました。修正版はOpenAIに補足を要求する `--use-openai` の場合、APIに失敗すると `DISCORD_RESULT: SKIPPED_OPENAI_FAILED` と表示して投稿を停止します。
+
+APIエラーコード別の確認先：
+- `credit_balance_exhausted`: OpenAI PlatformのAPI Billingにある残高。
+- `project_spend_limit_exceeded`, `organization_spend_limit_exceeded`: Project/Organizationの支出上限。
+- `organization_usage_limit_exceeded`: 承認済み月間利用枠。
+- `rate_limit_exceeded`: RPM/TPM等の時間当たりレート枠。短時間に連打せず、429の一時制限は Retry-After等を尊重。
+- エラー分類が表示されない `HTTP_429`: API請求画面と利用制限画面を確認し、それでも解消しなければOpenAIサポート。
+
+Discordだけの確認（OpenAI APIは呼ばない）：
+
+```cmd
+py -3 tools\discord_openai_status.py --test --send
+```
+
+OpenAI→Discordの両方を確認（GPT-4oを利用）：
+
+```cmd
+py -3 tools\discord_openai_status.py --test --use-openai --model gpt-4o --send
+```
+
+APIの請求はChatGPT Plus等とは別です。組織・プロジェクト・APIキーが違うと残高や枠が異なります。問題が残る場合も**APIキー、Webhookの秘密トークン、APIの生エラーメッセージは送信しないでください。**
 
 ## トラブル対応・境界
 
