@@ -24,6 +24,7 @@ from urllib.robotparser import RobotFileParser
 from zoneinfo import ZoneInfo
 
 from odds_rank_parser import parse_ranked_odds
+from odds_html_parser import text_from_html
 
 JST = ZoneInfo("Asia/Tokyo")
 USER_AGENT = "KeirinResearchMonitor/0.2 (user-acknowledged; single-page)"
@@ -214,6 +215,15 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                     if any(flag in visible for flag in ("CAPTCHA", "captcha", "ロボット認証")):
                         raise StopMonitoring("Access challenge; stop without attempting bypass")
                     snapshot = parse_ranked_odds(visible, cars)
+                    parsed_from = "rendered_text"
+                    if snapshot["status"] != "PARSED_RANKED_MARKETS":
+                        # The browser already fetched an HTML page. Parse it
+                        # in memory rather than issuing a second HTTP request.
+                        html_text = text_from_html(page.content())
+                        alternative = parse_ranked_odds(html_text, cars)
+                        if alternative["status"] == "PARSED_RANKED_MARKETS":
+                            snapshot = alternative
+                            parsed_from = "html_structure"
                     if snapshot["status"] != "PARSED_RANKED_MARKETS":
                         # Diagnose DOM visibility without writing HTML, cookies,
                         # credentials, or odds to disk.
@@ -241,6 +251,7 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                         "source_url": url, "observed_at_jst": timestamp,
                         "deadline_at_jst": deadline.isoformat(),
                         "cars": cars, "markets": snapshot["markets"],
+                        "parser_method": parsed_from,
                         "page_displayed_times_jst": snapshot["page_displayed_times_jst"],
                         "consent_basis": "user_acknowledged_terms_and_risks_not_operator_approval",
                         "quality": "unverified_page_parser",
@@ -250,7 +261,7 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
                     )
                     count += 1
                     print(f"[{index+1}/{cycles}] {timestamp} parsed={len(record['markets'])} "
-                          f"changed={changed} saved={output}", flush=True)
+                          f"source={parsed_from} changed={changed} saved={output}", flush=True)
                 except StopMonitoring:
                     raise
                 except Exception as exc:
