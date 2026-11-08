@@ -115,11 +115,60 @@ class DiscordOpenAITests(unittest.TestCase):
         req = opener.requests[0]
         self.assertEqual(req.full_url, mod.OPENAI_ENDPOINT)
         self.assertEqual(json.loads(req.data)["store"], False)
-        self.assertEqual(json.loads(req.data)["model"], "gpt-6-luna")
-        self.assertEqual(json.loads(req.data)["reasoning"], {"effort": "none"})
+        self.assertEqual(json.loads(req.data)["model"], "gpt-4o")
+        self.assertNotIn("reasoning", json.loads(req.data))
         self.assertEqual(json.loads(req.data)["input"],
                          '{"kind": "research_data_status", "prediction_model_verified": false}')
         self.assertNotIn("7520261108010001", req.data.decode())
+
+    def test_luna_opt_in_keeps_supported_reasoning_option(self):
+        sample = {"status": "completed", "output": [
+            {"type": "message", "content": [
+                {"type": "output_text", "text": "接続状態を確認しました。"}
+            ]}
+        ]}
+        op = FakeOpener(FakeResponse(status=200, payload=sample))
+        note, flag = mod.openai_note(
+            "connection_test", model="gpt-6-luna", key="fake", opener=op
+        )
+        self.assertEqual(flag, "OK")
+        data = json.loads(op.requests[0].data)
+        self.assertEqual(data["model"], "gpt-6-luna")
+        self.assertEqual(data["reasoning"], {"effort": "none"})
+
+    def test_list_available_models_does_not_post_discord_or_call_responses(self):
+        op = FakeOpener(FakeResponse(status=200, payload={
+            "object": "list",
+            "data": [{"id": "gpt-4o"}, {"id": "whisper-1"}],
+        }))
+        models, status = mod.available_models(key="fake", opener=op)
+        self.assertEqual(status, "OK")
+        self.assertIn("gpt-4o", models)
+        self.assertNotIn("gpt-6-luna", models)
+        self.assertEqual(op.requests[0].get_method(), "GET")
+        self.assertEqual(op.requests[0].full_url,
+                         "https://api.openai.com/v1/models")
+        buf = io.StringIO()
+        with (patch.object(sys, "argv", ["tool", "--list-models"]),
+              patch("discord_openai_status.available_models",
+                    return_value=(models, "OK")),
+              patch("discord_openai_status.send_discord") as post,
+              patch("discord_openai_status.openai_note") as response,
+              patch("sys.stdout", buf)):
+            self.assertEqual(mod.main(), 0)
+        post.assert_not_called()
+        response.assert_not_called()
+        self.assertIn("gpt-4o: LISTED", buf.getvalue())
+        self.assertIn("gpt-6-luna: NOT_LISTED", buf.getvalue())
+
+    def test_list_models_requires_no_discord_and_cannot_be_combined_with_send(self):
+        buf = io.StringIO()
+        with (patch.object(sys, "argv", ["tool", "--list-models", "--send"]),
+              patch("discord_openai_status.available_models") as models,
+              patch("sys.stderr", buf)):
+            self.assertEqual(mod.main(), 2)
+        models.assert_not_called()
+        self.assertIn("--list-models cannot be combined", buf.getvalue())
 
     def test_openai_rejects_wager_claim_or_prices(self):
         for phrase in ("予想は必ず当たる", "今すぐ購入", "買い目は三連単です。", "回収率が高いです", "1着です"):
