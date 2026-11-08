@@ -44,6 +44,9 @@ on:
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
       - 'tools/gpt4o_race_vision.py'
+      - 'tools/gemini_youtube_multirace.py'
+      - 'tests/test_gemini_youtube_multirace.py'
+      - 'docs/GEMINI_YOUTUBE_MULTIRACE.md'
       - 'tests/test_gpt4o_race_vision.py'
       - 'docs/GPT4O_AUTHORIZED_VIDEO_VISION.md'
       - 'tools/youtube_race_search.py'
@@ -102,6 +105,9 @@ on:
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
       - 'tools/gpt4o_race_vision.py'
+      - 'tools/gemini_youtube_multirace.py'
+      - 'tests/test_gemini_youtube_multirace.py'
+      - 'docs/GEMINI_YOUTUBE_MULTIRACE.md'
       - 'tests/test_gpt4o_race_vision.py'
       - 'docs/GPT4O_AUTHORIZED_VIDEO_VISION.md'
       - 'tools/youtube_race_search.py'
@@ -180,5 +186,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_youtube_annotation_studio.py' -v
       - name: Authorized local race video GPT-4o vision and offline settlement gate tests
         run: python -m unittest discover -s tests -p 'test_gpt4o_race_vision.py' -v
+      - name: Gemini arbitrary-race parallel video consensus and gated research export tests
+        run: python -m unittest discover -s tests -p 'test_gemini_youtube_multirace.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
