@@ -1,0 +1,7 @@
+# User-provided race snapshots and credentials must not be published
+local_data/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
