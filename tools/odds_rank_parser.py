@@ -24,10 +24,12 @@ FRAME_MARKETS = {"2wakutan", "2wakufuku"}
 # Accept ranked visible text such as 1 5-7-1 4.3 or 1 5=7=1 4.3.
 # Whitespace can be multiple lines in browser-generated innerText.
 RANK_ROW = re.compile(
-    r"(?<!\S)(\d{1,3})\s+([1-9](?:[-=][1-9]){1,2})\s+"
-    r"(\d{1,5}(?:\.\d{1,2})?)(?:\s*[-〜~]\s*(\d{1,5}(?:\.\d{1,2})?))?(?!\S)"
+    # HTML text extraction may separate rank and combo with a pipe/table cell.
+    # Anchor to a single row: do not join unrelated parts of the page.
+    r"(?m)^[ \t]*(\d{1,3})[ \t|]+([1-9](?:[-=][1-9]){1,2})[ \t|]+"
+    r"(\d{1,5}(?:\.\d{1,2})?)(?:[ \t]*[-〜~][ \t]*(\d{1,5}(?:\.\d{1,2})?))?[ \t]*$"
 )
-POPULARITY = re.compile(r"(?:^|\n)\s*人気順\s*(?:\n|$)")
+POPULARITY = re.compile(r"(?m)^[ \t]*(?:[*•][ \t]*)?人気順[ \t]*$")
 TERMINATORS = ("高配当順", "人気順", "払戻金", "レース結果")
 ODDS_TIME = re.compile(r"(?<!\d)(20\d\d)/(\d\d)/(\d\d)\s+(\d\d):(\d\d)現在")
 
