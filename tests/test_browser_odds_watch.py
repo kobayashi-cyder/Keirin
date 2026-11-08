@@ -113,11 +113,11 @@ class OddsParserTests(unittest.TestCase):
             with self.subTest(url=url), self.assertRaises(StopMonitoring):
                 validate_target(url)
 
-    def test_permission_prevents_running_browser_or_network(self):
+    def test_acknowledgment_prevents_running_browser_or_network(self):
         deadline = datetime.now(timezone.utc) + timedelta(minutes=15)
         url = "https://keirin.kdreams.jp/kumamoto/racedetail/8720261106030004/"
-        with self.assertRaisesRegex(StopMonitoring, "permission"):
-            monitor(url, deadline, confirmed_permission=False,
+        with self.assertRaisesRegex(StopMonitoring, "acknowledge"):
+            monitor(url, deadline, risk_acknowledged=False,
                     robots_checker=lambda _: (_ for _ in ()).throw(
                         AssertionError("Never called")
                     ))
