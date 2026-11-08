@@ -9,7 +9,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import build_multiview_features as m
-from pre_race_readiness import COLUMNS
+from pre_race_readiness import COLUMNS, FEATURES
+import train_baseline
+import predict_pre_race
 
 NOW = datetime.fromisoformat("2026-11-08T18:01:00+09:00")
 RACE = "7520261108010001"
@@ -155,6 +157,39 @@ class MultiViewTests(unittest.TestCase):
                 files = self.make_dataset(tmp, context_override=contexts)
                 with self.assertRaisesRegex(ValueError, "target context was not known"):
                     m.build(*files, now=NOW)
+            finally:
+                os.chdir(old)
+
+    def test_expanded_features_are_usable_by_training_and_inference(self):
+        sample = [80.0, .1, .2, .3, 1., 32.] + list(range(14))
+        dataset = [
+            {"features": {
+                car: tuple(v + (car*.1 if i == 0 else 0)
+                           for i, v in enumerate(sample))
+                for car in range(1, 8)
+            }, "top3": (1, 2, 3)}
+        ]
+        fitted = train_baseline.fit_plackett_luce(dataset, iterations=2)
+        self.assertEqual(len(fitted["weights"]), 20)
+        self.assertEqual(len(fitted["mean"]), 20)
+        self.assertEqual(len(fitted["scale"]), 20)
+        self.assertIn(tuple(FEATURES) + m.EXTRA_FEATURE_NAMES,
+                      predict_pre_race.SUPPORTED_FEATURE_SETS)
+
+    def test_cli_templates_have_only_headers_and_never_overwrite(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old = os.getcwd()
+            os.chdir(tmp)
+            try:
+                from unittest.mock import patch
+                with patch.object(sys, "argv", ["script", "--init-templates"]):
+                    self.assertEqual(m.main(), 0)
+                target = Path("local_data/history/target_context.csv")
+                event = Path("local_data/history/rider_events.csv")
+                self.assertEqual(len(target.read_text(encoding="utf-8").splitlines()), 1)
+                self.assertEqual(len(event.read_text(encoding="utf-8").splitlines()), 1)
+                with patch.object(sys, "argv", ["script", "--init-templates"]):
+                    self.assertEqual(m.main(), 2)
             finally:
                 os.chdir(old)
 
