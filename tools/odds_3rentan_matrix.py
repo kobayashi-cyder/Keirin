@@ -115,12 +115,9 @@ def _table_for_leader(table, cars):
             seen.add(row_car)
             if len(cells) == n + 1 and _single_number(cells[-1]) == row_car:
                 cells.pop()
-            if len(cells) != n or any(_single_number(c) is not None for c in cells[1:] if c and "." not in c):
-                # Price may be an integer >= 1; judge through the odds parser
-                # below, not by this integer check.
-                if len(cells) != n:
-                    valid = False
-                    break
+            if len(cells) != n:
+                valid = False
+                break
             for col_car, cell in zip(labels, cells[1:]):
                 if col_car == row_car:
                     if cell.strip() not in ("", "-", "－", "―", "×"):
