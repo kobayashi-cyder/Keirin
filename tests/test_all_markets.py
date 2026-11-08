@@ -62,7 +62,7 @@ class AllMarketsTests(unittest.TestCase):
             list(range(1, 8)),
             {"1-2-3": 1.0},
         )
-        priced = {"wide": {"1-2": {"min": 2.0, "max": 8.0}}}
+        priced = {"wide": {"1-2": {"min": 1.2, "max": 8.0}}}
         self.assertEqual(evaluate_offered_odds(p, priced), [])
         priced["wide"]["1-2"]["min"] = 2.0
         selected = evaluate_offered_odds(p, priced, threshold=1.30, stress=0.75)
