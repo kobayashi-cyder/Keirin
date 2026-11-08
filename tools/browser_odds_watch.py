@@ -53,8 +53,7 @@ def read_robots(url, user_agent=USER_AGENT):
         with urlopen(request, timeout=10) as response:
             if response.status != 200 or urlsplit(response.geturl()).hostname != host:
                 raise StopMonitoring("robots policy could not be verified")
-            if "html" in response.headers.get("Content-Type", "").lower():
-                raise StopMonitoring("robots URL did not return a robots policy")
+            content_type = response.headers.get("Content-Type", "")
             data = response.read(256_001)
             if len(data) > 256_000:
                 raise StopMonitoring("robots file unexpectedly large")
@@ -63,13 +62,30 @@ def read_robots(url, user_agent=USER_AGENT):
             raise StopMonitoring(f"robots policy unavailable: HTTP {exc.code}") from exc
         if exc.code == 404:
             # Not having a robots file does NOT grant license to copy.
-            return {"robots": "not_published", "crawl_delay": None}
+            return {"robots": "not_published_http_404", "crawl_delay": None}
         raise StopMonitoring(f"robots check HTTP {exc.code}") from exc
     except (OSError, URLError) as exc:
         raise StopMonitoring(f"robots check failed: {type(exc).__name__}") from exc
+    return classify_robots_body(data, content_type, robots_url, url, user_agent)
+
+
+def classify_robots_body(data, content_type, robots_url, target_url, user_agent):
+    """An HTML page at /robots.txt is not an allow or a disallow directive.
+
+    Never pretend this is a valid robots policy. A *real* Disallow remains
+    authoritative and blocks monitoring. HTTP 403/429 and challenges are
+    handled separately before this function is reached.
+    """
+    content = data.decode("utf-8", errors="replace").lstrip("\ufeff \t\r\n")
+    if content[:256].lower().startswith(("<!doctype html", "<html", "<?xml")):
+        # There is no interpretable robots policy. This does not confer
+        # authorization; the caller must separately acknowledge the terms.
+        return {"robots": "not_robots_html", "crawl_delay": None}
+    if not content:
+        raise StopMonitoring("Empty robots document: monitoring paused")
     rp = RobotFileParser(robots_url)
-    rp.parse(data.decode("utf-8", errors="replace").splitlines())
-    if not rp.can_fetch(user_agent, url):
+    rp.parse(content.splitlines())
+    if not rp.can_fetch(user_agent, target_url):
         raise StopMonitoring("robots.txt disallows this page for the monitor")
     return {"robots": "allowed_by_robots_only", "crawl_delay": rp.crawl_delay(user_agent)}
 
@@ -146,6 +162,11 @@ def monitor(url, deadline, *, interval=10, cars=7, cycles=60, output=None,
     output = _safe_output_path(output)
     ensure_not_closed(deadline)
     policy = robots_checker(url)
+    if policy["robots"] == "not_robots_html":
+        print("WARNING: /robots.txt returned a regular HTML page, not robots rules. "
+              "This is not permission. You accepted responsibility for the "
+              "site's published restrictions. Valid robots Disallow rules "
+              "are still enforced when available.", flush=True)
     minimum_interval = checked_interval(interval, policy["crawl_delay"])
     from playwright.sync_api import sync_playwright
 

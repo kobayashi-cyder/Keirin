@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from browser_odds_watch import (
     StopMonitoring, checked_interval, ensure_not_closed, jst_timestamp,
-    monitor, record_if_changed, validate_target,
+    monitor, record_if_changed, validate_target, classify_robots_body,
 )
 from odds_rank_parser import parse_ranked_odds
 
@@ -106,6 +106,36 @@ class OddsParserTests(unittest.TestCase):
         for value in (0.1, 5, -1, 999):
             with self.subTest(value=value), self.assertRaises(StopMonitoring):
                 checked_interval(value)
+
+    def test_html_robots_is_not_fake_allow_rule(self):
+        html = (b'<!doctype html><html lang="ja"><head></head>'
+                b'<body>Keirin schedule</body></html>')
+        result = classify_robots_body(
+            html, "text/html; charset=UTF-8",
+            "https://keirin.kdreams.jp/robots.txt",
+            "https://keirin.kdreams.jp/yokkaichi/racedetail/4820261105040006/",
+            "KeirinResearchMonitor/0.2")
+        self.assertEqual(result["robots"], "not_robots_html")
+        self.assertIsNone(result["crawl_delay"])
+
+    def test_real_disallow_enforced_even_with_html_content_type(self):
+        robots = b"User-agent: *\nDisallow: /yokkaichi/\n"
+        with self.assertRaisesRegex(StopMonitoring, "disallows"):
+            classify_robots_body(
+                robots, "text/html",
+                "https://keirin.kdreams.jp/robots.txt",
+                "https://keirin.kdreams.jp/yokkaichi/racedetail/4820261105040006/",
+                "KeirinResearchMonitor/0.2")
+
+    def test_real_crawl_delay_honoured(self):
+        robots = b"User-agent: *\nCrawl-delay: 25\nAllow: /\n"
+        result = classify_robots_body(
+            robots, "text/plain",
+            "https://keirin.kdreams.jp/robots.txt",
+            "https://keirin.kdreams.jp/yokkaichi/racedetail/4820261105040006/",
+            "KeirinResearchMonitor/0.2")
+        self.assertEqual(result["robots"], "allowed_by_robots_only")
+        self.assertEqual(checked_interval(10, result["crawl_delay"]), 25)
 
     def test_only_explicit_public_race_url(self):
         good = ("https://keirin.kdreams.jp/kumamoto/racedetail/"
