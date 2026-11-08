@@ -149,7 +149,7 @@ def openai_note(kind, model=None, key=None, opener=None):
             for part in item.get("content", []) if part.get("type") == "output_text"
         ]
         note = " ".join(parts).strip().replace("\n", " ")
-        forbidden = ("必ず", "確実", "保証", "買え", "購入", "利益", "回収率", "的中", "％", "%", "http", "@")
+        forbidden = ("必ず", "確実", "保証", "買え", "購入", "買い目", "予想", "賭", "三連単", "推奨", "利益", "回収率", "的中", "％", "%", "http", "@")
         if (not note or len(note) > 50 or any(ch.isdigit() for ch in note)
                 or any(word in note for word in forbidden)):
             return None, "REJECTED_OUTPUT"
