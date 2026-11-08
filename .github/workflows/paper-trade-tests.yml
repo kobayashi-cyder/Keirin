@@ -22,6 +22,9 @@ on:
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
       - 'tools/odds_to_shadow.py'
+      - 'tools/backtest_3rentan.py'
+      - 'tests/test_backtest_3rentan.py'
+      - 'docs/BACKTEST_3RENTAN.md'
       - 'tools/auto_discord_research.py'
       - 'tests/test_auto_discord_research.py'
       - 'docs/AUTO_DISCORD_RESEARCH.md'
@@ -59,6 +62,9 @@ on:
       - 'tools/odds_html_parser.py'
       - 'tools/audit_odds_snapshot.py'
       - 'tools/odds_to_shadow.py'
+      - 'tools/backtest_3rentan.py'
+      - 'tests/test_backtest_3rentan.py'
+      - 'docs/BACKTEST_3RENTAN.md'
       - 'tools/auto_discord_research.py'
       - 'tests/test_auto_discord_research.py'
       - 'docs/AUTO_DISCORD_RESEARCH.md'
@@ -132,5 +138,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_predict_pre_race.py' -v
       - name: Licensed provider CSV alias normalization and prereace gate tests
         run: python -m unittest discover -s tests -p 'test_import_provider_csv.py' -v
+      - name: Historical 3rentan point-in-time payout backtest tests
+        run: python -m unittest discover -s tests -p 'test_backtest_3rentan.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
