@@ -44,6 +44,10 @@ on:
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
       - 'tools/youtube_race_search.py'
+      - 'tools/youtube_annotation_studio.py'
+      - 'tools/youtube_annotation_studio.html'
+      - 'tests/test_youtube_annotation_studio.py'
+      - 'docs/YOUTUBE_ANNOTATION_STUDIO.md'
       - 'tests/test_youtube_race_search.py'
       - 'docs/YOUTUBE_RACE_DISCOVERY.md'
       - 'tests/test_video_history.py'
@@ -95,6 +99,10 @@ on:
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
       - 'tools/youtube_race_search.py'
+      - 'tools/youtube_annotation_studio.py'
+      - 'tools/youtube_annotation_studio.html'
+      - 'tests/test_youtube_annotation_studio.py'
+      - 'docs/YOUTUBE_ANNOTATION_STUDIO.md'
       - 'tests/test_youtube_race_search.py'
       - 'docs/YOUTUBE_RACE_DISCOVERY.md'
       - 'tests/test_video_history.py'
@@ -162,5 +170,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_video_history.py' -v
       - name: Official YouTube race discovery and reviewed link storage tests
         run: python -m unittest discover -s tests -p 'test_youtube_race_search.py' -v
+      - name: Browser YouTube annotation and historical feature integrity tests
+        run: python -m unittest discover -s tests -p 'test_youtube_annotation_studio.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
