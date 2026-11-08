@@ -117,9 +117,6 @@ def validate_history(event):
     if available < played:
         raise ValueError("historical annotation available before event happened")
     number(event["finish_position"], minimum=1, maximum=9, integer=True)
-    for name, maximum in (("attack_count", 30), ("front_seconds", 3000),
-                          ("late_gain_places", 8), ("line_cohesion", 1)):
-        number(event[name], minimum=0, maximum=maximum)
     tag = event["video_sha256"].strip()
     if tag and not re.fullmatch(r"[a-f0-9]{64}", tag):
         raise ValueError("video_sha256 must be a lowercase 64-digit sha256")
@@ -130,9 +127,9 @@ def validate_history(event):
                                                 "late_gain_places", "line_cohesion")):
             raise ValueError("video tactical annotations need a video hash")
     else:
-        for name in ("attack_count", "front_seconds", "late_gain_places",
-                     "line_cohesion"):
-            number(event[name], minimum=0)
+        for name, max_value in (("attack_count", 30), ("front_seconds", 3000),
+                                ("late_gain_places", 8), ("line_cohesion", 1)):
+            number(event[name], minimum=0, maximum=max_value)
     return played, available
 
 
