@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>競輪・過去映像 戦術注釈スタジオ</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,"Yu Gothic",Meiryo,sans-serif;--line:#cbd5e1;--blue:#1d4ed8;--ink:#18243b}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:var(--ink)}
+header{background:#17263f;color:white;padding:19px 24px}header h1{font-size:1.35rem;margin:0 0 8px}
+header p{margin:0;color:#c6d5eb;font-size:.9rem}
+main{max-width:1120px;margin:auto;padding:20px;display:grid;gap:20px}
+section{background:white;border:1px solid var(--line);border-radius:12px;padding:18px}
+h2{font-size:1.1rem;margin:0 0 14px}p{line-height:1.55}
+.small{font-size:.86rem;color:#536477}.warn{font-weight:600;color:#92400e}
+#player-wrap{width:100%;min-height:330px;background:#000;border-radius:8px;overflow:hidden}
+#video-player{width:100%;min-height:330px}#player-wrap iframe{width:100%!important;min-height:330px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+button{font:inherit;background:var(--blue);color:white;border:0;border-radius:8px;padding:10px 15px;cursor:pointer;min-height:42px}
+button:hover{filter:brightness(.92)}button:disabled{opacity:.45;cursor:not-allowed}
+button.secondary{background:#42536b}button.danger{background:#a12626}
+label{display:flex;flex-direction:column;font-weight:600;gap:5px}
+input,select{font:inherit;padding:8px;border:1px solid #9aa7ba;border-radius:6px;min-height:37px;max-width:100%}
+input[type="checkbox"]{min-height:16px}
+fieldset{border:1px solid var(--line);border-radius:9px}
+#event-log{font-size:.9rem;max-height:170px;overflow:auto;border:1px solid var(--line);border-radius:7px;margin-top:12px;padding:10px}
+#event-log li{margin:4px 0}.info{padding:11px;border-radius:7px;background:#eaf2ff}
+.error{padding:11px;border-radius:7px;background:#fff2ef;color:#99230f}
+.success{padding:11px;border-radius:7px;background:#ecfdf5;color:#166534}
+.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{text-align:left;padding:9px 7px;border-bottom:1px solid #d8e1ed}
+th{font-size:.85rem;color:#526178}td input{max-width:200px;width:100%}
+.checkrow{display:flex;flex-direction:row;align-items:start;gap:10px;font-weight:500}
+a{color:#1d4ed8}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #93c5fd}
+@media(min-width:950px){.dual{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}}
+</style>
+</head>
+<body>
+<header>
+<h1>競輪・過去映像 戦術注釈スタジオ</h1>
+<p>公式YouTubeプレーヤーを視聴し、あなたが確認した事実を手入力します。動画・音声・字幕・画面画像は保存しません。</p>
+</header>
+<main>
+<div class="dual">
+<section>
+<h2>① YouTubeでレース映像を視聴</h2>
+<p id="race-info"></p>
+<div id="player-wrap"><div id="video-player"></div></div>
+<p class="small">YouTubeの標準プレーヤーです。再生・広告・音量・フルスクリーンを妨げません。埋め込みを許可していない動画は <a id="youtube-direct" rel="noopener noreferrer" target="_blank">YouTubeで開く</a> から視聴できます。</p>
+<p id="player-status" class="info" role="status">公式プレーヤーに接続しています…</p>
+<p>再生位置：<strong id="playback-second">未取得</strong></p>
+</section>
+<section>
+<h2>② 選手の動きにマーカーを付ける</h2>
+<p class="small">YouTubeの再生時刻を記録します。まず対象車番を選び、該当する場面でボタンを押してください。再生が可能になるまでマーカーは無効です。</p>
+<div class="controls">
+<label>車番
+<select id="selected-car"></select>
+</label>
+<label>終盤に上げた順位数
+<input id="gain-count" type="number" min="1" max="8" step="1" value="1" style="width:90px">
+</label>
+</div>
+<div class="controls">
+<button class="marker" data-kind="attack" disabled>仕掛けを記録</button>
+<button class="marker secondary" data-kind="front_start" disabled>先頭区間開始</button>
+<button class="marker secondary" data-kind="front_end" disabled>先頭区間終了</button>
+<button class="marker" data-kind="late_gain" disabled>終盤の追い上げ</button>
+<button id="undo" class="danger" disabled>最後の記録を取消</button>
+</div>
+<h2 style="margin-top:18px">記録済みマーカー</h2>
+<ol id="event-log"></ol>
+<p class="small">先頭時間は「開始」と「終了」の時刻差から計算。仕掛け回数と追い上げはクリックした数だけ記録します。結果から逆算した自動推測はしません。</p>
+</section>
+</div>
+<section>
+<h2>③ 全選手の本人ID・確定着順・ライン連携評価</h2>
+<p class="small">レースIDをまたいでも同じ選手を識別できる、正しい選手IDを入力してください。車番と着順はそれぞれ1から連続・重複不可。同着・欠場・中止等があるレースは、この簡易注釈方式では保存できません。</p>
+<div class="table-scroll">
+<table>
+<thead><tr><th>車番</th><th>選手ID（提供元の一意ID）</th><th>確定着順</th><th>ライン連携の観察スコア 0〜1</th></tr></thead>
+<tbody id="rider-rows"></tbody>
+</table>
+</div>
+<p class="small">ライン連携スコア：0＝連携が見られない、1＝一貫して連携が保たれた。各レース・各選手に同一の採点ルールを使ってください。検証済み事実の代わりに空欄を0で埋めないでください。</p>
+</section>
+<section>
+<h2>④ 自分が確認した情報だけを保存する</h2>
+<p class="warn">重要：これは人が視聴して作る観察記録です。YouTubeが提供する公式統計でも、動画の自動解析でもありません。レース後に作った記録は、それより過去の予測・バックテストに使用できません。</p>
+<label class="checkrow">
+<input id="review-complete" type="checkbox">
+<span>動画のレースID・車番・全選手の着順・仕掛けなどの記録を確認しました。未確認の値を推測で入力していません。</span>
+</label>
+<div class="controls">
+<button id="save">観察記録をローカルCSVへ保存</button>
+</div>
+<p id="save-message" role="status" class="info">この画面で保存操作を押すまで、記録は書き込まれません。</p>
+<p class="small">保存先はPC内の <code>local_data/history/youtube_rider_events.csv</code>。動画本体を保存したり、AIへ送信したりしません。保存日時はPythonサーバーの現在時刻から付与します。</p>
+</section>
+</main>
+<script id="race-config" type="application/json">__RACE_CONFIGURATION_JSON__</script>
+<script>
+"use strict";
+const config = JSON.parse(document.getElementById("race-config").textContent);
+const youtubeUrl = "https://www.youtube.com/watch?v=" + config.video_id;
+document.getElementById("race-info").textContent =
+  config.race_date+" "+config.display_venue+" / "+config.venue_key+" / "+config.grade+
+  "　レースID: "+config.race_id+"　選手: "+config.cars+"名";
+const direct = document.getElementById("youtube-direct");
+direct.href = youtubeUrl;
+const tbody = document.getElementById("rider-rows");
+const carSelect = document.getElementById("selected-car");
+for (let car = 1; car <= config.cars; car++) {
+  const option = document.createElement("option");
+  option.value = car; option.textContent = car+"番車"; carSelect.appendChild(option);
+  const tr = document.createElement("tr");
+  tr.dataset.car = String(car);
+  const first = document.createElement("td");
+  first.textContent = String(car); tr.appendChild(first);
+  for(const [name,type,min,max,placeholder] of [
+    ["rider_id","text",null,null,"一意の選手ID"],
+    ["finish_position","number",1,config.cars,"1～"+config.cars],
+    ["line_cohesion","number",0,1,"0.0～1.0"]
+  ]) {
+    const td = document.createElement("td");
+    const input = document.createElement("input");
+    input.name = name; input.type=type; input.placeholder=placeholder;
+    input.required=true;
+    if(min!==null){input.min=String(min);input.max=String(max);}
+    if(name==="line_cohesion") input.step=".01";
+    if(name==="finish_position") input.step="1";
+    td.appendChild(input);tr.appendChild(td);
+  }
+  tbody.appendChild(tr);
+}
+document.getElementById("gain-count").max=String(config.cars-1);
+const status = document.getElementById("player-status");
+const playTime = document.getElementById("playback-second");
+const log = document.getElementById("event-log");
+const markers=[];
+let player=null;
+let playerReady=false;
+const names={attack:"仕掛け",front_start:"先頭区間開始",front_end:"先頭区間終了",late_gain:"終盤追い上げ"};
+function say(where,text,ok) {
+  where.textContent=text;
+  where.className=ok==="success"?"success":ok==="error"?"error":"info";
+}
+function updateLog(){
+  log.replaceChildren();
+  markers.forEach((m,index)=>{
+    const li=document.createElement("li");
+    li.textContent="["+(index+1)+"] "+m.car_no+"番車 "+names[m.kind]+
+      (m.kind==="late_gain"?" "+m.places+"順位":"")+
+      "　"+m.second.toFixed(2)+"秒";
+    log.appendChild(li);
+  });
+  document.getElementById("undo").disabled=markers.length===0;
+}
+function mark(kind) {
+  if(!playerReady || !player) {
+    say(status,"プレーヤーの読み込みがまだ完了していません。","error");return;
+  }
+  let second;
+  try{second=player.getCurrentTime();}catch(err){second=NaN;}
+  if(typeof second!=="number" || !Number.isFinite(second) || second<0 || second>21600){
+    say(status,"再生時刻を取得できません。動画を再生してから記録してください。","error");return;
+  }
+  const entry={
+    car_no:Number(carSelect.value),kind,second:Math.round(second*100)/100
+  };
+  if(kind==="late_gain") {
+    const n=Number(document.getElementById("gain-count").value);
+    if(!Number.isInteger(n) || n<1 || n>=config.cars){
+      say(status,"上げた順位数を1～"+(config.cars-1)+"で指定してください。","error");return;
+    }
+    entry.places=n;
+  }
+  markers.push(entry);
+  updateLog();
+}
+document.querySelectorAll("button.marker").forEach(b=>
+  b.addEventListener("click",()=>mark(b.dataset.kind))
+);
+document.getElementById("undo").addEventListener("click",()=>{
+  markers.pop();updateLog();
+});
+window.onYouTubeIframeAPIReady=function(){
+  player=new YT.Player("video-player",{
+    width:"100%",height:"380",videoId:config.video_id,
+    playerVars:{origin:window.location.origin,playsinline:1,controls:1,rel:1,autoplay:0},
+    events:{
+      onReady:function(){
+        playerReady=true;
+        document.querySelectorAll("button.marker").forEach(b=>b.disabled=false);
+        say(status,"YouTubeプレーヤー準備完了。再生しながら記録してください。","success");
+      },
+      onError:function(){
+        playerReady=false;
+        document.querySelectorAll("button.marker").forEach(b=>b.disabled=true);
+        say(status,"埋め込み再生できません。YouTubeで開くリンクを利用してください。この画面では時刻マーカーは記録できません。","error");
+      }
+    }
+  });
+};
+const api=document.createElement("script");
+api.src="https://www.youtube.com/iframe_api";
+api.async=true;document.head.appendChild(api);
+setInterval(()=>{
+  if(!playerReady || !player)return;
+  try{
+    const now=player.getCurrentTime();
+    if(typeof now==="number" && Number.isFinite(now))
+      playTime.textContent=now.toFixed(1)+"秒";
+  }catch(err){}
+},650);
+document.getElementById("save").addEventListener("click",async()=>{
+  const saveButton=document.getElementById("save");
+  const message=document.getElementById("save-message");
+  if(!document.getElementById("review-complete").checked){
+    say(message,"全選手と映像の確認にチェックを入れてから保存してください。","error");
+    return;
+  }
+  const riders=Array.from(tbody.querySelectorAll("tr")).map(row=>{
+    const field=(name)=>row.querySelector('input[name="'+name+'"]').value.trim();
+    const car=Number(row.dataset.car);
+    const finish=Number(field("finish_position"));
+    const cohesion=Number(field("line_cohesion"));
+    return {
+      car_no:car,rider_id:field("rider_id"),finish_position:finish,
+      line_cohesion:cohesion
+    };
+  });
+  for(let i=0;i<riders.length;i++){
+    const row=tbody.children[i];
+    if(Array.from(row.querySelectorAll("input")).some(el=>!el.value.trim())){
+      say(message,"全選手のID・着順・連携スコアを入力してください。","error");
+      return;
+    }
+  }
+  saveButton.disabled=true;
+  say(message,"ローカルサーバーで入力内容を検証しています。");
+  try {
+    const reply=await fetch("/api/save",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","X-Annotation-Token":config.csrf_token},
+      body:JSON.stringify({review_complete:true,riders,markers})
+    });
+    const result=await reply.json();
+    if(!reply.ok){
+      say(message,"保存できません："+(result.message||"入力内容を再確認してください"),"error");
+      saveButton.disabled=false;
+    }else{
+      say(message,"保存しました："+result.rider_rows_added+"名分　"+
+        result.output+"。まだAIの学習・バックテストを実行したわけではありません。","success");
+    }
+  }catch(err){
+    say(message,"ローカルサーバーに接続できません。コマンドプロンプトを確認してください。","error");
+    saveButton.disabled=false;
+  }
+});
+</script>
+</body>
+</html>
