@@ -8,6 +8,13 @@ on:
       - 'tests/test_snapshot_ingest.py'
       - 'tests/test_api_bridge.py'
       - 'tests/test_paper_pipeline.py'
+      - 'tests/test_all_markets.py'
+      - '.github/workflows/paper-trade-tests.yml'
+  pull_request:
+    paths:
+      - 'paper_trading/all_markets.py'
+      - 'tests/test_all_markets.py'
+      - 'docs/ALL_MARKETS_ENGINE.md'
       - '.github/workflows/paper-trade-tests.yml'
   workflow_dispatch:
 permissions:
@@ -27,5 +34,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_api_bridge.py' -v
       - name: Strict preclose snapshot tests
         run: python -m unittest discover -s tests -p 'test_snapshot_ingest.py' -v
+      - name: Seven-market probability projection tests
+        run: python -m unittest discover -s tests -p 'test_all_markets.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
