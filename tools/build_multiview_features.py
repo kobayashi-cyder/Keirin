@@ -181,7 +181,8 @@ def features_for_target(context, observed, events):
     return {key: f"{fields[key]:.9g}" for key in EXTRA_FEATURE_NAMES}
 
 
-def build(base, context, historical, *, now=None, youtube_index=YOUTUBE_INDEX_DEFAULT):
+def build(base, context, historical, *, now=None, youtube_index=YOUTUBE_INDEX_DEFAULT,
+          allow_ai_research=False):
     now = now or datetime.now(timezone.utc)
     now = dt(now.isoformat())
     current_rows = csv_records(base, COLUMNS + ("ingested_at_jst",))
@@ -205,7 +206,14 @@ def build(base, context, historical, *, now=None, youtube_index=YOUTUBE_INDEX_DE
     if youtube_rows:
         from youtube_race_search import HEADER
         for link in csv_records(youtube_index, HEADER):
-            if link["review_status"] != "MANUALLY_CONFIRMED_LINK_ONLY":
+            if link["review_status"] == "MANUALLY_CONFIRMED_LINK_ONLY":
+                pass
+            elif (allow_ai_research and
+                  link["review_status"] == "AUTOMATED_RESEARCH_ONLY"):
+                # The user has explicitly opted into AI-derived, not
+                # ground-truth-validated observations for research only.
+                pass
+            else:
                 continue
             key = (link["race_id"], link["video_id"])
             if key in reviewed:
@@ -269,6 +277,8 @@ def main():
     ap.add_argument("--context", type=Path, default=Path("local_data/history/target_context.csv"))
     ap.add_argument("--events", type=Path, default=Path("local_data/history/rider_events.csv"))
     ap.add_argument("--youtube-index", type=Path, default=YOUTUBE_INDEX_DEFAULT)
+    ap.add_argument("--allow-ai-research-annotations", action="store_true",
+                    help="explicitly allow consensus AI annotations (unverified research only)")
     ap.add_argument("--output", type=Path, default=Path("local_data/pre_race_multiview.csv"))
     ap.add_argument("--commit", action="store_true", help="default DRY RUN")
     ap.add_argument("--init-templates", action="store_true",
@@ -289,7 +299,9 @@ def main():
                               "training_ready": False}, ensure_ascii=False))
             return 0
         output = local(args.output)
-        rows, races = build(args.base, args.context, args.events, youtube_index=args.youtube_index)
+        rows, races = build(args.base, args.context, args.events,
+                            youtube_index=args.youtube_index,
+                            allow_ai_research=args.allow_ai_research_annotations)
         if args.commit:
             if output.exists():
                 raise ValueError("output exists; refusing to overwrite feature history")
@@ -317,6 +329,7 @@ def main():
             "video_feature_note": "0 video-race count is NOT evidence of zero attacks.",
             "output": str(output) if args.commit else None,
             "model_verified": False, "alert_allowed": False,
+            "ai_research_annotations_allowed": args.allow_ai_research_annotations,
         }, ensure_ascii=False, indent=2))
         return 0
     except (ValueError, OSError, csv.Error, TypeError, KeyError) as exc:
