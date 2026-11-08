@@ -166,7 +166,8 @@ class AnnotationTests(unittest.TestCase):
     def test_race_date_future_review_and_wrong_link_refused(self):
         with self.assertRaisesRegex(ValueError, "start date"):
             studio.prepare_session(RACE, "2026-11-09T20:40:00+09:00",
-                                   "matsuyama", "F2", 7, now=NOW)
+                                   "matsuyama", "F2", 7,
+                                   now=datetime.fromisoformat("2026-11-10T21:20:00+09:00"))
         with self.assertRaisesRegex(ValueError, "not occurred"):
             studio.prepare_session(RACE, RACE_AT,
                                    "matsuyama", "F2", 7,
