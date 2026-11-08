@@ -224,6 +224,74 @@ class AnnotationTests(unittest.TestCase):
                 context, multiview.dt("2026-11-08T18:00:00+09:00"),
                 [r for r in tagged if r["rider_id"] == "S1"])
 
+    def test_end_to_end_builder_joins_future_race_and_rejects_unreviewed_link(self):
+        studio.save_annotations(complete_payload(), self.s, now=NOW)
+        from pre_race_readiness import COLUMNS
+        target_id = "7520261115010001"
+        observed = "2026-11-15T18:00:00+09:00"
+        target_rows = []
+        contexts = []
+        for car in range(1, 8):
+            row = {
+                "race_id": target_id, "race_date": "2026-11-15",
+                "car_no": str(car), "observed_at_jst": observed,
+                "ingested_at_jst": "2026-11-15T18:01:00+09:00",
+                "deadline_at_jst": "2026-11-15T20:35:00+09:00",
+                "start_at_jst": "2026-11-15T20:40:00+09:00",
+                "source_url": "https://example.org/permissioned-preclose",
+                "rights_status": "permitted", "line_id": f"line{car}",
+                "rating": str(75+car), "recent_win_rate": ".1",
+                "recent_top2_rate": ".2", "recent_top3_rate": ".3",
+                "line_position": "1", "age": "30",
+            }
+            target_rows.append(row)
+            contexts.append({
+                "race_id": target_id, "car_no": str(car),
+                "rider_id": f"S{car}", "venue": "matsuyama", "grade": "F2",
+                "bank_length_m": "400", "wind_mps": "1.8",
+                "observed_at_jst": "2026-11-15T17:50:00+09:00",
+                "source_url": "https://example.org/permissioned-preclose",
+                "rights_status": "permitted",
+            })
+        base = Path("local_data/pre_race_features.csv")
+        context = Path("local_data/history/target_context.csv")
+        csv_write(base, COLUMNS+("ingested_at_jst",), target_rows)
+        csv_write(context, multiview.CONTEXT_FIELDS, contexts)
+        future = datetime.fromisoformat("2026-11-16T21:00:00+09:00")
+        output, n = multiview.build(base, context, OUT, now=future)
+        self.assertEqual((n, len(output)), (1, 7))
+        self.assertEqual(output[0]["hist_video_races_180d"], "1")
+        self.assertEqual(output[0]["hist_attack_rate_180d"], "1")
+        self.assertEqual(output[0]["hist_front_seconds_180d"], "10.3")
+        # The video ID is NOT accepted without a separately human-reviewed
+        # exact race/video link matching the historical event.
+        with LINK.open(encoding="utf-8") as f:
+            link_rows = list(csv.DictReader(f))
+        link_rows[0]["review_status"] = "UNVERIFIED_SEARCH_CANDIDATE"
+        csv_write(LINK, HEADER, link_rows)
+        with self.assertRaisesRegex(ValueError, "matching manually reviewed"):
+            multiview.build(base, context, OUT, now=future)
+
+    def test_annotation_saved_after_target_observation_is_not_available_in_backtest(self):
+        studio.save_annotations(complete_payload(), self.s, now=NOW)
+        with OUT.open(encoding="utf-8") as f:
+            records = list(csv.DictReader(f))
+        checked = [{
+            **r,
+            "_race_at": multiview.dt(r["race_at_jst"]),
+            "_available_at": multiview.dt(r["available_at_jst"]),
+        } for r in records if r["rider_id"] == "S1"]
+        context = {
+            "rider_id": "S1", "venue": "matsuyama", "grade": "F2",
+            "bank_length_m": "400", "wind_mps": "1.8",
+            "source_url": "https://example.org/permitted-context",
+            "rights_status": "permitted",
+        }
+        # Before November 8 21:20, the manually added notes didn't yet exist.
+        with self.assertRaisesRegex(ValueError, "no eligible earlier history"):
+            multiview.features_for_target(
+                context, multiview.dt("2026-11-08T21:10:00+09:00"), checked)
+
     def test_review_link_not_a_licensed_video_file(self):
         with OUT.open("w", encoding="utf-8", newline="") as fh:
             fh.write("")
