@@ -20,6 +20,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from pre_race_readiness import COLUMNS, FEATURES, _valid_row, time_with_zone
+from build_multiview_features import EXTRA_FEATURE_NAMES
+SUPPORTED_FEATURE_SETS = (tuple(FEATURES), tuple(FEATURES) + EXTRA_FEATURE_NAMES)
 from train_baseline import predict_joint_top3
 
 REQUIRED_RACES = 500
@@ -36,8 +38,8 @@ def _at(raw):
     return val.astimezone(timezone.utc)
 
 
-def _number_array(value):
-    if not isinstance(value, list) or len(value) != len(FEATURES):
+def _number_array(value, dimensions):
+    if not isinstance(value, list) or len(value) != dimensions:
         raise ValueError("model parameter dimensions do not match features")
     if any(type(x) not in (int, float) or not math.isfinite(x) for x in value):
         raise ValueError("model contains invalid numeric parameters")
@@ -50,11 +52,12 @@ def checked_model(model, *, race_date):
         raise ValueError("no evaluated historical model available")
     if model.get("model_verified") is not False or model.get("alert_allowed") is not False:
         raise ValueError("model must explicitly remain unverified")
-    if tuple(model.get("features", ())) != tuple(FEATURES):
+    order = tuple(model.get("features", ()))
+    if order not in SUPPORTED_FEATURE_SETS:
         raise ValueError("model feature order mismatch")
-    _number_array(model.get("weights"))
-    _number_array(model.get("scaler_means"))
-    scales = _number_array(model.get("scaler_scales"))
+    _number_array(model.get("weights"), len(order))
+    _number_array(model.get("scaler_means"), len(order))
+    scales = _number_array(model.get("scaler_scales"), len(order))
     if any(x <= 0 for x in scales):
         raise ValueError("model has invalid scaler")
     temp = model.get("calibration_temperature")
@@ -100,7 +103,9 @@ def checked_model(model, *, race_date):
     return model
 
 
-def forward_rows(path, race_id, *, now=None):
+def forward_rows(path, race_id, *, now=None, feature_names=FEATURES):
+    if tuple(feature_names) not in SUPPORTED_FEATURE_SETS:
+        raise ValueError("unsupported forward feature set")
     now = now or datetime.now(timezone.utc)
     if now.tzinfo is None or now.utcoffset() is None:
         raise ValueError("timezone-aware time required")
@@ -111,7 +116,7 @@ def forward_rows(path, race_id, *, now=None):
         raise ValueError("real pre-race feature CSV not found")
     with Path(path).open(encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
-        if not reader.fieldnames or not (set(COLUMNS) | {"ingested_at_jst"}) <= set(reader.fieldnames):
+        if not reader.fieldnames or not (set(COLUMNS) | {"ingested_at_jst"} | set(feature_names)) <= set(reader.fieldnames):
             raise ValueError("pre-race features CSV lacks mandatory columns")
         rows = [row for row in reader if row.get("race_id") == race_id]
     if len(rows) not in (7, 8, 9):
@@ -135,7 +140,9 @@ def forward_rows(path, race_id, *, now=None):
         if position in lines[line]:
             raise ValueError("duplicated line position")
         lines[line].add(position)
-        vectors[car] = tuple(float(row[col]) for col in FEATURES)
+        vectors[car] = tuple(float(row[col]) for col in feature_names)
+        if any(not math.isfinite(x) for x in vectors[car]):
+            raise ValueError("nonfinite forward historical features")
     if seen != set(range(1, len(rows) + 1)):
         raise ValueError("nonconsecutive or missing car numbers")
     if len(times) != 1 or len(ingested) != 1 or len(race_dates) != 1:
@@ -205,11 +212,15 @@ def main():
     ap.add_argument("--output", type=Path)
     args = ap.parse_args()
     try:
-        inputs = forward_rows(args.features, args.race_id)
         model_file = safe_output(args.model)
         if not model_file.is_file():
             raise ValueError("trained real-data model is missing; run train_baseline.py after data readiness")
         model = json.loads(model_file.read_text(encoding="utf-8"))
+        feature_names = tuple(model.get("features", ()))
+        if feature_names not in SUPPORTED_FEATURE_SETS:
+            raise ValueError("unsupported trained model feature set")
+        inputs = forward_rows(args.features, args.race_id,
+                              feature_names=feature_names)
         prediction = predict_forward(model, inputs)
         target = safe_output(args.output or Path("local_data/models") /
                              (args.race_id + "_top3.json"))
