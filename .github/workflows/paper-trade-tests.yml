@@ -11,6 +11,8 @@ on:
       - 'tests/test_all_markets.py'
       - 'tests/test_pre_race_readiness.py'
       - 'tools/pre_race_readiness.py'
+      - 'tools/intake_pre_race.py'
+      - 'tests/test_intake_pre_race.py'
       - '.github/workflows/paper-trade-tests.yml'
   pull_request:
     paths:
@@ -18,6 +20,9 @@ on:
       - 'tests/test_all_markets.py'
       - 'docs/ALL_MARKETS_ENGINE.md'
       - 'docs/PRE_RACE_MODEL_DATA.md'
+      - 'docs/PRE_RACE_INTAKE.md'
+      - 'tools/intake_pre_race.py'
+      - 'tests/test_intake_pre_race.py'
       - 'tools/pre_race_readiness.py'
       - 'tests/test_pre_race_readiness.py'
       - '.github/workflows/paper-trade-tests.yml'
@@ -43,5 +48,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_all_markets.py' -v
       - name: Pre-race data readiness and no-leakage tests
         run: python -m unittest discover -s tests -p 'test_pre_race_readiness.py' -v
+      - name: Permissioned pre-race CSV intake tests
+        run: python -m unittest discover -s tests -p 'test_intake_pre_race.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
