@@ -40,8 +40,10 @@ HISTORY_FIELDS = (
     "race_id", "rider_id", "race_at_jst", "available_at_jst",
     "venue", "grade", "finish_position", "attack_count",
     "front_seconds", "late_gain_places", "line_cohesion",
-    "video_sha256", "source_url", "rights_status",
+    "video_sha256", "source_url", "rights_status", "youtube_video_id",
 )
+LEGACY_HISTORY_FIELDS = tuple(x for x in HISTORY_FIELDS if x != "youtube_video_id")
+YOUTUBE_INDEX_DEFAULT = Path("local_data/history/youtube_race_links.csv")
 EXPORT_FIELDS = COLUMNS + ("ingested_at_jst",) + EXTRA_FEATURE_NAMES
 WINDOW_LONG = timedelta(days=365)
 WINDOW_SHORT = timedelta(days=180)
@@ -118,14 +120,23 @@ def validate_history(event):
         raise ValueError("historical annotation available before event happened")
     number(event["finish_position"], minimum=1, maximum=9, integer=True)
     tag = event["video_sha256"].strip()
+    youtube = event.get("youtube_video_id", "").strip()
     if tag and not re.fullmatch(r"[a-f0-9]{64}", tag):
         raise ValueError("video_sha256 must be a lowercase 64-digit sha256")
-    if not tag:
-        # No video => video-derived tactical quantities must be absent, rather
-        # than fabricated 0. The aggregate uses only video-tagged events.
+    if youtube and not re.fullmatch(r"[A-Za-z0-9_-]{11}", youtube):
+        raise ValueError("invalid manually reviewed YouTube video ID")
+    if tag and youtube:
+        raise ValueError("historical video event must use exactly one video source")
+    if youtube:
+        if event["source_url"] != "https://www.youtube.com/watch?v=" + youtube:
+            raise ValueError("YouTube annotation requires canonical source URL")
+        if event["rights_status"] != "self_recorded":
+            raise ValueError("YouTube-derived notes must be marked self_recorded")
+    if not tag and not youtube:
+        # No annotated video: blank means missing evidence, never attack=0.
         if any(event[name].strip() for name in ("attack_count", "front_seconds",
                                                 "late_gain_places", "line_cohesion")):
-            raise ValueError("video tactical annotations need a video hash")
+            raise ValueError("video tactical annotations need a video hash or reviewed YouTube link")
     else:
         for name, max_value in (("attack_count", 30), ("front_seconds", 3000),
                                 ("late_gain_places", 8), ("line_cohesion", 1)):
@@ -148,7 +159,7 @@ def features_for_target(context, observed, events):
     # at least one earlier finished race; provide counts for tiny samples.
     if not short:
         raise ValueError("no eligible earlier history inside 180 days")
-    video = [e for e in short if e["video_sha256"].strip()]
+    video = [e for e in short if e["video_sha256"].strip() or e.get("youtube_video_id", "").strip()]
     same_grade = [e for e in prior if e["grade"] == grade]
     fields = {
         "hist_races_180d": len(short),
@@ -170,12 +181,14 @@ def features_for_target(context, observed, events):
     return {key: f"{fields[key]:.9g}" for key in EXTRA_FEATURE_NAMES}
 
 
-def build(base, context, historical, *, now=None):
+def build(base, context, historical, *, now=None, youtube_index=YOUTUBE_INDEX_DEFAULT):
     now = now or datetime.now(timezone.utc)
     now = dt(now.isoformat())
     current_rows = csv_records(base, COLUMNS + ("ingested_at_jst",))
     contexts = csv_records(context, CONTEXT_FIELDS)
-    old_rows = csv_records(historical, HISTORY_FIELDS)
+    old_rows = csv_records(historical, LEGACY_HISTORY_FIELDS)
+    for event in old_rows:
+        event.setdefault("youtube_video_id", "")
     if not current_rows or not contexts or not old_rows:
         raise ValueError("cannot create features from empty source files")
     context_lookup = {}
@@ -185,10 +198,31 @@ def build(base, context, historical, *, now=None):
         if key in context_lookup:
             raise ValueError("duplicate target race/car context")
         context_lookup[key] = c
+    # Confirm actual event-ID/video-ID correspondence against the separately
+    # manually reviewed link registry. A video URL alone is not sufficient.
+    youtube_rows = [e for e in old_rows if e.get("youtube_video_id", "").strip()]
+    reviewed = {}
+    if youtube_rows:
+        from youtube_race_search import HEADER
+        for link in csv_records(youtube_index, HEADER):
+            if link["review_status"] != "MANUALLY_CONFIRMED_LINK_ONLY":
+                continue
+            key = (link["race_id"], link["video_id"])
+            if key in reviewed:
+                raise ValueError("ambiguous reviewed YouTube link index")
+            reviewed[key] = link
     history_lookup = defaultdict(list)
     ids = set()
     for e in old_rows:
         played, available = validate_history(e)
+        if e["youtube_video_id"]:
+            link = reviewed.get((e["race_id"], e["youtube_video_id"]))
+            if link is None:
+                raise ValueError("no matching manually reviewed YouTube race link")
+            if e["race_at_jst"][:10] != link["race_date"]:
+                raise ValueError("reviewed YouTube race date mismatch")
+            if available < dt(link["reviewed_at_jst"]):
+                raise ValueError("YouTube annotation predates link review")
         key = (e["race_id"], e["rider_id"])
         if key in ids:
             raise ValueError("duplicate rider historical race event")
@@ -234,6 +268,7 @@ def main():
     ap.add_argument("--base", type=Path, default=Path("local_data/pre_race_features.csv"))
     ap.add_argument("--context", type=Path, default=Path("local_data/history/target_context.csv"))
     ap.add_argument("--events", type=Path, default=Path("local_data/history/rider_events.csv"))
+    ap.add_argument("--youtube-index", type=Path, default=YOUTUBE_INDEX_DEFAULT)
     ap.add_argument("--output", type=Path, default=Path("local_data/pre_race_multiview.csv"))
     ap.add_argument("--commit", action="store_true", help="default DRY RUN")
     ap.add_argument("--init-templates", action="store_true",
@@ -254,7 +289,7 @@ def main():
                               "training_ready": False}, ensure_ascii=False))
             return 0
         output = local(args.output)
-        rows, races = build(args.base, args.context, args.events)
+        rows, races = build(args.base, args.context, args.events, youtube_index=args.youtube_index)
         if args.commit:
             if output.exists():
                 raise ValueError("output exists; refusing to overwrite feature history")
