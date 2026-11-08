@@ -60,11 +60,12 @@ def _expected_count(code, cars):
         return cars * (cars - 1)
     if code in ("2shafuku", "wide"):
         return cars * (cars - 1) // 2
-    if cars != 9:
+    if cars not in (8, 9):
         return None
-    # For 9 riders, frames contain 1,1,1,2,2,2 riders: 33 ordered
-    # possible frame pairs (30 distinct ordered plus 3 same-frame).
-    return 33 if code == "2wakutan" else 18
+    # 8 riders: frames 1,2,3,4,5(2 cars),6(2 cars) => 32/17.
+    # 9 riders: 1,2,3,4(2),5(2),6(2) => 33/18.
+    same_frame = 2 if cars == 8 else 3
+    return 30 + same_frame if code == "2wakutan" else 15 + same_frame
 
 
 def _ranked_blocks(text):
@@ -99,8 +100,8 @@ def parse_ranked_odds(rendered_text, cars, market_order=None):
     The operator-specific rank-list order is intentionally explicit.
     A source layout change results in NO records, not mislabeled tickets.
     """
-    if cars not in (7, 9):
-        raise ValueError("layout currently requires 7 or 9 cars")
+    if cars not in (7, 8, 9):
+        raise ValueError("layout requires 7, 8 or 9 cars")
     if not isinstance(rendered_text, str):
         raise ValueError("rendered page text required")
     order = tuple(market_order or (ORDER_7_CARS if cars == 7 else ORDER_9_CARS))
