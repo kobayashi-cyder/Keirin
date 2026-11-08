@@ -106,14 +106,9 @@ def inspect_record(record, *, now=None):
 def deliver_once(file, state, *, now=None, send=False,
                  use_openai=False, model=None, poster=send_discord,
                  note_generator=None):
+    """At most one notice per race. State saved only after HTTP success."""
     if note_generator is None:
         note_generator = openai_note
-    """At most one notice per race. Dedup persists only after HTTP success.
-
-    For a failed Discord POST the state remains unchanged so an operator can
-    retry deliberately. Automatic polling does not retry the same record
-    repeatedly within a run (see run_scan).
-    """
     file = safe_path(file)
     record = last_record(file)
     race_id = race_id_from_source(record)
