@@ -23,6 +23,18 @@ The live Kdreams page parser still needs verification. If it stops with `UNRECOG
 
 **試験手順：** サイトの規約を確認済みで、締切前の実在するレースを指定できる場合は、初回は `--cycles 1` でページ解析ができるか調べてください。1回で解析不能なら、10秒ごとに繰り返しても解決しません。URLは `?pageType=odds` を付けたレース詳細ページです。
 
+## 2026-11-08: `NOT_PARSED`（7賭式の割当不可）の修正
+
+2026年11月8日・四日市6Rのオッズページを確認したところ、ワイドの幅オッズに **`1.3～1.4`（全角チルダ `～`、U+FF5E）** が使われています。一方、旧パーサーは `〜`（U+301C）だけを認識していたため、ワイドの人気順ブロックを落として `Market order cannot be verified` と判定する可能性があります。両文字を認識できるように修正しました。
+
+公開ページでは人気順セクションが複数確認できますが、Playwright の `body.inner_text()` は非表示タブの内容を除外するため、画面上に出ている市場とDOM内の市場数が異なる可能性もあります。この差を安全に特定できるよう、解析失敗時に限り `LAYOUT_DIAGNOSTICS` を**標準出力**に表示します。
+
+```text
+LAYOUT_DIAGNOSTICS: {"recognized_ranked_blocks": ..., "expected_market_blocks": 7, "visible_popularity_mentions": ..., "dom_popularity_mentions": ...}
+```
+
+この診断はHTMLや出走者データをファイル保存しません。非表示市場が読み取れないときは**自動的に賭式を推定せず停止**します。次の締切前レースで `--cycles 1` を使って再テストしてください。同じ過去レースの締切時刻を書き換えて試すと、不正な「事前オッズ」データになります。
+
 ## Windows setup
 
 Download the current `main` branch of the GitHub repository, then open a command prompt in its root. Install Playwright:
