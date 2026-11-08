@@ -236,8 +236,23 @@ def main():
     ap.add_argument("--events", type=Path, default=Path("local_data/history/rider_events.csv"))
     ap.add_argument("--output", type=Path, default=Path("local_data/pre_race_multiview.csv"))
     ap.add_argument("--commit", action="store_true", help="default DRY RUN")
+    ap.add_argument("--init-templates", action="store_true",
+                    help="create blank context/event CSV headers without overwriting")
     args = ap.parse_args()
     try:
+        if args.init_templates:
+            targets = [(local(args.context), CONTEXT_FIELDS),
+                       (local(args.events), HISTORY_FIELDS)]
+            if any(path.exists() for path, _ in targets):
+                raise ValueError("target context or historical event template already exists")
+            for path, header in targets:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                with path.open("w", encoding="utf-8", newline="") as fh:
+                    csv.DictWriter(fh, fieldnames=header).writeheader()
+            print(json.dumps({"status": "BLANK_HISTORY_CSV_TEMPLATES_CREATED",
+                              "files": [str(p) for p, _ in targets],
+                              "training_ready": False}, ensure_ascii=False))
+            return 0
         output = local(args.output)
         rows, races = build(args.base, args.context, args.events)
         if args.commit:
