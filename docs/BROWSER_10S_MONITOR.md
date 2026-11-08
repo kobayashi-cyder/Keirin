@@ -6,7 +6,7 @@
 - Before opening the page, checks the site's `robots.txt`. A disallow, block, unclear robots response or site challenge stops the program. robots.txt allowance is **not** a license.
 - One race page **globally** every at least 10 seconds, or a longer robots `Crawl-delay` if specified. Not 10 seconds per race; do not run multiple instances against the same site.
 - Stops on 401/403/429/5xx, redirect off site, unknown page format, CAPTCHA or the declared race deadline. Does not bypass authentication or rotate IPs.
-- Parses ONLY explicitly visible ranked odds for the configured 7- or 9-car market order; saves **a small JSONL record of numerical facts** locally if any quote changed. Partial markets remain `complete=false`. Does not save HTML, cookies or the entire page.
+- Parses ONLY explicitly visible ranked odds for the configured 7-, 8- or 9-car market order; saves **a small JSONL record of numerical facts** locally if any quote changed. Partial markets remain `complete=false`. Does not save HTML, cookies or the entire page.
 - Does **not** calculate winning probabilities or issue 130% investment recommendations. No OpenAI API, Discord API or real bet interface is contacted.
 
 **Important:** Kdreams explicitly restricts unauthorised copying and reproduction at https://keirin.kdreams.jp/info/sitepolicy/. The operator has **not** granted the Keirin project collection permission that we have independently verified. You must verify the usage conditions and obtain any necessary permission before supplying `--permission-confirmed`. The fact that you can open the website in a browser or that the page contains odds does not grant this permission.
@@ -56,7 +56,7 @@ This parser expects lists of "人気順" tickets whose pattern is approximately 
 
 If the layout or market order changes, `UNRECOGNISED_LAYOUT` stops the monitor: it must not misattribute a 2車単 quote to another bet type. Incomplete lists do not become invented full markets.
 
-The old snapshot URL, with the betting closed, is not a meaningful 10-second monitoring target. 8-car pages are not yet supported by this strict parser even though the separate seven-market probability projection module understands 8-car race outcomes.
+The old snapshot URL, with the betting closed, is not a meaningful 10-second monitoring target. 8-car pages are also supported by the parser's count checks, but the site-specific live DOM still needs verification.
 
 The next engineering step is to inspect a permitted, real pre-close page's structured market rows and harden the parser with deterministic tests. No hypothetical "130% edge" should be sent to Discord until a real calibrated probability model and up-to-date odds pass the research validation gate.
 
