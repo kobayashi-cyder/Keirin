@@ -82,7 +82,7 @@ class MatrixTests(unittest.TestCase):
         self.assertEqual(status, "crosschecked_full_matrix")
         self.assertEqual(len(actual), 210)
         # a second *conflicting* valid matrix for leader 1 must be rejected
-        html2, _ = fixture(7, sabotage=("102.3", "112.3"))
+        html2, _ = fixture(7, sabotage=("121.3", "122.3"))
         # Add only the damaged leader 1 table, not full duplicate set
         leader1 = html2.split("<table class='3rentan_matrix'>")[1].split("</table>")[0]
         html_conflict = html.replace("</body>", "<table class='3rentan_matrix'>" + leader1 + "</table></body>")
