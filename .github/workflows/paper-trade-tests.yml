@@ -1,0 +1,28 @@
+name: Validate forward paper-trading ledger and OpenAI bridge
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper_trading/*.py'
+      - 'tests/test_paper_ledger.py'
+      - 'tests/test_snapshot_ingest.py'
+      - 'tests/test_api_bridge.py'
+      - '.github/workflows/paper-trade-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Forward ledger tests
+        run: python -m unittest discover -s tests -p 'test_paper_ledger.py' -v
+      - name: OpenAI advisory bridge tests (no API cost)
+        run: python -m unittest discover -s tests -p 'test_api_bridge.py' -v
+      - name: Strict preclose snapshot tests
+        run: python -m unittest discover -s tests -p 'test_snapshot_ingest.py' -v
