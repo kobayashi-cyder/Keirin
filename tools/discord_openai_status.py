@@ -20,7 +20,7 @@ from urllib.parse import urlsplit
 from urllib.request import Request, build_opener, HTTPHandler, HTTPSHandler, HTTPRedirectHandler
 
 OPENAI_ENDPOINT = "https://api.openai.com/v1/responses"
-DEFAULT_MODEL = "gpt-6-luna"
+DEFAULT_MODEL = "gpt-4o"  # conservative default until account confirms Luna access
 VALID_REPORT_STATUSES = {
     "NOT_READY_NO_PROBABILITIES",
     "SHADOW_ONLY_UNVALIDATED",
@@ -109,6 +109,31 @@ def status_message(report=None):
     )
 
 
+def available_models(*, key=None, opener=None):
+    """Query models listed for this exact API key; no Discord connection."""
+    key = key or take_secret("OPENAI_API_KEY", "OpenAI APIキー（画面には表示されません）: ")
+    if not key:
+        return None, "MISSING_API_KEY"
+    req = Request(
+        "https://api.openai.com/v1/models",
+        headers={"Authorization": "Bearer " + key},
+        method="GET",
+    )
+    try:
+        connection = opener or network_opener()
+        with connection.open(req, timeout=15) as response:
+            payload = json.load(response)
+        if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):
+            return None, "INVALID_RESPONSE"
+        ids = {item.get("id") for item in payload["data"]
+               if isinstance(item, dict) and isinstance(item.get("id"), str)}
+        return ids, "OK"
+    except HTTPError as error:
+        return None, "HTTP_" + str(error.code)
+    except (URLError, TimeoutError, OSError, ValueError, TypeError):
+        return None, "NETWORK_OR_RESPONSE_ERROR"
+
+
 def openai_note(kind, model=None, key=None, opener=None):
     """Return a brief nonnumeric Japanese note; LLM may never edit facts."""
     key = key or take_secret("OPENAI_API_KEY", "OpenAI APIキー（画面には表示されません）: ")
@@ -117,7 +142,6 @@ def openai_note(kind, model=None, key=None, opener=None):
     model = model or os.environ.get("OPENAI_MODEL", DEFAULT_MODEL)
     payload = {
         "model": model,
-        "reasoning": {"effort": "none"},
         "store": False,
         "max_output_tokens": 110,
         "instructions": (
@@ -129,6 +153,10 @@ def openai_note(kind, model=None, key=None, opener=None):
         "input": json.dumps({"kind": kind, "prediction_model_verified": False},
                             ensure_ascii=False),
     }
+    # GPT-4o does not accept reasoning.effort; keep that setting
+    # specific to Luna instead of breaking the accessible fallback model.
+    if model == "gpt-6-luna":
+        payload["reasoning"] = {"effort": "none"}
     req = Request(
         OPENAI_ENDPOINT,
         data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
@@ -211,17 +239,33 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     source = ap.add_mutually_exclusive_group(required=True)
     source.add_argument("--test", action="store_true", help="connection-check message (no race data)")
+    source.add_argument("--list-models", action="store_true",
+                        help="check model IDs visible to this API key; no Discord post")
     source.add_argument("--report", type=Path, help="local_data/ research report")
+    ap.add_argument("--model", default=None,
+                    help="OpenAI model for --use-openai; default gpt-4o or OPENAI_MODEL")
     ap.add_argument("--use-openai", action="store_true",
                     help="call OpenAI once for optional Japanese note (may incur charges)")
     ap.add_argument("--send", action="store_true",
                     help="send one message to your Discord webhook; otherwise preview only")
     args = ap.parse_args()
     try:
+        if args.list_models:
+            if args.send or args.use_openai:
+                raise ValueError("--list-models cannot be combined with --send or --use-openai")
+            ids, status = available_models()
+            print("MODEL_ACCESS_CHECK:", status)
+            if ids is not None:
+                for candidate in ("gpt-4o", "gpt-6-luna"):
+                    print(candidate + ":", "LISTED" if candidate in ids else "NOT_LISTED")
+            return 0 if ids is not None else 2
         report = None if args.test else load_report(args.report)
         fixed = status_message(report)
         kind = "connection_test" if args.test else "research_data_status"
-        note, api_status = (openai_note(kind) if args.use_openai else (None, "NOT_REQUESTED"))
+        note, api_status = (
+            openai_note(kind, model=args.model) if args.use_openai
+            else (None, "NOT_REQUESTED")
+        )
         message = compose_message(fixed, note)
         print("OPENAI_RESULT:", api_status)
         if not args.send:
