@@ -43,6 +43,9 @@ on:
       - 'tools/build_multiview_features.py'
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
+      - 'tools/youtube_race_search.py'
+      - 'tests/test_youtube_race_search.py'
+      - 'docs/YOUTUBE_RACE_DISCOVERY.md'
       - 'tests/test_video_history.py'
       - 'docs/MULTIVIEW_VIDEO_HISTORY.md'
       - 'tools/predict_pre_race.py'
@@ -91,6 +94,9 @@ on:
       - 'tools/build_multiview_features.py'
       - 'tests/test_build_multiview_features.py'
       - 'tools/video_history.py'
+      - 'tools/youtube_race_search.py'
+      - 'tests/test_youtube_race_search.py'
+      - 'docs/YOUTUBE_RACE_DISCOVERY.md'
       - 'tests/test_video_history.py'
       - 'docs/MULTIVIEW_VIDEO_HISTORY.md'
       - 'tools/predict_pre_race.py'
@@ -154,5 +160,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_build_multiview_features.py' -v
       - name: Local licensed video manifest and frame extraction tests
         run: python -m unittest discover -s tests -p 'test_video_history.py' -v
+      - name: Official YouTube race discovery and reviewed link storage tests
+        run: python -m unittest discover -s tests -p 'test_youtube_race_search.py' -v
       - name: End-to-end synthetic paper settlement test
         run: python -m unittest discover -s tests -p 'test_paper_pipeline.py' -v
